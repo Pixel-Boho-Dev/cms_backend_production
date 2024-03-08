@@ -14,13 +14,13 @@ CMS Backend for the ALSI project done by PixelBoho
 1. Clone the repository:
 
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/pixel-boho/cms_backend.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd <project_directory>
+    cd cms_backend
     ```
 
 3. Install dependencies:
