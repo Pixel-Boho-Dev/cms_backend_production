@@ -1,6 +1,6 @@
-# Django Project Name
+# ALSI CMS BACKEND
 
-Short description or introduction of your Django project.
+CMS Backend for the ALSI project done by PixelBoho
 
 ## Table of Contents
 
