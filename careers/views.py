@@ -47,5 +47,5 @@ class CareerSubmissionListCreateView(generics.ListCreateAPIView):
         subject = 'New career page Submission'
         message = f"Name: {instance.name}\nEmail: {instance.email}\nPhone: {instance.phone}\nMessage: {instance.message}\nResume: {instance.resume}\nSubmission Time: {instance.submitted_at}"
         from_email = settings.EMAIL_HOST_USER
-        recipient_list = ['admin@example.com']  # Replace with the admin's email address
+        recipient_list = ['smtptest@pixelboho.com']  # Replace with the admin's email address
         send_mail(subject, message, from_email, recipient_list)
