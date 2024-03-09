@@ -3,7 +3,7 @@ from django.db import models
 
 class SocialMedia(models.Model):
     name = models.CharField(max_length=50)
-    link = models.URLField()
+    link = models.URLField(max_length=1000)
     icon = models.ImageField(upload_to='socialmedia_icons/')  # Assuming icons are represented as image
  # atlernative content for image -->krishna
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
