@@ -92,7 +92,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://alsiglobal.com",  # Example for a React development server
+    "http://localhost:5173",  # Example for a React development server
 ]
 
 ROOT_URLCONF = 'cmsproject.urls'
