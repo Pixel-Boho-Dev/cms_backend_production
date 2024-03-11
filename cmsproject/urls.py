@@ -40,6 +40,7 @@ urlpatterns = [
     path('api/',include("industry.urls")),
     path('documentation/',include("documentation.urls")),
     path('api/', include('careers.urls')),
+     path('api/',include("key.urls")),
 
 ]
 
