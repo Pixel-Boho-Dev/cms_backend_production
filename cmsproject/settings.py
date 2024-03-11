@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'aboutus',
     'industry',
     'careers',
+    'key',
+    
 
     # 'customadmin',
     
