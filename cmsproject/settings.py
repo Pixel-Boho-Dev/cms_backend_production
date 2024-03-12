@@ -55,6 +55,9 @@ INSTALLED_APPS = [
     'aboutus',
     'industry',
     'careers',
+    'key',
+    'chooses',
+    
 
     # 'customadmin',
     
@@ -90,7 +93,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://alsiglobal.com",  # Example for a React development server
+    "http://localhost:5174",  # Example for a React development server
 ]
 
 ROOT_URLCONF = 'cmsproject.urls'
@@ -195,5 +198,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ.get('DJANGO_EMAIL_HOST', 'smtp.gmail.com')
 EMAIL_PORT = int(os.environ.get('DJANGO_EMAIL_PORT', 587))
 EMAIL_USE_TLS = os.environ.get('DJANGO_EMAIL_USE_TLS', 'True') == 'True'
-EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_HOST_USER', '')
-EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_HOST_PASSWORD', '')
+EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_HOST_USER', 'smtptest@pixelboho.com')
+EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_HOST_PASSWORD', 'asdfghjkL@123#')

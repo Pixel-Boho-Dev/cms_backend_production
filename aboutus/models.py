@@ -40,8 +40,10 @@ class Milestone(models.Model):
 
 # model for storing ourTeam
 class OurTeam(models.Model):
+    team_title = models.CharField(max_length=100)
+    team_description = models.CharField(max_length=1000)
     profile_pic = models.ImageField(upload_to='our_team/')
-    name = models.CharField(max_length=100)
+    title_name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
  # atlernative tags for team profile_pic
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
@@ -77,7 +79,7 @@ class WhatWeAre(models.Model):
 # models for saving certificates
 class Certifications(models.Model):
     certificate_image = models.ImageField(upload_to='certifications/')
-    description = models.TextField()
+    # description = models.TextField()
     # atlernative content for certificate_image
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
