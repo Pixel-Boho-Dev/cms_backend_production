@@ -34,14 +34,14 @@ class Milestone(models.Model):
     achievement1 = models.TextField(null=True, blank=True)
     achievement2 = models.TextField(null=True, blank=True)
     achievement3 = models.TextField(null=True, blank=True)
-
+    
     def __str__(self):
         return f"{self.year} - {self.title}"
 
 # model for storing ourTeam
 class OurTeam(models.Model):
-    team_title = models.CharField(max_length=100)
-    team_description = models.CharField(max_length=1000)
+    # team_title = models.CharField(max_length=100)
+    # team_description = models.CharField(max_length=1000)
     profile_pic = models.ImageField(upload_to='our_team/')
     title_name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
