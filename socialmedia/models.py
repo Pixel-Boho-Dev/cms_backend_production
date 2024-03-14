@@ -28,7 +28,6 @@ class Service(models.Model):
     title = models.CharField(max_length=100)
     subtitle = models.TextField()
     description = models.TextField(blank=True, null=True)
-    link = models.URLField(max_length=200)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -69,10 +68,8 @@ class Achievement(models.Model):
 # model for highlights
 
 class HomeHighlights(models.Model):
-    icon = models.ImageField(upload_to='HomeHighlights/')
-    title = models.CharField(max_length=100)
-   #  highlights_title = models.CharField(max_length=100)
-   #  highlights_description = models.TextField(null=True,blank=True)
+    highlights_title = models.CharField(max_length=100)
+    highlights_description = models.TextField(null=True,blank=True)
 
     def __str__(self):
         return self.highlights_title
