@@ -69,8 +69,10 @@ class Achievement(models.Model):
 # model for highlights
 
 class HomeHighlights(models.Model):
-    highlights_title = models.CharField(max_length=100)
-    highlights_description = models.TextField(null=True,blank=True)
+    icon = models.ImageField(upload_to='HomeHighlights/')
+    title = models.CharField(max_length=100)
+   #  highlights_title = models.CharField(max_length=100)
+   #  highlights_description = models.TextField(null=True,blank=True)
 
     def __str__(self):
         return self.highlights_title
