@@ -34,7 +34,7 @@ class Milestone(models.Model):
     achievement1 = models.TextField(null=True, blank=True)
     achievement2 = models.TextField(null=True, blank=True)
     achievement3 = models.TextField(null=True, blank=True)
-    
+
     def __str__(self):
         return f"{self.year} - {self.title}"
 
