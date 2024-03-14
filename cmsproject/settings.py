@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'careers',
     'key',
     'chooses',
+    'footer',
     
 
     # 'customadmin',
@@ -93,7 +94,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5174",  # Example for a React development server
+    "http://localhost:5173",  # Example for a React development server
 ]
 
 ROOT_URLCONF = 'cmsproject.urls'
