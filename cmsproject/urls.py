@@ -42,9 +42,6 @@ urlpatterns = [
     path('api/', include('careers.urls')),
     path('api/',include("key.urls")),
     path('api/',include("chooses.urls")),
-    path('api/',include("footer.urls")),
-    
-    
 
 
 ]
