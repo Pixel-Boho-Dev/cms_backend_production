@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'careers',
     'key',
     'chooses',
+    'footer',
     
 
     # 'customadmin',
