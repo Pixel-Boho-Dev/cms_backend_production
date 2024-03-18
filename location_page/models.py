@@ -12,6 +12,7 @@ class Office(models.Model):
     fax = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField()
     country_manager_name = models.CharField(max_length=100)
+    designation = models.CharField(max_length=100)
     country_manager_phone1 = models.CharField(max_length=20)
     country_manager_phone2 = models.CharField(max_length=20, blank=True, null=True)
     country_manager_email = models.EmailField()
