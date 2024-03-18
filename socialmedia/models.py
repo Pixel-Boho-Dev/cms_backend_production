@@ -38,7 +38,7 @@ class Service(models.Model):
 
 class Location(models.Model):
     
-    location_url = models.URLField()
+   #  location_url = models.URLField()
     place_name = models.CharField(max_length=100)
     address = models.CharField(max_length=500)
     phone_number1 = models.CharField(max_length=20)
