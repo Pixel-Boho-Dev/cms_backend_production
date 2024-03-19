@@ -1,8 +1,8 @@
 from rest_framework.response import Response
 from django.http import Http404
 from rest_framework import generics
-from .models import Office,Location_page,MetaTagsLocation
-from .serializers import OfficeSerializer,Location_pageSerializer,Location_metadataSerializers
+from .models import Office,Location_page,MetaTagsLocation,office_location
+from .serializers import OfficeSerializer,Location_pageSerializer,Location_metadataSerializers,Office_locationSerializers
 from rest_framework import permissions
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import status
@@ -85,4 +85,17 @@ class LocationMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
         locationmeta, created = MetaTagsLocation.objects.get_or_create(pk=1)
         return locationmeta
 
+class Office_locationListCreateView(generics.ListCreateAPIView):
+    queryset = office_location.objects.all().order_by('-id') 
+    serializer_class = Office_locationSerializers
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+
+class Office_locationRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = office_location.objects.all().order_by('-id') 
+    serializer_class = Office_locationSerializers
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+    lookup_field = 'pk'
 
