@@ -23,7 +23,12 @@ class Office(models.Model):
     def __str__(self):
         return f"Office at {self.location.place_name}"
 
-
+class office_location(models.Model):
+    country_name = models.CharField(max_length=100)
+    location = models.CharField(max_length=200)
+     
+    def __str__(self):
+        return self.country_name
 # class Location_page(models.Model):
 #     Location_header_image=models.ImageField(upload_to='Location_header_image/')
 #     location_title=models.CharField(max_length=100)
