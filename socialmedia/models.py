@@ -37,12 +37,16 @@ class Service(models.Model):
 # model for locations
 
 class Location(models.Model):
-    location_url = models.URLField()
+    
+   #  location_url = models.URLField()
     place_name = models.CharField(max_length=100)
+    address = models.CharField(max_length=500)
     phone_number1 = models.CharField(max_length=20)
-    phone_number2 = models.CharField(max_length=20, blank=True, null=True)  # Optional field
-    description = models.TextField()
+    phone_number2 = models.CharField(max_length=20, blank=True, null=True) # Optional field
+    location_url = models.URLField() 
+   #  description = models.TextField()
     is_active = models.BooleanField(default=True)
+    
 
     def __str__(self):
         return self.place_name

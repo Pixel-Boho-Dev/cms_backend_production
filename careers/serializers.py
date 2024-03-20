@@ -3,7 +3,7 @@ from rest_framework import serializers
 from .models import CareerPage, CareerSubmission
 
 class CareerPageSerializer(serializers.ModelSerializer):
-    submitted_at = serializers.DateTimeField(format='%Y-%m-%d %H:%M:%S')
+    # submitted_at = serializers.DateTimeField(format='%Y-%m-%d %H:%M:%S')
     class Meta:
         model = CareerPage
         fields = '__all__'
