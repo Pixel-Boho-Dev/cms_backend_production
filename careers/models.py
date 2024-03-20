@@ -3,6 +3,7 @@ from django.db import models
 
 
 class CareerPage(models.Model):
+    title = models.CharField(max_length=100)
     header_image = models.ImageField(upload_to='career_page')
     description = models.TextField()
 
