@@ -4,5 +4,5 @@ from .models import HomeHeader
 class HeaderSerializer(serializers.ModelSerializer):
     class Meta:
         model = HomeHeader
-        fields = '__all__'
-        ref_name = 'HeaderContact' 
+        fields = ['id','title','subtitle','description','image']
+        # ref_name = 'HeaderContact' 
