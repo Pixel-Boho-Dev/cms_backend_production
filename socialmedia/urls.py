@@ -13,8 +13,8 @@ urlpatterns = [
     path('social-media/<int:pk>/', SocialMediaRetrieveUpdateDeleteView.as_view(), name='social-media-retrieve-update-delete'),
 
 # urls for services.
-    path('services/create/', ServiceCreateView.as_view(), name='service-create'),
-    path('services/', ServiceListView.as_view(), name='service-list'),
+    path('header/services/create/', ServiceCreateView.as_view(), name='service-create'),
+    path('header/services/', ServiceListView.as_view(), name='service-list'),
     path('services/<int:pk>/', ServiceRetrieveUpdateDeleteView.as_view(), name='service-retrieve-update-delete'),
 
 # urls for location
@@ -35,14 +35,14 @@ urlpatterns = [
 
 # Urls for industries
 
-    path('industries/create/', IndustryCreateView.as_view(), name='industry-create'),
-    path('industries/', IndustryListView.as_view(), name='industry-list'),
+    path('header/industries/create/', IndustryCreateView.as_view(), name='industry-create'),
+    path('header/industries/', IndustryListView.as_view(), name='industry-list'),
     path('industries/<int:pk>/', IndustryRetrieveUpdateDeleteView.as_view(), name='industry-retrieve-update-delete'),
 
 # urls for market news and all
 
-    path('markets/create/', MarketCreateView.as_view(), name='market-create'),
-    path('markets/', MarketListView.as_view(), name='market-list'),
+    path('header/markets/create/', MarketCreateView.as_view(), name='market-create'),
+    path('header/markets/', MarketListView.as_view(), name='market-list'),
     path('markets/<int:pk>/', MarketRetrieveUpdateDeleteView.as_view(), name='market-retrieve-update-delete'),
 
 # urls for home details
