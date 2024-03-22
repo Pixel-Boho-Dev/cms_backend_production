@@ -6,7 +6,7 @@ from .views import (AboutPageSectionListCreateView, AboutPageSectionRetrieveUpda
                     CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateView)
 
 urlpatterns = [
-    path('about-page-sections/', AboutPageSectionListCreateView.as_view(), name='about-page-section-list-create'),
+    path('header/about-page-sections/', AboutPageSectionListCreateView.as_view(), name='about-page-section-list-create'),
     path('about-page-sections/<int:pk>/', AboutPageSectionRetrieveUpdateDestroyView.as_view(), name='about-page-section-retrieve-update-destroy'),
 
     # urls for our story.

@@ -1,8 +1,8 @@
 from rest_framework.response import Response
 from django.http import Http404
 from rest_framework import generics
-from .models import Office,Location_page,MetaTagsLocation
-from .serializers import OfficeSerializer,Location_pageSerializer,Location_metadataSerializers
+from .models import Office,Location_page,MetaTagsLocation,office_location
+from .serializers import OfficeSerializer,Location_pageSerializer,Location_metadataSerializers,Office_locationSerializers
 from rest_framework import permissions
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import status
@@ -35,11 +35,16 @@ class Location_pageCreateView(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticated]  # Only authenticated users can create
     authentication_classes = [JWTAuthentication]
     
-    def create(self, request, *args, **kwargs):
-        # Check if any instances of Location_page exist, if yes, prevent creation
-        if Location_page.objects.exists():
-            return Response({"detail": "Location page already exists. Cannot create another."}, status=status.HTTP_400_BAD_REQUEST)
-        return super().create(request, *args, **kwargs)
+    # def create(self, request, *args, **kwargs):
+    #     # Check if any instances of Location_page exist, if yes, prevent creation
+    #     if Location_page.objects.exists():
+    #         return Response({"detail": "Location page already exists. Cannot create another."}, status=status.HTTP_400_BAD_REQUEST)
+    #     return super().create(request, *args, **kwargs)
+    
+class Location_pageListView(generics.ListAPIView):
+    queryset = Location_page.objects.all()
+    serializer_class =  Location_pageSerializer
+    
 
 class Location_pageRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Location_page.objects.all().order_by('-id') 
@@ -85,4 +90,17 @@ class LocationMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
         locationmeta, created = MetaTagsLocation.objects.get_or_create(pk=1)
         return locationmeta
 
+class Office_locationListCreateView(generics.ListCreateAPIView):
+    queryset = office_location.objects.all().order_by('-id') 
+    serializer_class = Office_locationSerializers
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+
+class Office_locationRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = office_location.objects.all().order_by('-id') 
+    serializer_class = Office_locationSerializers
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+    lookup_field = 'pk'
 

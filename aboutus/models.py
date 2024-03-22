@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 # Model for about page header sections
 class AboutPageSection(models.Model):
     title = models.CharField(max_length=255,null=True, blank=True)
-    description = models.TextField(null=True,blank=True)
+    sub_title = models.CharField(max_length=200,null=True,blank=True)
     bg_image = models.ImageField(upload_to='about_page_images/',blank=True,null=True)
 
     def __str__(self):
