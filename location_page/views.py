@@ -35,11 +35,11 @@ class Location_pageCreateView(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticated]  # Only authenticated users can create
     authentication_classes = [JWTAuthentication]
     
-    def create(self, request, *args, **kwargs):
-        # Check if any instances of Location_page exist, if yes, prevent creation
-        if Location_page.objects.exists():
-            return Response({"detail": "Location page already exists. Cannot create another."}, status=status.HTTP_400_BAD_REQUEST)
-        return super().create(request, *args, **kwargs)
+    # def create(self, request, *args, **kwargs):
+    #     # Check if any instances of Location_page exist, if yes, prevent creation
+    #     if Location_page.objects.exists():
+    #         return Response({"detail": "Location page already exists. Cannot create another."}, status=status.HTTP_400_BAD_REQUEST)
+    #     return super().create(request, *args, **kwargs)
     
 class Location_pageListView(generics.ListAPIView):
     queryset = Location_page.objects.all()
