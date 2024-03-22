@@ -40,6 +40,11 @@ class Location_pageCreateView(generics.CreateAPIView):
         if Location_page.objects.exists():
             return Response({"detail": "Location page already exists. Cannot create another."}, status=status.HTTP_400_BAD_REQUEST)
         return super().create(request, *args, **kwargs)
+    
+class Location_pageListView(generics.ListAPIView):
+    queryset = Location_page.objects.all()
+    serializer_class =  Location_pageSerializer
+    
 
 class Location_pageRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Location_page.objects.all().order_by('-id') 
