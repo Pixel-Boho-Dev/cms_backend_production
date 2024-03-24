@@ -4,4 +4,4 @@ from .models import Footer
 class FooterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Footer
-        fields = ['id','title','location','address','email','phone_number1','phone_number2']
+        fields = "__all__"
