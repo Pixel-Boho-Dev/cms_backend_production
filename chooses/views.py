@@ -15,8 +15,6 @@ from rest_framework.permissions import IsAuthenticated
 class ChoosesSectionListCreateView(generics.ListCreateAPIView):
     queryset = ChoosesSection.objects.all()
     serializer_class = ChoosesSectionSerializer
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [JWTAuthentication]
 
 class ChoosesSectionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = ChoosesSection.objects.all()

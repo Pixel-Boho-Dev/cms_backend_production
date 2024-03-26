@@ -8,9 +8,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 class FooterListCreate(generics.ListCreateAPIView):
     queryset = Footer.objects.all()
     serializer_class = FooterSerializer
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
-
+    
 class FooterRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Footer.objects.all()
     serializer_class = FooterSerializer

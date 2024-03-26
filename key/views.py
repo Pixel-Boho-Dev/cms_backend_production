@@ -9,8 +9,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 class key_diffrentiatesListCreate(generics.ListCreateAPIView):
     queryset = key_diffrentiates.objects.all()
     serializer_class = key_diffrentiatesSerializer
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
+    
 
 class key_diffrentiatesRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = key_diffrentiates.objects.all()
