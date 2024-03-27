@@ -12,9 +12,6 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 class CareerPageRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = CareerPage.objects.all()
     serializer_class = CareerPageSerializer
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [JWTAuthentication]
-
     def get_object(self):
         # Return the single CareerPage instance
         return CareerPage.objects.first()
