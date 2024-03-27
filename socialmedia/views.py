@@ -38,8 +38,7 @@ class ServiceListView(generics.ListAPIView):
 class ServiceRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    authentication_classes = [JWTAuthentication]
+    
 
 # views for locations
 
