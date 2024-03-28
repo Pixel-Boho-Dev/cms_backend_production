@@ -31,7 +31,7 @@ urlpatterns = [
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('admin/', admin.site.urls),
     path('api/',include("socialmedia.urls")),
-    path('header/',include("header.urls")),
+    path('api/',include("header.urls")),
     path('api/',include("location_page.urls")),
     path('api/',include("services.urls")),
     path('api/',include("contacts.urls")),

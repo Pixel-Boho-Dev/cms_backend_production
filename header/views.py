@@ -6,14 +6,13 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 class HeaderCreateView(generics.CreateAPIView):
     queryset = HomeHeader.objects.all()
     serializer_class = HeaderSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    authentication_classes=[JWTAuthentication]#only authenticated users can create a header for the home page
+   #only authenticated users can create a header for the home page
 
 class HeaderRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = HomeHeader.objects.all()
     serializer_class = HeaderSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    authentication_classes= [JWTAuthentication]
+    # permission_classes = [permissions.IsAuthenticated]
+    # authentication_classes= [JWTAuthentication]
 
     def get_object(self):
         # There should be only one instance of the Header model
