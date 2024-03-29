@@ -78,7 +78,7 @@ class ContactMetaListView(generics.ListAPIView):
 class ContactMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = MetaTagsContacts.objects.all()
     serializer_class = Contact_metadataSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     def get_object(self):

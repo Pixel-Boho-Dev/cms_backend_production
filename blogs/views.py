@@ -39,7 +39,7 @@ class BlogMetaListView(generics.ListAPIView):
 class BlogMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = MetaTagsBlogs.objects.all()
     serializer_class = Blogs_metadataSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     def get_object(self):
