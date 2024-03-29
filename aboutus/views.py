@@ -24,7 +24,7 @@ class AboutPageSectionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAP
 class OurStoryCreateView(generics.CreateAPIView):
     queryset = OurStory.objects.all()
     serializer_class = OurStorySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
     def get_object(self):
         # There should be only one instance of the OurStory model
@@ -56,14 +56,14 @@ class MilestoneCreateView(generics.CreateAPIView,generics.ListAPIView):
 class MilestoneRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Milestone.objects.all()
     serializer_class = MilestoneSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 # views for our team
 class OurTeamCreateView(generics.CreateAPIView):
     queryset = OurTeam.objects.all()
     serializer_class = OurTeamSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 class OurTeamRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
@@ -82,13 +82,13 @@ class OurTeamListView(generics.ListAPIView):
 class WhatWeAreCreateView(generics.CreateAPIView):
     queryset = WhatWeAre.objects.all()
     serializer_class = WhatWeAreSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 class WhatWeAreRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = WhatWeAre.objects.all()
     serializer_class = WhatWeAreSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     lookup_field = 'pk'  # This tells DRF to use 'pk' as the lookup field.
@@ -101,13 +101,13 @@ class WhatWeAreListView(generics.ListAPIView):
 class CertificationCreateView(generics.CreateAPIView):
     queryset=Certifications.objects.all()
     serializer_class=CertificationSerializer
-    permission_classes=[permissions.IsAuthenticated]
+    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 class CertificationRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset=Certifications.objects.all()
     serializer_class=CertificationSerializer
-    permission_classes=[permissions.IsAuthenticated]
+    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     lookup_field = 'pk'
