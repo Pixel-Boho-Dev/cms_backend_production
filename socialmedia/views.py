@@ -7,6 +7,7 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
+
 class SocialMediaCreateView(generics.CreateAPIView):
     queryset = SocialMedia.objects.all()
     serializer_class = SocialMediaSerializer
@@ -134,6 +135,12 @@ class MarketCreateView(generics.CreateAPIView):
 class MarketListView(generics.ListAPIView):
     queryset = Market.objects.all()
     serializer_class = MarketSerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
 
 class MarketRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Market.objects.all()
