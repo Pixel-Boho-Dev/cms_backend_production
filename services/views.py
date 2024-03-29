@@ -46,7 +46,7 @@ class ServicesMetaListView(generics.ListAPIView):
 class ServicesMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = MetaTagsservices.objects.all().order_by('-id') 
     serializer_class = Service_metadataSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     def get_object(self):
