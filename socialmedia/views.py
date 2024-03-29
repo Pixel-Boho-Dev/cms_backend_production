@@ -1,4 +1,6 @@
 from rest_framework import generics, permissions
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from .models import SocialMedia,Service,Location,HomeHighlights,Industry,Market,Home,Achievement,MetaTagsHome
 from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,HomeSerializer,AchievementSerializer,MetaTagsHomeSerializer
 from rest_framework.pagination import PageNumberPagination
@@ -106,10 +108,14 @@ class IndustryCreateView(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [JWTAuthentication]
 
-class IndustryListView(generics.ListAPIView):
-    queryset = Industry.objects.all()
-    serializer_class = IndustrySerializer
-    pagination_class = PageNumberPagination
+class IndustryListView(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    def get(self, request):
+        industries = Industry.objects.all()
+        serializer = IndustrySerializer(industries, many=True)
+        return Response(serializer.data)
 
 class IndustryRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Industry.objects.all()

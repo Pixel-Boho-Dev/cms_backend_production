@@ -1,4 +1,5 @@
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework import generics
 from .models import Office, Location_page, MetaTagsLocation, office_location
@@ -31,14 +32,15 @@ class Location_pageCreateView(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
     
-class Location_pageRetrieveView(generics.RetrieveAPIView):
-    queryset = Location_page.objects.all()
-    serializer_class = Location_pageSerializer
-    
-    def get_object(self):
-        location_page, created = Location_page.objects.get_or_create(pk=1)
-        return location_page
+class Location_pageRetrieveView(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
+    def get(self, request):
+        location_pages = Location_page.objects.all()
+        serializer = Location_pageSerializer(location_pages, many=True)
+        return Response(serializer.data)
+    
 class Location_pageRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Location_page.objects.all().order_by('-id')
     serializer_class = Location_pageSerializer
