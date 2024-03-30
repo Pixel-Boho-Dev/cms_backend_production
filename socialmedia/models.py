@@ -86,10 +86,10 @@ class HomeHighlights(models.Model):
 class Industry(models.Model):
     industry_image = models.ImageField(upload_to='industry_images/')
  # atlernative content for image
-    alt_img_text = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_title = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_description = models.TextField(max_length=300, null=True, blank=True)
+   #  alt_img_text = models.TextField(max_length=300, null=True, blank=True)
+   #  alt_img_title = models.TextField(max_length=300, null=True, blank=True)
+   #  alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
+   #  alt_img_description = models.TextField(max_length=300, null=True, blank=True)
  # atlernative content for image
     industry_title = models.CharField(max_length=100)
     industry_description = models.TextField()
@@ -102,10 +102,10 @@ class Industry(models.Model):
 class Market(models.Model):
     market_image = models.ImageField(upload_to='market_images/')
  # atlernative content forimage -->krishna
-    alt_img_text = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_title = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_description = models.TextField(max_length=300, null=True, blank=True)
+   #  alt_img_text = models.TextField(max_length=300, null=True, blank=True)
+   #  alt_img_title = models.TextField(max_length=300, null=True, blank=True)
+   #  alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
+   #  alt_img_description = models.TextField(max_length=300, null=True, blank=True)
  # atlernative content for image -->krishna
     market_title = models.CharField(max_length=100)
     market_description = models.TextField()
