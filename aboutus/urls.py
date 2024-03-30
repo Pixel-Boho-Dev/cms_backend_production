@@ -1,12 +1,13 @@
 from django.urls import path
-from .views import (AboutPageSectionListCreateView, AboutPageSectionRetrieveUpdateDestroyView,
+from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, AboutPageSectionRetrieveUpdateDestroyView,
                     OurStoryRetrieveUpdateDeleteView,OurStoryCreateView,MilestoneCreateView,
                     MilestoneRetrieveUpdateDeleteView,OurTeamCreateView,OurTeamRetrieveUpdateDeleteView,OurTeamListView,
                     WhatWeAreCreateView,WhatWeAreListView,WhatWeAreRetrieveUpdateDeleteView,CertificationRetrieveUpdateDeleteView,
                     CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateView)
 
 urlpatterns = [
-    path('header/about-page-sections/', AboutPageSectionListCreateView.as_view(), name='about-page-section-list-create'),
+    path('header/about-page-sections/create/', AboutPageSectionCreateView.as_view(), name='about-page-section-list-create'),
+    path('header/about-page-sections/', AboutPageSectionRetrieveView.as_view(), name='about-page-section-retrive'),
     path('about-page-sections/<int:pk>/', AboutPageSectionRetrieveUpdateDestroyView.as_view(), name='about-page-section-retrieve-update-destroy'),
 
     # urls for our story.
