@@ -33,13 +33,16 @@ class Location_pageCreateView(generics.CreateAPIView):
     authentication_classes = [JWTAuthentication]
     
 class Location_pageRetrieveView(APIView):
+    queryset = Location_page.objects.all()
+    serializer_class = Location_pageSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     def get(self, request):
-        location_pages = Location_page.objects.all()
-        serializer = Location_pageSerializer(location_pages, many=True)
+        location_page, created = Location_page.objects.get_or_create(pk=1)
+        serializer = Location_pageSerializer(location_page)
         return Response(serializer.data)
+
     
 class Location_pageRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Location_page.objects.all().order_by('-id')

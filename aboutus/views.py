@@ -3,14 +3,26 @@ from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certif
 from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
-
+from rest_framework.response import Response
 
 # view for creating about page section.
-class AboutPageSectionListCreateView(generics.ListCreateAPIView):
+class AboutPageSectionCreateView(generics.CreateAPIView):
     queryset = AboutPageSection.objects.all()
     serializer_class = AboutPageSectionSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
+
+class AboutPageSectionRetrieveView(generics.ListAPIView):
+    queryset = AboutPageSection.objects.all()
+    serializer_class = AboutPageSectionSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+
+    def get(self, request):
+        location_page, created = AboutPageSection.objects.get_or_create(pk=1)
+        serializer = AboutPageSectionSerializer(location_page)
+        return Response(serializer.data)
 
 # update a specif section with the help of pk
 class AboutPageSectionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
