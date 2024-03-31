@@ -113,14 +113,11 @@ class IndustryListView(APIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-    def get(self, request, *args, **kwargs):
-        instance = self.get_object()
-        serializer = IndustrySerializer(instance)
+    def get(self, request):
+        industries = Industry.objects.all()
+        serializer = IndustrySerializer(industries, many=True)
         return Response(serializer.data)
-    
-    def get_object(self):
-       
-        return Industry.objects.first()  
+
 class IndustryRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Industry.objects.all()
     serializer_class = IndustrySerializer
@@ -139,12 +136,11 @@ class MarketListView(generics.ListAPIView):
     queryset = Market.objects.all()
     serializer_class = MarketSerializer
 
-    def get(self, request, *args, **kwargs):
-        instance = self.get_object()
-        serializer = MarketSerializer(instance)
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
-    def get_object(self):
-        return Market.objects.first()  
+
 
 class MarketRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Market.objects.all()
