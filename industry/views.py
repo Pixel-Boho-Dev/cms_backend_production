@@ -50,7 +50,7 @@ class IndustriesMetaListView(generics.ListAPIView):
 class IndustriesMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = MetaTagsIndustries.objects.all()
     serializer_class = Industries_metadataSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     def get_object(self):

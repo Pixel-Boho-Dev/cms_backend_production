@@ -3,14 +3,26 @@ from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certif
 from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
-
+from rest_framework.response import Response
 
 # view for creating about page section.
-class AboutPageSectionListCreateView(generics.ListCreateAPIView):
+class AboutPageSectionCreateView(generics.CreateAPIView):
     queryset = AboutPageSection.objects.all()
     serializer_class = AboutPageSectionSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
+
+class AboutPageSectionRetrieveView(generics.ListAPIView):
+    queryset = AboutPageSection.objects.all()
+    serializer_class = AboutPageSectionSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+
+    def get(self, request):
+        location_page, created = AboutPageSection.objects.get_or_create(pk=1)
+        serializer = AboutPageSectionSerializer(location_page)
+        return Response(serializer.data)
 
 # update a specif section with the help of pk
 class AboutPageSectionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
@@ -24,7 +36,7 @@ class AboutPageSectionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAP
 class OurStoryCreateView(generics.CreateAPIView):
     queryset = OurStory.objects.all()
     serializer_class = OurStorySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
     def get_object(self):
         # There should be only one instance of the OurStory model
@@ -56,14 +68,14 @@ class MilestoneCreateView(generics.CreateAPIView,generics.ListAPIView):
 class MilestoneRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Milestone.objects.all()
     serializer_class = MilestoneSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 # views for our team
 class OurTeamCreateView(generics.CreateAPIView):
     queryset = OurTeam.objects.all()
     serializer_class = OurTeamSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 class OurTeamRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
@@ -82,13 +94,13 @@ class OurTeamListView(generics.ListAPIView):
 class WhatWeAreCreateView(generics.CreateAPIView):
     queryset = WhatWeAre.objects.all()
     serializer_class = WhatWeAreSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 class WhatWeAreRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = WhatWeAre.objects.all()
     serializer_class = WhatWeAreSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     lookup_field = 'pk'  # This tells DRF to use 'pk' as the lookup field.
@@ -101,13 +113,13 @@ class WhatWeAreListView(generics.ListAPIView):
 class CertificationCreateView(generics.CreateAPIView):
     queryset=Certifications.objects.all()
     serializer_class=CertificationSerializer
-    permission_classes=[permissions.IsAuthenticated]
+    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 class CertificationRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset=Certifications.objects.all()
     serializer_class=CertificationSerializer
-    permission_classes=[permissions.IsAuthenticated]
+    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     lookup_field = 'pk'

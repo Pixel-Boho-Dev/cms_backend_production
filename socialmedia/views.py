@@ -1,8 +1,11 @@
 from rest_framework import generics, permissions
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from .models import SocialMedia,Service,Location,HomeHighlights,Industry,Market,Home,Achievement,MetaTagsHome
 from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,HomeSerializer,AchievementSerializer,MetaTagsHomeSerializer
 from rest_framework.pagination import PageNumberPagination
 from rest_framework_simplejwt.authentication import JWTAuthentication
+
 
 
 class SocialMediaCreateView(generics.CreateAPIView):
@@ -106,10 +109,14 @@ class IndustryCreateView(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [JWTAuthentication]
 
-class IndustryListView(generics.ListAPIView):
-    queryset = Industry.objects.all()
-    serializer_class = IndustrySerializer
-    pagination_class = PageNumberPagination
+class IndustryListView(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    def get(self, request):
+        industries = Industry.objects.all()
+        serializer = IndustrySerializer(industries, many=True)
+        return Response(serializer.data)
 
 class IndustryRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Industry.objects.all()
@@ -128,6 +135,12 @@ class MarketCreateView(generics.CreateAPIView):
 class MarketListView(generics.ListAPIView):
     queryset = Market.objects.all()
     serializer_class = MarketSerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
 
 class MarketRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Market.objects.all()
