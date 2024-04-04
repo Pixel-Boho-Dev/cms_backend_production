@@ -45,10 +45,10 @@ class Location_page(models.Model):
     location_subtitle = models.TextField()
     location_description = models.TextField()
   # atlernative content for Location_header_image -->Arya
-    alt_img_text = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_title = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_description = models.TextField(max_length=300, null=True, blank=True)
+    # alt_img_text = models.TextField(max_length=300, null=True, blank=True)
+    # alt_img_title = models.TextField(max_length=300, null=True, blank=True)
+    # alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
+    # alt_img_description = models.TextField(max_length=300, null=True, blank=True)
  # atlernative content for Location_header_image -->Arya
 
     def __str__(self):
