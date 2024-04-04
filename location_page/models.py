@@ -16,10 +16,9 @@ class Office(models.Model):
     country_manager_phone1 = models.CharField(max_length=20)
     country_manager_phone2 = models.CharField(max_length=20, blank=True, null=True)
     country_manager_email = models.EmailField()
-    # city_name = models.CharField(max_length=100)
     is_head_office = models.BooleanField(default=False)
     office_url = models.URLField()
-    office_description = models.TextField()
+    office_desccription = models.TextField()
 
     def __str__(self):
         return f"Office at {self.location.place_name}"
