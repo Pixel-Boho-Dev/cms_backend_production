@@ -12,9 +12,9 @@ class SubService(models.Model):
     alt_img_description = models.TextField(max_length=300,null=True,blank=True)
  # atlernative content for bg_image
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    # description = models.TextField()
     related_service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    service_type = models.CharField(max_length=100)
+    # service_type = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
