@@ -25,13 +25,6 @@ class OfficeListByLocationView(generics.ListAPIView):
     def get_queryset(self):
         location_id = self.kwargs['location_id']
         return Office.objects.filter(location_id=location_id)
-    
-    def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-
 
 class Location_pageCreateView(generics.CreateAPIView):
     queryset = Location_page.objects.all().order_by('-id')
