@@ -18,7 +18,7 @@ class SocialMedia(models.Model):
 
 # model for services
 class Service(models.Model):
-    icon = models.ImageField(upload_to='service_icons/')  # Assuming icons are represented as image
+    image = models.ImageField(upload_to='service_images/')  # Assuming icons are represented as image
  # atlernative content for bg_image
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
@@ -26,9 +26,11 @@ class Service(models.Model):
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
  # atlernative content for bg_image
     title = models.CharField(max_length=100)
-    subtitle = models.TextField()
     description = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
+    sub_heading1 = models.CharField(max_length=100,default=True)
+    sub_heading2 = models.CharField(max_length=100,default=True)
+    sub_heading3 = models.CharField(max_length=100,default=True)
 
     def __str__(self):
         return self.title
