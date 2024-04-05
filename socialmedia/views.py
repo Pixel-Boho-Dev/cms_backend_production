@@ -80,6 +80,7 @@ class AchievementRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView)
     serializer_class = AchievementSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [JWTAuthentication]
+    
 
 # views for highlights
 
@@ -142,11 +143,18 @@ class MarketListView(generics.ListAPIView):
         return Response(serializer.data)
 
 
-class MarketRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+class MarketUpdateView(generics.UpdateAPIView):
     queryset = Market.objects.all()
     serializer_class = MarketSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [JWTAuthentication]
+
+    def patch(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
 
 # views for home details
 
