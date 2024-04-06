@@ -12,7 +12,7 @@ urlpatterns = [
 
     path('header/locationpage/create/',Location_pageCreateView.as_view(),name='locationpage-create'),
     path('header/locationpage/', Location_pageRetrieveView.as_view(), name='location-list'),
-    path('locationpage/<int:pk>/',Location_pageRetrieveUpdateDestroyView.as_view(),name='location_get_update_delete'),
+    path('locationpage/<int:pk>',Location_pageRetrieveUpdateDestroyView.as_view(),name='location_get_update_delete'),
 
     path('locationmeta/',LocationMetaRetrieveUpdateView.as_view(),name='location_meta_data'),
     path('locationmetas/',LocationMetaListView.as_view(),name='location_all'),
