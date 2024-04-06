@@ -4,4 +4,4 @@ from .models import ChoosesSection
 class ChoosesSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = ChoosesSection
-        fields = ['title', 'subtitle', 'bg_image']
+        fields = ['id','title', 'subtitle', 'bg_image']
