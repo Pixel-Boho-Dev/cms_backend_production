@@ -98,7 +98,7 @@ class HighlightListView(generics.ListAPIView):
 class HighlightRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = HomeHighlights.objects.all()
     serializer_class = HighlightSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 # views for Industries
@@ -122,7 +122,7 @@ class IndustryListView(APIView):
 class IndustryRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Industry.objects.all()
     serializer_class = IndustrySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 # views for market news
@@ -165,7 +165,7 @@ class HomeListView(generics.ListAPIView):
 class HomeRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = Home.objects.all()
     serializer_class = HomeSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     def get_object(self):
@@ -182,7 +182,7 @@ class HomeMetaListView(generics.ListAPIView):
 class HomeMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = MetaTagsHome.objects.all()
     serializer_class = MetaTagsHomeSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     def get_object(self):
