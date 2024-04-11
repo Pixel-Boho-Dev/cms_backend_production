@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import SocialMedia,Service,Location,Achievement,HomeHighlights,Industry,Market,Home,MetaTagsHome
 from services.models import SubService
+from services.serializers import subheadingSerializers
 
 # serializers for social media
 class SocialMediaSerializer(serializers.ModelSerializer):
@@ -15,14 +16,16 @@ class SubServiceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 # serializer for services
 class ServiceSerializer(serializers.ModelSerializer):
+    subheadings = subheadingSerializers(many=True,read_only=True)
     subservices = SubServiceSerializer(many=True, read_only=True)  # Nested representation
     class Meta:
         model = Service
         fields = '__all__'
 
 # serializers for retriving subservices of a service
-class ServiceSubServiceSerializer(serializers.Serializer):
+class ServiceheadingSubServiceSerializer(serializers.Serializer):
     service = ServiceSerializer()
+    subheading = subheadingSerializers(many = True)
     subservices = SubServiceSerializer(many=True)
 
 # serializers for location

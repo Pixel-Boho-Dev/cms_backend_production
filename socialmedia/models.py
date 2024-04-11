@@ -28,9 +28,7 @@ class Service(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
-    sub_heading1 = models.CharField(max_length=100,default=True)
-    sub_heading2 = models.CharField(max_length=100,default=True)
-    sub_heading3 = models.CharField(max_length=100,default=True)
+
 
     def __str__(self):
         return self.title
