@@ -3,7 +3,7 @@ from .views import (HomeMetaRetrieveUpdateView, SocialMediaCreateView, SocialMed
                     ServiceRetrieveUpdateDeleteView,LocationCreateView,LocationListView,LocationRetrieveUpdateDeleteView,
                     AchievementCreateView, AchievementListView, AchievementRetrieveUpdateDeleteView,HighlightCreateView, 
                     HighlightListView, HighlightRetrieveUpdateDeleteView,IndustryCreateView, IndustryListView, IndustryRetrieveUpdateDeleteView,
-                  MarketCreateView, MarketListView, MarketUpdateView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,
+                  MarketCreateView, MarketListView, MarketUpdateView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy
 
 )
 
@@ -27,6 +27,9 @@ urlpatterns = [
     path('achievements/create/', AchievementCreateView.as_view(), name='achievement-create'),
     path('achievements/', AchievementListView.as_view(), name='achievement-list'),
     path('achievements/<int:pk>/', AchievementRetrieveUpdateDeleteView.as_view(), name='achievement-retrieve-update-delete'),
+
+    path('achievementssection/',AchievementSectionListCreate.as_view(),name='achievement-section-create'),
+    path('achievementssection/<int:pk>/',AchievementSectionRetrieveUpdateDestroy.as_view(),name='achievement-section-retrieve-update-delete'),
 
 # urls for highlights
 
