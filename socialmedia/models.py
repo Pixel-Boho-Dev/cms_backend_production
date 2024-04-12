@@ -55,7 +55,7 @@ class Location(models.Model):
 # model for achievements
 
 class Achievement(models.Model):
-    achievements_icon = models.ImageField(upload_to='achievements_icons/')
+    achievements_icon = models.ImageField(upload_to='achievements_icons/',null=True, blank=True)
  # atlernative content for image
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
@@ -92,7 +92,6 @@ class Industry(models.Model):
  # atlernative content for image
     industry_title = models.CharField(max_length=100)
     industry_description = models.TextField()
-
     def __str__(self):
         return self.industry_title
 
