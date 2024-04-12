@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from django.shortcuts import get_object_or_404
+from rest_framework import status
 from socialmedia.models import Service
-from socialmedia.serializers import SubServiceSerializer,ServiceSubServiceSerializer
-from .models import SubService,MetaTagsservices
-from .serializers import Service_metadataSerializers
+from socialmedia.serializers import SubServiceSerializer,ServiceheadingSubServiceSerializer
+from .models import SubService,MetaTagsservices,Subheading
+from .serializers import Service_metadataSerializers, subheadingSerializers
 from socialmedia.serializers import ServiceSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import action
+from django.http import JsonResponse
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import generics
@@ -23,20 +26,55 @@ class ServiceViewSet(viewsets.ModelViewSet):
         # Retrieve the Service object
         service = self.get_object()
 
-        # Retrieve associated SubServices
-        subservices = SubService.objects.filter(related_service=service)
+        # Retrieve the Subheadings related to the Service
+        subheadings = Subheading.objects.filter(related_service=service)
 
-        # Serialize the SubServices
-        # Serialize the Service and SubServices together
-        serializer = ServiceSubServiceSerializer({'service': service, 'subservices': subservices}, context={'request': request})
+        # Serialize the Service
+        service_data = ServiceSerializer(service).data
 
+        # Serialize the Subheadings and their associated SubServices
+        subheadings_data = []
+        for subheading in subheadings:
+            subservices = SubService.objects.filter(related_heading=subheading)
+            subservice_data = SubServiceSerializer(subservices, many=True).data
+            subheading_data = {
+                'id': subheading.id,
+                'subheading': subheading.title,
+                'subservices': subservice_data
+            }
+            subheadings_data.append(subheading_data)
+
+        # Construct the response data
+        response_data = {
+            'service': service_data,
+            'subheadings': subheadings_data
+        }
+
+        # Return the response
+        return Response(response_data)
+
+
+class SubheadingCreateView(generics.CreateAPIView):
+    queryset = Subheading.objects.all()
+    serializer_class = subheadingSerializers
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+class SubheadingListView(generics.ListAPIView):
+    queryset = Subheading.objects.all()
+    serializer_class = subheadingSerializers
+
+    def get(self, request):
+        industries = Subheading.objects.all()
+        serializer = subheadingSerializers(industries, many=True)
         return Response(serializer.data)
-    
+
 class SubServiceViewSet(viewsets.ModelViewSet):
     queryset = SubService.objects.all().order_by('-id')  # Order by '-id'
     serializer_class = SubServiceSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
+
 
 
 class ServicesMetaListView(generics.ListAPIView):

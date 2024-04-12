@@ -28,9 +28,7 @@ class Service(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
-    sub_heading1 = models.CharField(max_length=100,default=True)
-    sub_heading2 = models.CharField(max_length=100,default=True)
-    sub_heading3 = models.CharField(max_length=100,default=True)
+
 
     def __str__(self):
         return self.title
@@ -64,13 +62,12 @@ class Achievement(models.Model):
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
  # atlernative content for image 
-    achievements_title = models.CharField(max_length=100)
-    achievements_description = models.TextField()
+    achievements_title = models.CharField(max_length=100,null=True,blank=True)
+    achievements_subtitle = models.CharField(max_length=100,null=True,blank=True)
+    achievements_description = models.TextField(null=True,blank=True)
 
     def __str__(self):
         return self.achievements_title
-
-
 # model for highlights
 
 class HomeHighlights(models.Model):
