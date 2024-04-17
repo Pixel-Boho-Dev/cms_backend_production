@@ -3,7 +3,8 @@ from .views import (HomeMetaRetrieveUpdateView, SocialMediaCreateView, SocialMed
                     ServiceRetrieveUpdateDeleteView,LocationCreateView,LocationListView,LocationRetrieveUpdateDeleteView,
                     AchievementCreateView, AchievementListView, AchievementRetrieveUpdateDeleteView,HighlightCreateView, 
                     HighlightListView, HighlightRetrieveUpdateDeleteView,IndustryCreateView, IndustryListView, IndustryRetrieveUpdateDeleteView,
-                  MarketCreateView, MarketListView, MarketUpdateView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,
+                  MarketCreateView, MarketListView, MarketUpdateView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
+                  HighlightSectionListCreate,HighlightSectionRetrieveUpdateDestroy
 
 )
 
@@ -28,11 +29,17 @@ urlpatterns = [
     path('achievements/', AchievementListView.as_view(), name='achievement-list'),
     path('achievements/<int:pk>/', AchievementRetrieveUpdateDeleteView.as_view(), name='achievement-retrieve-update-delete'),
 
+    path('achievementssection/',AchievementSectionListCreate.as_view(),name='achievement-section-create'),
+    path('achievementssection/<int:pk>/',AchievementSectionRetrieveUpdateDestroy.as_view(),name='achievement-section-retrieve-update-delete'),
+
 # urls for highlights
 
     path('highlights/create/', HighlightCreateView.as_view(), name='highlight-create'),
     path('highlights/', HighlightListView.as_view(), name='highlight-list'),
     path('highlights/<int:pk>/', HighlightRetrieveUpdateDeleteView.as_view(), name='highlight-retrieve-update-delete'),
+    
+    path('highlightsSection/', HighlightSectionListCreate.as_view(), name='highlightsection-create'),
+    path('highlightsSection/<int:pk>/', HighlightSectionRetrieveUpdateDestroy.as_view(), name='highlightsection-retrieve-update-delete'),
 
 # Urls for industries
 
