@@ -145,11 +145,18 @@ class IndustryListView(APIView):
         serializer = IndustrySerializer(industries, many=True)
         return Response(serializer.data)
 
-class IndustryRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+class IndustryUpdateView(generics.UpdateAPIView):
     queryset = Industry.objects.all()
     serializer_class = IndustrySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
+    def patch(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
 
 # views for market news
 
