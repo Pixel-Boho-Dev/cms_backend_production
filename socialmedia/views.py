@@ -1,8 +1,8 @@
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import SocialMedia,Service,Location,HomeHighlights,Industry,Market,Home,Achievement,MetaTagsHome,AchievementSection
-from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,HomeSerializer,AchievementSerializer,MetaTagsHomeSerializer,AchievementSectionSerializer
+from .models import SocialMedia,Service,Location,HomeHighlights,Industry,Market,Home,Achievement,MetaTagsHome,AchievementSection,HighlightsSection
+from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,HomeSerializer,AchievementSerializer,MetaTagsHomeSerializer,AchievementSectionSerializer,HighlightsSectionSerializer
 from rest_framework.pagination import PageNumberPagination
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
@@ -96,6 +96,7 @@ class AchievementSectionRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIV
     serializer_class = AchievementSectionSerializer
 # views for highlights
 
+
 class HighlightCreateView(generics.CreateAPIView):
     queryset = HomeHighlights.objects.all()
     serializer_class = HighlightSerializer
@@ -112,6 +113,19 @@ class HighlightRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = HighlightSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
+
+class HighlightSectionListCreate(generics.ListCreateAPIView):
+    queryset = HighlightsSection.objects.all()
+    serializer_class = HighlightsSectionSerializer
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class HighlightSectionRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = HighlightsSection.objects.all()
+    serializer_class = HighlightsSectionSerializer
 
 # views for Industries
 
@@ -131,11 +145,18 @@ class IndustryListView(APIView):
         serializer = IndustrySerializer(industries, many=True)
         return Response(serializer.data)
 
-class IndustryRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+class IndustryUpdateView(generics.UpdateAPIView):
     queryset = Industry.objects.all()
     serializer_class = IndustrySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
+    def patch(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
 
 # views for market news
 
