@@ -2,8 +2,9 @@ from django.urls import path
 from .views import (HomeMetaRetrieveUpdateView, SocialMediaCreateView, SocialMediaRetrieveUpdateDeleteView,ServiceCreateView, ServiceListView, 
                     ServiceRetrieveUpdateDeleteView,LocationCreateView,LocationListView,LocationRetrieveUpdateDeleteView,
                     AchievementCreateView, AchievementListView, AchievementRetrieveUpdateDeleteView,HighlightCreateView, 
-                    HighlightListView, HighlightRetrieveUpdateDeleteView,IndustryCreateView, IndustryListView, IndustryRetrieveUpdateDeleteView,
-                  MarketCreateView, MarketListView, MarketUpdateView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,
+                    HighlightListView, HighlightRetrieveUpdateDeleteView,IndustryCreateView, IndustryListView, IndustryUpdateView,
+                  MarketCreateView, MarketListView, MarketUpdateView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
+                  HighlightSectionListCreate,HighlightSectionRetrieveUpdateDestroy
 
 )
 
@@ -28,17 +29,23 @@ urlpatterns = [
     path('achievements/', AchievementListView.as_view(), name='achievement-list'),
     path('achievements/<int:pk>/', AchievementRetrieveUpdateDeleteView.as_view(), name='achievement-retrieve-update-delete'),
 
+    path('achievementssection/',AchievementSectionListCreate.as_view(),name='achievement-section-create'),
+    path('achievementssection/<int:pk>/',AchievementSectionRetrieveUpdateDestroy.as_view(),name='achievement-section-retrieve-update-delete'),
+
 # urls for highlights
 
     path('highlights/create/', HighlightCreateView.as_view(), name='highlight-create'),
     path('highlights/', HighlightListView.as_view(), name='highlight-list'),
     path('highlights/<int:pk>/', HighlightRetrieveUpdateDeleteView.as_view(), name='highlight-retrieve-update-delete'),
+    
+    path('highlightsSection/', HighlightSectionListCreate.as_view(), name='highlightsection-create'),
+    path('highlightsSection/<int:pk>/', HighlightSectionRetrieveUpdateDestroy.as_view(), name='highlightsection-retrieve-update-delete'),
 
 # Urls for industries
 
     path('header/industries/create/', IndustryCreateView.as_view(), name='industry-create'),
     path('header/industries/', IndustryListView.as_view(), name='industry-list'),
-    path('industries/<int:pk>/', IndustryRetrieveUpdateDeleteView.as_view(), name='industry-retrieve-update-delete'),
+    path('header/industries/<int:pk>/', IndustryUpdateView.as_view(), name='IndustryUpdateView-update'),
 
 # urls for market news and all
     path('header/markets/create/', MarketCreateView.as_view(), name='market-create'),
