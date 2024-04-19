@@ -4,8 +4,8 @@ from .models import IndustriesPage,MetaTagsIndustries
 class IndustriesPageSerializer(serializers.ModelSerializer):
     class Meta:
         model = IndustriesPage
-        fields = '__all__'
-
+        fields = ['id', 'title', 'subtitle', 'description', 'image', 'alt_img_text', 'alt_img_title', 'alt_img_Caption', 'alt_img_description']
+        
 
 
 class Industries_metadataSerializers(serializers.ModelSerializer):

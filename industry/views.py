@@ -4,33 +4,12 @@ from rest_framework import status
 from .models import IndustriesPage,MetaTagsIndustries
 from .serializers import IndustriesPageSerializer, Industries_metadataSerializers
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from django.shortcuts import get_object_or_404
+
 
 class IndustriesPageListCreateView(generics.ListCreateAPIView):
     queryset = IndustriesPage.objects.all()
     serializer_class = IndustriesPageSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
-
-
-    # def get_queryset(self):
-    #     # Check if an instance already exists, and return it if found
-    #     queryset = IndustriesPage.objects.all()
-    #     if queryset.exists():
-    #         return queryset
-
-    #     # If no instance exists, return an empty queryset
-    #     return IndustriesPage.objects.none()
-
-    # def create(self, request, *args, **kwargs):
-    #     # Check if an instance already exists
-    #     if IndustriesPage.objects.exists():
-    #         return Response(
-    #             {"detail": "IndustriesPage already exists and cannot be created again."},
-    #             status=status.HTTP_400_BAD_REQUEST
-    #         )
-        
-    #     # If no instance exists, proceed with creation
-    #     return super().create(request, *args, **kwargs)
     
 class IndustriesPageRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = IndustriesPage.objects.all()
@@ -39,8 +18,10 @@ class IndustriesPageRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIVi
     authentication_classes = [JWTAuthentication]
 
     def get_object(self):
-        # Retrieve the first (and only) instance of IndustriesPage
-        return IndustriesPage.objects.first()
+        # Retrieve the IndustriesPage instance by primary key (pk)
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(IndustriesPage, pk=pk)
+    
 
 class IndustriesMetaListView(generics.ListAPIView):
     queryset = MetaTagsIndustries.objects.all()
