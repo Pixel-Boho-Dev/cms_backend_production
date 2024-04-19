@@ -4,7 +4,7 @@ from .views import (HomeMetaRetrieveUpdateView, SocialMediaCreateView, SocialMed
                     AchievementCreateView, AchievementListView, AchievementRetrieveUpdateDeleteView,HighlightCreateView, 
 
                     HighlightListView, HighlightRetrieveUpdateDeleteView,IndustryCreateView, IndustryListView, IndustryUpdateView,
-                  MarketCreateView, MarketListView, MarketUpdateView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
+                  MarketCreateView, MarketListView, MarketRetrieveUpdateDeleteView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
                   HighlightSectionListCreate,HighlightSectionRetrieveUpdateDestroy
 
 )
