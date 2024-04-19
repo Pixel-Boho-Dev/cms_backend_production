@@ -43,6 +43,7 @@ urlpatterns = [
     path('api/',include("key.urls")),
     path('api/',include("chooses.urls")),
     path('api/',include("footer.urls")),
+    path('api/',include("industry_cards.urls")),
 
 
 ]
