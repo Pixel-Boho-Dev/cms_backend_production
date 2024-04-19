@@ -78,6 +78,7 @@ class WhatWeAre(models.Model):
 
 # models for saving certificates
 class Certifications(models.Model):
+    title = models.CharField(max_length=100)
     certificate_image = models.ImageField(upload_to='certifications/')
     # description = models.TextField()
     # atlernative content for certificate_image
