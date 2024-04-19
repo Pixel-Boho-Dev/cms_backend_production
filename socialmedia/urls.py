@@ -3,7 +3,7 @@ from .views import (HomeMetaRetrieveUpdateView, SocialMediaCreateView, SocialMed
                     ServiceRetrieveUpdateDeleteView,LocationCreateView,LocationListView,LocationRetrieveUpdateDeleteView,
                     AchievementCreateView, AchievementListView, AchievementRetrieveUpdateDeleteView,HighlightCreateView, 
                     HighlightListView, HighlightRetrieveUpdateDeleteView,IndustryCreateView, IndustryListView, IndustryRetrieveUpdateDeleteView,
-                  MarketCreateView, MarketListView, MarketUpdateView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
+                  MarketCreateView, MarketListView, MarketRetrieveUpdateDeleteView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
                   HighlightSectionListCreate,HighlightSectionRetrieveUpdateDestroy
 
 )
@@ -50,7 +50,7 @@ urlpatterns = [
 # urls for market news and all
     path('header/markets/create/', MarketCreateView.as_view(), name='market-create'),
     path('header/markets/', MarketListView.as_view(), name='market-list'),
-    path('header/markets/<int:pk>/', MarketUpdateView.as_view(), name='market-update'),
+    path('header/markets/<int:pk>/', MarketRetrieveUpdateDeleteView.as_view(), name='market-retrieve-update-delete'),
 
 # urls for home details
 
