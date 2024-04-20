@@ -3,7 +3,7 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
                     OurStoryRetrieveUpdateDeleteView,OurStoryCreateView,MilestoneCreateView,
                     MilestoneRetrieveUpdateDeleteView,OurTeamCreateView,OurTeamRetrieveUpdateDeleteView,OurTeamListView,
                     WhatWeAreCreateView,WhatWeAreListView,WhatWeAreRetrieveUpdateDeleteView,CertificationRetrieveUpdateDeleteView,
-                    CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateView)
+                    CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateView,OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView)
 
 urlpatterns = [
     path('header/about-page-sections/create/', AboutPageSectionCreateView.as_view(), name='about-page-section-list-create'),
@@ -24,6 +24,17 @@ urlpatterns = [
     path('our-team/create/', OurTeamCreateView.as_view(), name='our-team-create'),
     path('our-team/<int:pk>/', OurTeamRetrieveUpdateDeleteView.as_view(), name='our-team-detail'),
     path('our-team/', OurTeamListView.as_view(), name='our-team-list'),
+
+
+
+
+    path('our-team-title/create/', OurTeamTitleCreateView.as_view(), name='our-team-title-create'),
+    path('our-team-title/<int:pk>/', OurTeamTitleRetrieveUpdateDeleteView.as_view(), name='our-team-title-detail'),
+    path('our-team-title/', OurTeamTitleListView.as_view(), name='our-team-title-list'),
+
+
+
+
 
     # urls for what we are
 
