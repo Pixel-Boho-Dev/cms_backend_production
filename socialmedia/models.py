@@ -119,6 +119,11 @@ class Market(models.Model):
     def __str__(self):
         return self.market_title
 
+class MarketTitle(models.Model):
+    title = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.title
 
 # models for Home titles and descriptions
 class Home(models.Model):

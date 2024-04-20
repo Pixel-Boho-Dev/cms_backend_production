@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SocialMedia,Service,Location,Achievement,HomeHighlights,Industry,Market,Home,MetaTagsHome,AchievementSection,HighlightsSection
+from .models import SocialMedia,Service,Location,Achievement,HomeHighlights,Industry,Market,Home,MetaTagsHome,AchievementSection,HighlightsSection,MarketTitle
 from services.models import SubService
 from services.serializers import subheadingSerializers
 
@@ -70,6 +70,11 @@ class MarketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Market
         fields = '__all__'
+
+class MarketTitleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MarketTitle
+        fields = ['id','title']
 
 # serializers for Home details
 
