@@ -32,4 +32,4 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=100)),
             ],
         ),
-
+    ]
