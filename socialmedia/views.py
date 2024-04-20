@@ -1,8 +1,8 @@
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import SocialMedia,Service,Location,HomeHighlights,Industry,Market,Home,Achievement,MetaTagsHome,AchievementSection,HighlightsSection
-from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,HomeSerializer,AchievementSerializer,MetaTagsHomeSerializer,AchievementSectionSerializer,HighlightsSectionSerializer
+from .models import SocialMedia,Service,Location,HomeHighlights,Industry,Market,Home,Achievement,MetaTagsHome,AchievementSection,HighlightsSection,MarketTitle
+from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,HomeSerializer,AchievementSerializer,MetaTagsHomeSerializer,AchievementSectionSerializer,HighlightsSectionSerializer,MarketTitleSerializer
 from rest_framework.pagination import PageNumberPagination
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
@@ -179,6 +179,29 @@ class MarketListView(generics.ListAPIView):
 class MarketRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Market.objects.all()
     serializer_class = MarketSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+#views for market title
+
+class MarketTitleCreateView(generics.CreateAPIView):
+    queryset = MarketTitle.objects.all()
+    serializer_class = MarketTitleSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+
+class MarketTitleListView(generics.ListAPIView):
+    queryset = MarketTitle.objects.all()
+    serializer_class = MarketTitleSerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+class MarketTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MarketTitle.objects.all()
+    serializer_class = MarketTitleSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
