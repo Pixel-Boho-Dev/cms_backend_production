@@ -54,6 +54,18 @@ class OurTeam(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+
+
+class OurTeamTitle(models.Model):
+    # Fields specific to titles
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+
 
 # Model for storing mission, vision and purpose
 class WhatWeAre(models.Model):
