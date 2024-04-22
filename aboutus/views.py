@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,MilestoneTitle
-from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,MilestoneTitleSerializer
+from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,MilestoneTitle,WhatWeAreTitle
+from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,MilestoneTitleSerializer,WhatWeAreTitleSerializer
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
 from rest_framework.response import Response
@@ -189,3 +189,22 @@ class AboutMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
         # Since we want only one Aboutmeta data record, always retrieve the first one
         aboutmeta, created = MetaTagsAbout.objects.get_or_create(pk=1)
         return aboutmeta
+    
+
+class WhatWeAreTitleCreateView(generics.CreateAPIView):
+    queryset = WhatWeAreTitle.objects.all()
+    serializer_class = WhatWeAreTitleSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+class WhatWeAreTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = WhatWeAreTitle.objects.all()
+    serializer_class = WhatWeAreTitleSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    lookup_field = 'pk'
+
+class WhatWeAreTitleListView(generics.ListAPIView):
+    queryset = WhatWeAreTitle.objects.all().order_by('-id')
+    serializer_class = WhatWeAreTitleSerializer
