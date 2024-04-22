@@ -38,6 +38,12 @@ class Milestone(models.Model):
     def __str__(self):
         return f"{self.year} - {self.title}"
 
+class MilestoneTitle(models.Model):
+    title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
+
 # model for storing ourTeam
 class OurTeam(models.Model):
     # team_title = models.CharField(max_length=100)
@@ -56,16 +62,12 @@ class OurTeam(models.Model):
         return self.name
     
 
-
-
 class OurTeamTitle(models.Model):
     # Fields specific to titles
     title = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
-
-
 
 # Model for storing mission, vision and purpose
 class WhatWeAre(models.Model):
