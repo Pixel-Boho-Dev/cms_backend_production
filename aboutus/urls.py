@@ -3,7 +3,10 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
                     OurStoryRetrieveUpdateDeleteView,OurStoryCreateView,MilestoneCreateView,
                     MilestoneRetrieveUpdateDeleteView,OurTeamCreateView,OurTeamRetrieveUpdateDeleteView,OurTeamListView,
                     WhatWeAreCreateView,WhatWeAreListView,WhatWeAreRetrieveUpdateDeleteView,CertificationRetrieveUpdateDeleteView,
-                    CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateView,OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView)
+
+                    CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateView,CertificationTitleListCreate,
+                    CertificationTitleRetrieveUpdateDestroy, OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView)
+
 
 urlpatterns = [
     path('header/about-page-sections/create/', AboutPageSectionCreateView.as_view(), name='about-page-section-list-create'),
@@ -46,6 +49,9 @@ urlpatterns = [
     path('certification/create/', CertificationCreateView.as_view(), name='what-we-are-create'),
     path('certification/<int:pk>/', CertificationRetrieveUpdateDeleteView.as_view(), name='what-we-are-detail'),
     path('certification/', CertificatioListView.as_view(), name='what-we-are-list'),
+
+    path('certificationtitle/',CertificationTitleListCreate.as_view(),name='achievement-section-create'),
+    path('certificationtitle/<int:pk>/',CertificationTitleRetrieveUpdateDestroy.as_view(),name='achievement-section-retrieve-update-delete'),
 
     # urls for blogs meta data
 

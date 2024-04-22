@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout
-from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers
+from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle
+from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
 from rest_framework.response import Response
@@ -117,19 +117,6 @@ class OurTeamTitleListView(generics.ListAPIView):
     serializer_class = OurTeamTitleSerializer
 
 
-
-
-
-
-
-    
-
-
-
-
-
-
-
 # views for what we are
 class WhatWeAreCreateView(generics.CreateAPIView):
     queryset = WhatWeAre.objects.all()
@@ -169,6 +156,19 @@ class CertificatioListView(generics.ListAPIView):
     queryset = Certifications.objects.all().order_by('-id')
     serializer_class = CertificationSerializer
 
+class CertificationTitleListCreate(generics.ListCreateAPIView):
+    queryset = CertificateTitle.objects.all()
+    serializer_class = CertificateTitleSerializer
+
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+    
+class CertificationTitleRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CertificateTitle.objects.all()
+    serializer_class = CertificateTitleSerializer
 
 class AboutMetaListView(generics.ListAPIView):
     queryset = MetaTagsAbout.objects.all()
