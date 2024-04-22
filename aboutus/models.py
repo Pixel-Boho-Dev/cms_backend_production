@@ -90,7 +90,6 @@ class WhatWeAre(models.Model):
 
 # models for saving certificates
 class Certifications(models.Model):
-    title = models.CharField(max_length=100)
     certificate_image = models.ImageField(upload_to='certifications/')
     # description = models.TextField()
     # atlernative content for certificate_image
@@ -99,6 +98,12 @@ class Certifications(models.Model):
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
     # atlernative content for certificate_image
+
+class CertificateTitle(models.Model):
+    title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
 
 
 # Meta tags for about us page.
