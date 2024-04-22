@@ -6,7 +6,7 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
 
                     CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateView,CertificationTitleListCreate,
                     CertificationTitleRetrieveUpdateDestroy, OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView,
-                    MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy)
+                    MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy,WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView)
 
 
 urlpatterns = [
@@ -54,6 +54,13 @@ urlpatterns = [
     # urls for blogs meta data
 
     path('aboutmeta/',AboutMetaRetrieveUpdateView.as_view(),name='blog_meta_create'),
-    path('aboutmetall/',AboutMetaListView.as_view(),name='blogmeta_all')
+    path('aboutmetall/',AboutMetaListView.as_view(),name='blogmeta_all'),
+
+
+    path('what-we-are-title/create/', WhatWeAreTitleCreateView.as_view(), name='what-we-are-title-create'),
+    path('what-we-are-title/<int:pk>/', WhatWeAreTitleRetrieveUpdateDeleteView.as_view(), name='what-we-are-title-detail'),
+    path('what-we-are-title/', WhatWeAreTitleListView.as_view(), name='what-we-are-title-list'),
+
+
     
 ]

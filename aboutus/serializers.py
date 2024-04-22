@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,OurTeamTitle,MilestoneTitle
+from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,OurTeamTitle,MilestoneTitle,WhatWeAreTitle
 
 
 
@@ -55,3 +55,8 @@ class About_metadataSerializers(serializers.ModelSerializer):
     class Meta:
         model   =   MetaTagsAbout
         fields  =   '__all__'
+
+class WhatWeAreTitleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WhatWeAreTitle
+        fields = ['id','title']
