@@ -23,7 +23,7 @@ class MilestoneSerializer(serializers.ModelSerializer):
 class MilestoneTitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = MilestoneTitle
-        fields = ['id','title']
+        fields = ['id','title','sub_title']
 
 class OurTeamSerializer(serializers.ModelSerializer):
     class Meta:
