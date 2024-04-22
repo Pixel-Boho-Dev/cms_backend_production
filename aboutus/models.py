@@ -38,6 +38,12 @@ class Milestone(models.Model):
     def __str__(self):
         return f"{self.year} - {self.title}"
 
+class MilestoneTitle(models.Model):
+    title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
+
 # model for storing ourTeam
 class OurTeam(models.Model):
     # team_title = models.CharField(max_length=100)
@@ -56,16 +62,12 @@ class OurTeam(models.Model):
         return self.name
     
 
-
-
 class OurTeamTitle(models.Model):
     # Fields specific to titles
     title = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
-
-
 
 # Model for storing mission, vision and purpose
 class WhatWeAre(models.Model):
@@ -90,7 +92,6 @@ class WhatWeAre(models.Model):
 
 # models for saving certificates
 class Certifications(models.Model):
-    title = models.CharField(max_length=100)
     certificate_image = models.ImageField(upload_to='certifications/')
     # description = models.TextField()
     # atlernative content for certificate_image
@@ -99,6 +100,12 @@ class Certifications(models.Model):
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
     # atlernative content for certificate_image
+
+class CertificateTitle(models.Model):
+    title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
 
 
 # Meta tags for about us page.
@@ -128,3 +135,13 @@ class MetaTagsAbout(models.Model):
     
     def __str__(self):
         return self.title
+    
+
+
+
+class WhatWeAreTitle(models.Model):
+    title = models.CharField(max_length=100)
+    def __str__(self):
+        return self.title
+    
+

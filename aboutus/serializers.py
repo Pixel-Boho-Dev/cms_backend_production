@@ -1,5 +1,8 @@
 from rest_framework import serializers
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,OurTeamTitle
+
+from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,OurTeamTitle,MilestoneTitle,WhatWeAreTitle
+
+
 
 class AboutPageSectionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,6 +19,11 @@ class MilestoneSerializer(serializers.ModelSerializer):
     class Meta:
         model = Milestone
         fields = '__all__'
+
+class MilestoneTitleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MilestoneTitle
+        fields = ['id','title']
 
 class OurTeamSerializer(serializers.ModelSerializer):
     class Meta:
@@ -38,7 +46,17 @@ class CertificationSerializer(serializers.ModelSerializer):
         model=Certifications
         fields='__all__'
 
+class CertificateTitleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CertificateTitle
+        fields = ['id','title']
+
 class About_metadataSerializers(serializers.ModelSerializer):
     class Meta:
         model   =   MetaTagsAbout
         fields  =   '__all__'
+
+class WhatWeAreTitleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WhatWeAreTitle
+        fields = ['id','title']
