@@ -117,19 +117,6 @@ class OurTeamTitleListView(generics.ListAPIView):
     serializer_class = OurTeamTitleSerializer
 
 
-
-
-
-
-
-    
-
-
-
-
-
-
-
 # views for what we are
 class WhatWeAreCreateView(generics.CreateAPIView):
     queryset = WhatWeAre.objects.all()

@@ -5,7 +5,7 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
                     WhatWeAreCreateView,WhatWeAreListView,WhatWeAreRetrieveUpdateDeleteView,CertificationRetrieveUpdateDeleteView,
 
                     CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateView,CertificationTitleListCreate,
-                    CertificationTitleRetrieveUpdateDestroy)
+                    CertificationTitleRetrieveUpdateDestroy, OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView)
 
 
 urlpatterns = [
