@@ -4,6 +4,9 @@ from .serializers import AboutPageSectionSerializer,OurStorySerializer,Milestone
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
 from rest_framework.response import Response
+from .models import OurTeamTitle
+from .serializers import OurTeamTitleSerializer
+
 
 # view for creating about page section.
 class AboutPageSectionCreateView(generics.CreateAPIView):
@@ -89,6 +92,43 @@ class OurTeamRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
 class OurTeamListView(generics.ListAPIView):
     queryset = OurTeam.objects.all().order_by('-id')
     serializer_class = OurTeamSerializer
+
+
+
+
+
+
+
+
+
+
+
+class OurTeamTitleCreateView(generics.CreateAPIView):
+    queryset = OurTeamTitle.objects.all()
+    serializer_class = OurTeamTitleSerializer
+
+class OurTeamTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OurTeamTitle.objects.all()
+    serializer_class = OurTeamTitleSerializer
+    lookup_field = 'pk'  # specify the field to use for lookup
+
+class OurTeamTitleListView(generics.ListAPIView):
+    queryset = OurTeamTitle.objects.all()
+    serializer_class = OurTeamTitleSerializer
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
 
 # views for what we are
 class WhatWeAreCreateView(generics.CreateAPIView):
