@@ -17,6 +17,7 @@ class Subheading(models.Model):
 
 class SubService(models.Model):
     image = models.ImageField(upload_to='subservice_images/')
+    sub_title = models.CharField(max_length=200)
  # atlernative content for bg_image
     alt_img_text = models.TextField(max_length=300, null=True,blank=True)
     alt_img_title = models.TextField(max_length=300, null=True,blank=True)
@@ -26,7 +27,7 @@ class SubService(models.Model):
     related_heading = models.ForeignKey(Subheading, on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.title
+        return self.sub_title
     
 class MetaTagsservices(models.Model):
     charset = models.CharField(max_length=150,null=True,blank=True)
