@@ -52,6 +52,7 @@ class OurTeam(models.Model):
     profile_pic = models.ImageField(upload_to='our_team/')
     title_name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
+    order_by = models.IntegerField()
  # atlernative tags for team profile_pic
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
