@@ -68,6 +68,11 @@ class SubheadingListView(generics.ListAPIView):
         industries = Subheading.objects.all()
         serializer = subheadingSerializers(industries, many=True)
         return Response(serializer.data)
+    
+
+class SubheadingRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Subheading.objects.all()
+    serializer_class = subheadingSerializers
 
 class SubServiceViewSet(viewsets.ModelViewSet):
     queryset = SubService.objects.all().order_by('-id')  # Order by '-id'
