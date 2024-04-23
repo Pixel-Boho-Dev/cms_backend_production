@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from .views import ServiceViewSet,SubServiceViewSet,ServicesMetaListView,ServicesMetaRetrieveUpdateView,SubheadingCreateView,SubheadingListView
+from .views import ServiceViewSet,SubServiceViewSet,ServicesMetaListView,ServicesMetaRetrieveUpdateView,SubheadingCreateView,SubheadingListView,SubheadingRetrieveUpdateDestroy
 
 
 urlpatterns = [
@@ -12,8 +12,11 @@ urlpatterns = [
 
     # SubService Retrieve, Update, Delete
     path('subservices/<int:pk>/', SubServiceViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='subservice-retrieve-update-delete'),
+    
     path('subheading/',SubheadingCreateView.as_view(),name = 'subheading-list-create'),
     path('subheading/get/',SubheadingListView.as_view(),name = 'subheading_all'),
+    path('subheading/<int:pk>/',SubheadingRetrieveUpdateDestroy.as_view(),name = 'subheading-retrieve-update-delete'),
+
 
     # meta tags for service page
     path('servicmeta/',ServicesMetaRetrieveUpdateView.as_view(),name='location_meta_data'),
