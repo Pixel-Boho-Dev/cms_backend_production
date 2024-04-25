@@ -22,6 +22,10 @@ class ServiceSerializer(serializers.ModelSerializer):
         model = Service
         fields = '__all__'
 
+class ServiceheaderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= Service
+        fields = '__all__'
 # serializers for retriving subservices of a service
 class ServiceheadingSubServiceSerializer(serializers.Serializer):
     service = ServiceSerializer()
