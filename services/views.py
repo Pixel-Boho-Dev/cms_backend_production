@@ -80,22 +80,30 @@ class SubServiceViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-
+class ServiceMetaCreateView(generics.CreateAPIView):
+    queryset = MetaTagsservices.objects.all()
+    serializer_class = Service_metadataSerializers
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
 class ServicesMetaListView(generics.ListAPIView):
-    queryset = MetaTagsservices.objects.all().order_by('-id') 
+    queryset = MetaTagsservices.objects.all()
     serializer_class = Service_metadataSerializers
 
-class ServicesMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+class ServicesMetaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MetaTagsservices.objects.all().order_by('-id') 
     serializer_class = Service_metadataSerializers
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     def get_object(self):
-        # Since you want only one Homemeta data record, always retrieve the first one
-        servicemeta, created = MetaTagsservices.objects.get_or_create(pk=1)
-        return servicemeta
+        service_id = self.kwargs.get('pk')  # Get the service ID from URL
+        try:
+            servicemeta = MetaTagsservices.objects.get(pk=service_id)
+            return servicemeta
+        except MetaTagsservices.DoesNotExist:
+            # If the service ID does not exist, return 404 Not Found
+            return Response(status=status.HTTP_404_NOT_FOUND)
     
 class SpecializedServiceListCreate(generics.ListCreateAPIView):
     queryset = SpecializedService.objects.all()

@@ -32,11 +32,17 @@ class QuoteViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+class BlogMetaCreateView(generics.CreateAPIView):
+    queryset = MetaTagsBlogs.objects.all()
+    serializer_class = Blogs_metadataSerializers
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
 class BlogMetaListView(generics.ListAPIView):
     queryset = MetaTagsBlogs.objects.all()
     serializer_class = Blogs_metadataSerializers
 
-class BlogMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+class BlogMetaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MetaTagsBlogs.objects.all()
     serializer_class = Blogs_metadataSerializers
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

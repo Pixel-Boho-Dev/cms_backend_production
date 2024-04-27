@@ -13,7 +13,7 @@ urlpatterns = [
     path('contact-form/<int:pk>/', views.ContactFormRetrieveUpdateDeleteView.as_view(), name='contact-form-retrieve-update-delete'),
 
     # End points for contacts page metadata.
-    path('contactmeta/',views.ContactMetaRetrieveUpdateView.as_view(),name='contact_meta_create'),
+    path('contactmeta/',views.ContactMetaRetrieveUpdateDeleteView.as_view(),name='contact_meta_create'),
     path('contactmetall/',views.ContactMetaListView.as_view(),name='contactmeta_all'),
 
     # End points for Frequently asked questions
