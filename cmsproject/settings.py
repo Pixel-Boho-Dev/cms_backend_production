@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'chooses',
     'footer',
     'industry_cards',
-    
+    'service_card',
     
 
     # 'customadmin',
