@@ -4,8 +4,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from socialmedia.models import Service
 from socialmedia.serializers import SubServiceSerializer,ServiceheadingSubServiceSerializer
-from .models import SubService,MetaTagsservices,Subheading
-from .serializers import Service_metadataSerializers, subheadingSerializers
+from .models import SubService,MetaTagsservices,Subheading,SpecializedService,SpecializedSubService
+from .serializers import Service_metadataSerializers, subheadingSerializers,SpecializedServiceSerializer,SpecializedSubServiceSerializer
 from socialmedia.serializers import ServiceSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -96,3 +96,29 @@ class ServicesMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
         # Since you want only one Homemeta data record, always retrieve the first one
         servicemeta, created = MetaTagsservices.objects.get_or_create(pk=1)
         return servicemeta
+    
+class SpecializedServiceListCreate(generics.ListCreateAPIView):
+    queryset = SpecializedService.objects.all()
+    serializer_class = SpecializedServiceSerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+  
+class SpecializedServiceRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SpecializedService.objects.all()
+    serializer_class = SpecializedServiceSerializer
+
+class SpecializedSubServiceListCreate(generics.ListCreateAPIView):
+    queryset = SpecializedSubService.objects.all()
+    serializer_class = SpecializedSubServiceSerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class SpecializedSubServiceRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SpecializedSubService.objects.all()
+    serializer_class = SpecializedSubServiceSerializer
