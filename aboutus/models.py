@@ -38,6 +38,13 @@ class Milestone(models.Model):
     def __str__(self):
         return f"{self.year} - {self.title}"
 
+class MilestoneTitle(models.Model):
+    title = models.CharField(max_length=200)
+    sub_title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
+
 # model for storing ourTeam
 class OurTeam(models.Model):
     # team_title = models.CharField(max_length=100)
@@ -45,6 +52,7 @@ class OurTeam(models.Model):
     profile_pic = models.ImageField(upload_to='our_team/')
     title_name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
+    order_by = models.IntegerField()
  # atlernative tags for team profile_pic
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
@@ -56,16 +64,12 @@ class OurTeam(models.Model):
         return self.name
     
 
-
-
 class OurTeamTitle(models.Model):
     # Fields specific to titles
     title = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
-
-
 
 # Model for storing mission, vision and purpose
 class WhatWeAre(models.Model):
@@ -133,3 +137,13 @@ class MetaTagsAbout(models.Model):
     
     def __str__(self):
         return self.title
+    
+
+
+
+class WhatWeAreTitle(models.Model):
+    title = models.CharField(max_length=100)
+    def __str__(self):
+        return self.title
+    
+

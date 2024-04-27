@@ -5,7 +5,8 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
                     WhatWeAreCreateView,WhatWeAreListView,WhatWeAreRetrieveUpdateDeleteView,CertificationRetrieveUpdateDeleteView,
 
                     CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateView,CertificationTitleListCreate,
-                    CertificationTitleRetrieveUpdateDestroy, OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView)
+                    CertificationTitleRetrieveUpdateDestroy, OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView,
+                    MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy,WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView)
 
 
 urlpatterns = [
@@ -22,6 +23,9 @@ urlpatterns = [
     path('milestones/', MilestoneCreateView.as_view(), name='milestone-create'),
     path('milestones/<int:pk>/', MilestoneRetrieveUpdateDeleteView.as_view(), name='milestone-retrieve-update-delete'),
 
+    path('milestonetitle/', MilestoneTitleListCreate.as_view(), name='milestonetitle-create'),
+    path('milestonetitle/<int:pk>/', MilestoneTitleRetrieveUpdateDestroy.as_view(),name='milestonetitle-detail'),
+
     # urls for our team
 
     path('our-team/create/', OurTeamCreateView.as_view(), name='our-team-create'),
@@ -29,15 +33,9 @@ urlpatterns = [
     path('our-team/', OurTeamListView.as_view(), name='our-team-list'),
 
 
-
-
     path('our-team-title/create/', OurTeamTitleCreateView.as_view(), name='our-team-title-create'),
     path('our-team-title/<int:pk>/', OurTeamTitleRetrieveUpdateDeleteView.as_view(), name='our-team-title-detail'),
     path('our-team-title/', OurTeamTitleListView.as_view(), name='our-team-title-list'),
-
-
-
-
 
     # urls for what we are
 
@@ -46,16 +44,23 @@ urlpatterns = [
     path('what-we-are/', WhatWeAreListView.as_view(), name='what-we-are-list'),
 
     # urls for certifications
-    path('certification/create/', CertificationCreateView.as_view(), name='what-we-are-create'),
-    path('certification/<int:pk>/', CertificationRetrieveUpdateDeleteView.as_view(), name='what-we-are-detail'),
-    path('certification/', CertificatioListView.as_view(), name='what-we-are-list'),
+    path('certification/create/', CertificationCreateView.as_view(), name='certificate-create'),
+    path('certification/<int:pk>/', CertificationRetrieveUpdateDeleteView.as_view(), name='certificate-detail'),
+    path('certification/', CertificatioListView.as_view(), name='certificate-list'),
 
-    path('certificationtitle/',CertificationTitleListCreate.as_view(),name='achievement-section-create'),
-    path('certificationtitle/<int:pk>/',CertificationTitleRetrieveUpdateDestroy.as_view(),name='achievement-section-retrieve-update-delete'),
+    path('certificationtitle/',CertificationTitleListCreate.as_view(),name='certificate-section-create'),
+    path('certificationtitle/<int:pk>/',CertificationTitleRetrieveUpdateDestroy.as_view(),name='certificate-section-retrieve-update-delete'),
 
     # urls for blogs meta data
 
     path('aboutmeta/',AboutMetaRetrieveUpdateView.as_view(),name='blog_meta_create'),
-    path('aboutmetall/',AboutMetaListView.as_view(),name='blogmeta_all')
+    path('aboutmetall/',AboutMetaListView.as_view(),name='blogmeta_all'),
+
+
+    path('what-we-are-title/create/', WhatWeAreTitleCreateView.as_view(), name='what-we-are-title-create'),
+    path('what-we-are-title/<int:pk>/', WhatWeAreTitleRetrieveUpdateDeleteView.as_view(), name='what-we-are-title-detail'),
+    path('what-we-are-title/', WhatWeAreTitleListView.as_view(), name='what-we-are-title-list'),
+
+
     
 ]

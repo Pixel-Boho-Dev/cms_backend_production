@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle
-from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer
+from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,MilestoneTitle,WhatWeAreTitle
+from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,MilestoneTitleSerializer,WhatWeAreTitleSerializer
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
 from rest_framework.response import Response
@@ -74,6 +74,20 @@ class MilestoneRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+class MilestoneTitleListCreate(generics.ListCreateAPIView):
+    queryset = MilestoneTitle.objects.all()
+    serializer_class = MilestoneTitleSerializer
+
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+    
+class MilestoneTitleRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MilestoneTitle.objects.all()
+    serializer_class = MilestoneTitleSerializer
+
 # views for our team
 class OurTeamCreateView(generics.CreateAPIView):
     queryset = OurTeam.objects.all()
@@ -92,15 +106,6 @@ class OurTeamRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
 class OurTeamListView(generics.ListAPIView):
     queryset = OurTeam.objects.all().order_by('-id')
     serializer_class = OurTeamSerializer
-
-
-
-
-
-
-
-
-
 
 
 class OurTeamTitleCreateView(generics.CreateAPIView):
@@ -184,3 +189,22 @@ class AboutMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
         # Since we want only one Aboutmeta data record, always retrieve the first one
         aboutmeta, created = MetaTagsAbout.objects.get_or_create(pk=1)
         return aboutmeta
+    
+
+class WhatWeAreTitleCreateView(generics.CreateAPIView):
+    queryset = WhatWeAreTitle.objects.all()
+    serializer_class = WhatWeAreTitleSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+class WhatWeAreTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = WhatWeAreTitle.objects.all()
+    serializer_class = WhatWeAreTitleSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    lookup_field = 'pk'
+
+class WhatWeAreTitleListView(generics.ListAPIView):
+    queryset = WhatWeAreTitle.objects.all().order_by('-id')
+    serializer_class = WhatWeAreTitleSerializer
