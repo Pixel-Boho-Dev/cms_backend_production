@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import BlogPostViewSet, ImageViewSet, HighlightViewSet, QuoteViewSet, BlogMetaListView,BlogMetaRetrieveUpdateView
+from .views import BlogPostViewSet, ImageViewSet, HighlightViewSet, QuoteViewSet,BlogMetaCreateView, BlogMetaListView,BlogMetaRetrieveUpdateDeleteView
 
 urlpatterns = [
     path('blogposts/', BlogPostViewSet.as_view({'get': 'list', 'post': 'create'}), name='blogpost-list-create'),
@@ -16,7 +16,9 @@ urlpatterns = [
     path('blogquotes/<int:pk>/', QuoteViewSet.as_view({'get': 'retrieve', 'put': 'update', 'patch': 'partial_update', 'delete': 'destroy'}), name='quote-detail'),
 
     # urls for blogs meta data
+        
+    path('blogmeta/',BlogMetaCreateView.as_view(),name='blogmeta_create'),
+    path('blogmetall/',BlogMetaListView.as_view(),name='blogmeta_all'),
 
-    path('blogmeta/',BlogMetaRetrieveUpdateView.as_view(),name='blog_meta_create'),
-    path('blogmetall/',BlogMetaListView.as_view(),name='blogmeta_all')
+    path('blogmeta/<int:pk>/',BlogMetaRetrieveUpdateDeleteView.as_view(),name='blog_meta_update'),
 ]

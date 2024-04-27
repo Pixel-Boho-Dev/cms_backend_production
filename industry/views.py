@@ -28,7 +28,7 @@ class IndustriesMetaListView(generics.ListAPIView):
     serializer_class = Industries_metadataSerializers
     
 
-class IndustriesMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+class IndustriesMetaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MetaTagsIndustries.objects.all()
     serializer_class = Industries_metadataSerializers
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

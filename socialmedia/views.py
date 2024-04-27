@@ -40,7 +40,7 @@ class ServiceListView(generics.ListAPIView):
 
 class ServiceRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Service.objects.all()
-    serializer_class = ServiceSerializer
+    serializer_class = ServiceheaderSerializer
     
 
 # views for locations
@@ -229,7 +229,7 @@ class HomeMetaListView(generics.ListAPIView):
     queryset = MetaTagsHome.objects.all()
     serializer_class = MetaTagsHomeSerializer
 
-class HomeMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+class HomeMetaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MetaTagsHome.objects.all()
     serializer_class = MetaTagsHomeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import IndustriesPageListCreateView, IndustriesPageRetrieveUpdateDeleteView,IndustriesMetaListView,IndustriesMetaRetrieveUpdateView
+from .views import IndustriesPageListCreateView, IndustriesPageRetrieveUpdateDeleteView,IndustriesMetaListView,IndustriesMetaRetrieveUpdateDeleteView
 
 urlpatterns = [
     path('industries/edit/', IndustriesPageListCreateView.as_view(), name='industries-list'),
@@ -8,7 +8,7 @@ urlpatterns = [
     
 
 
-    path('industriesmeta/',IndustriesMetaRetrieveUpdateView.as_view(),name='industries_meta_create'),
+    path('industriesmeta/',IndustriesMetaRetrieveUpdateDeleteView.as_view(),name='industries_meta_create'),
     path('industriesmetall/',IndustriesMetaListView.as_view(),name='industriesmeta_all')
     
 ]
