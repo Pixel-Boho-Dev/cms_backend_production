@@ -6,6 +6,7 @@ from socialmedia.models import Location
 
 class Office(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    place_name = models.CharField(max_length=100)
     office_address = models.CharField(max_length=100)
     phone_number1 = models.CharField(max_length=20)
     phone_number2 = models.CharField(max_length=20, blank=True, null=True)
