@@ -67,7 +67,7 @@ class LocationMetaListView(generics.ListAPIView):
     queryset = MetaTagsLocation.objects.all().order_by('-id')
     serializer_class = Location_metadataSerializers
 
-class LocationMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+class LocationMetaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MetaTagsLocation.objects.all().order_by('-id')
     serializer_class = Location_metadataSerializers
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

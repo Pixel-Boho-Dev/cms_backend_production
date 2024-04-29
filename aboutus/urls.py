@@ -4,7 +4,7 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
                     MilestoneRetrieveUpdateDeleteView,OurTeamCreateView,OurTeamRetrieveUpdateDeleteView,OurTeamListView,
                     WhatWeAreCreateView,WhatWeAreListView,WhatWeAreRetrieveUpdateDeleteView,CertificationRetrieveUpdateDeleteView,
 
-                    CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateView,CertificationTitleListCreate,
+                    CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateDestroyView,CertificationTitleListCreate,
                     CertificationTitleRetrieveUpdateDestroy, OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView,
                     MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy,WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView)
 
@@ -53,7 +53,7 @@ urlpatterns = [
 
     # urls for blogs meta data
 
-    path('aboutmeta/',AboutMetaRetrieveUpdateView.as_view(),name='blog_meta_create'),
+    path('aboutmeta/',AboutMetaRetrieveUpdateDestroyView.as_view(),name='blog_meta_create'),
     path('aboutmetall/',AboutMetaListView.as_view(),name='blogmeta_all'),
 
 

@@ -179,7 +179,7 @@ class AboutMetaListView(generics.ListAPIView):
     queryset = MetaTagsAbout.objects.all()
     serializer_class = About_metadataSerializers
 
-class AboutMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+class AboutMetaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MetaTagsAbout.objects.all()
     serializer_class = About_metadataSerializers
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

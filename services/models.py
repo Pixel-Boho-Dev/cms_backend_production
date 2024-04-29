@@ -56,3 +56,28 @@ class MetaTagsservices(models.Model):
 
     def __str__(self):
         return self.title
+
+class SpecializedService(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='specializedservice_images/')
+    alt_img_text = models.TextField(max_length=300, null=True,blank=True)
+    alt_img_title = models.TextField(max_length=300, null=True,blank=True)
+    alt_img_Caption = models.TextField(max_length=300,null=True,blank=True)
+    alt_img_description = models.TextField(max_length=300,null=True,blank=True)
+    link = models.URLField(max_length=1000)
+
+    def __str__(self):
+        return self.title
+    
+class SpecializedSubService(models.Model):
+    description = models.CharField(max_length=200)
+    title = models.CharField(max_length=200,null=True,blank=True)
+    image = models.ImageField(upload_to='specializedsubservice_images/',null=True,blank=True)
+    alt_img_text = models.TextField(max_length=300, null=True,blank=True)
+    alt_img_title = models.TextField(max_length=300, null=True,blank=True)
+    alt_img_Caption = models.TextField(max_length=300,null=True,blank=True)
+    alt_img_description = models.TextField(max_length=300,null=True,blank=True)
+
+    def __str__(self):
+        return self.title

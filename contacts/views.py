@@ -75,7 +75,7 @@ class ContactMetaListView(generics.ListAPIView):
     queryset = MetaTagsContacts.objects.all()
     serializer_class = Contact_metadataSerializers
 
-class ContactMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+class ContactMetaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MetaTagsContacts.objects.all()
     serializer_class = Contact_metadataSerializers
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
