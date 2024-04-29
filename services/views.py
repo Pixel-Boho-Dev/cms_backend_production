@@ -4,8 +4,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from socialmedia.models import Service
 from socialmedia.serializers import SubServiceSerializer,ServiceheadingSubServiceSerializer
-from .models import SubService,MetaTagsservices,Subheading
-from .serializers import Service_metadataSerializers, subheadingSerializers
+from .models import SubService,MetaTagsservices,Subheading,SpecializedService,SpecializedSubService
+from .serializers import Service_metadataSerializers, subheadingSerializers,SpecializedServiceSerializer,SpecializedSubServiceSerializer
 from socialmedia.serializers import ServiceSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -80,19 +80,53 @@ class SubServiceViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-
+class ServiceMetaCreateView(generics.CreateAPIView):
+    queryset = MetaTagsservices.objects.all()
+    serializer_class = Service_metadataSerializers
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
 class ServicesMetaListView(generics.ListAPIView):
-    queryset = MetaTagsservices.objects.all().order_by('-id') 
+    queryset = MetaTagsservices.objects.all()
     serializer_class = Service_metadataSerializers
 
-class ServicesMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+class ServicesMetaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MetaTagsservices.objects.all().order_by('-id') 
     serializer_class = Service_metadataSerializers
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
     def get_object(self):
-        # Since you want only one Homemeta data record, always retrieve the first one
-        servicemeta, created = MetaTagsservices.objects.get_or_create(pk=1)
-        return servicemeta
+        service_id = self.kwargs.get('pk')  # Get the service ID from URL
+        try:
+            servicemeta = MetaTagsservices.objects.get(pk=service_id)
+            return servicemeta
+        except MetaTagsservices.DoesNotExist:
+            # If the service ID does not exist, return 404 Not Found
+            return Response(status=status.HTTP_404_NOT_FOUND)
+    
+class SpecializedServiceListCreate(generics.ListCreateAPIView):
+    queryset = SpecializedService.objects.all()
+    serializer_class = SpecializedServiceSerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+  
+class SpecializedServiceRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SpecializedService.objects.all()
+    serializer_class = SpecializedServiceSerializer
+
+class SpecializedSubServiceListCreate(generics.ListCreateAPIView):
+    queryset = SpecializedSubService.objects.all()
+    serializer_class = SpecializedSubServiceSerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class SpecializedSubServiceRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SpecializedSubService.objects.all()
+    serializer_class = SpecializedSubServiceSerializer

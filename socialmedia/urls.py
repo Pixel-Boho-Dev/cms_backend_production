@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import (HomeMetaRetrieveUpdateView, SocialMediaCreateView, SocialMediaRetrieveUpdateDeleteView,ServiceCreateView, ServiceListView, 
+from .views import (HomeMetaRetrieveUpdateDeleteView, SocialMediaCreateView, SocialMediaRetrieveUpdateDeleteView,ServiceCreateView, ServiceListView, 
                     ServiceRetrieveUpdateDeleteView,LocationCreateView,LocationListView,LocationRetrieveUpdateDeleteView,
                     AchievementCreateView, AchievementListView, AchievementRetrieveUpdateDeleteView,HighlightCreateView, 
 
@@ -65,7 +65,7 @@ urlpatterns = [
 
 # urls for meta tags in home
 
-    path('homemeta/',HomeMetaRetrieveUpdateView.as_view(),name='home_meta_create'),
+    path('homemeta/',HomeMetaRetrieveUpdateDeleteView.as_view(),name='home_meta_create'),
     path('homemetall/',HomeMetaListView.as_view(),name='homemeta_all')
 
 ]

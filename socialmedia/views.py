@@ -2,7 +2,7 @@ from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import SocialMedia,Service,Location,HomeHighlights,Industry,Market,Home,Achievement,MetaTagsHome,AchievementSection,HighlightsSection,MarketTitle
-from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,HomeSerializer,AchievementSerializer,MetaTagsHomeSerializer,AchievementSectionSerializer,HighlightsSectionSerializer,MarketTitleSerializer
+from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,HomeSerializer,AchievementSerializer,MetaTagsHomeSerializer,AchievementSectionSerializer,HighlightsSectionSerializer,MarketTitleSerializer,ServiceheaderSerializer
 from rest_framework.pagination import PageNumberPagination
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
@@ -35,12 +35,12 @@ class ServiceCreateView(generics.CreateAPIView):
 
 class ServiceListView(generics.ListAPIView):
     queryset = Service.objects.all()
-    serializer_class = ServiceSerializer
+    serializer_class = ServiceheaderSerializer
     pagination_class = PageNumberPagination
 
 class ServiceRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Service.objects.all()
-    serializer_class = ServiceSerializer
+    serializer_class = ServiceheaderSerializer
     
 
 # views for locations
@@ -229,7 +229,7 @@ class HomeMetaListView(generics.ListAPIView):
     queryset = MetaTagsHome.objects.all()
     serializer_class = MetaTagsHomeSerializer
 
-class HomeMetaRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+class HomeMetaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MetaTagsHome.objects.all()
     serializer_class = MetaTagsHomeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
