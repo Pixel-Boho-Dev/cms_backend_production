@@ -29,6 +29,13 @@ class OurTeamSerializer(serializers.ModelSerializer):
     class Meta:
         model = OurTeam
         fields = '__all__'
+    
+    
+    def create(self, validated_data):
+        # Calculate order_by based on the number of existing objects + 1
+        validated_data['order_by'] = OurTeam.objects.count() + 1
+        return super().create(validated_data)
+
 
 class OurTeamTitleSerializer(serializers.ModelSerializer):
     class Meta:
