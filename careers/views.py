@@ -1,11 +1,11 @@
 from rest_framework import generics, permissions
-from .models import CareerPage,CareerSubmission
+from .models import CareerPage,CareerSubmission ,MetaTagscareers
 from .serializers import CareerPageSerializer
 from rest_framework.permissions import IsAuthenticated
 # from rest_framework.authentication import JWTAuthentication
 from django.core.mail import send_mail
 from django.conf import settings
-from .serializers import CareerSubmissionSerializer
+from .serializers import CareerSubmissionSerializer ,Careers_metadataSerializers
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
@@ -46,3 +46,18 @@ class CareerSubmissionListCreateView(generics.ListCreateAPIView):
         from_email = settings.EMAIL_HOST_USER
         recipient_list = ['smtptest@pixelboho.com']  # Replace with the admin's email address
         send_mail(subject, message, from_email, recipient_list)
+
+class CareersMetaListView(generics.ListAPIView):
+    queryset = MetaTagscareers.objects.all()
+    serializer_class = Careers_metadataSerializers
+
+class CareersMetaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MetaTagscareers.objects.all()
+    serializer_class = Careers_metadataSerializers
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    def get_object(self):
+        # Since we want only one contactmeta data record, always retrieve the first one
+        homemeta, created = MetaTagscareers.objects.get_or_create(pk=1)
+        return homemeta

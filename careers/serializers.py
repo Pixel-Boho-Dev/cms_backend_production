@@ -1,6 +1,6 @@
 # serializers.py
 from rest_framework import serializers
-from .models import CareerPage, CareerSubmission
+from .models import CareerPage, CareerSubmission ,MetaTagscareers
 
 class CareerPageSerializer(serializers.ModelSerializer):
     # submitted_at = serializers.DateTimeField(format='%Y-%m-%d %H:%M:%S')
@@ -16,3 +16,8 @@ class CareerSubmissionSerializer(serializers.ModelSerializer):
         representation = super().to_representation(instance)
         representation['submitted_at'] = instance.submitted_at.strftime('%Y-%m-%d %H:%M')
         return representation
+    
+class Careers_metadataSerializers(serializers.ModelSerializer):
+    class Meta:
+        model   =   MetaTagscareers
+        fields  =   '__all__'
