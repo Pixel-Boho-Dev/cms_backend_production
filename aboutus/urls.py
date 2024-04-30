@@ -4,7 +4,7 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
                     MilestoneRetrieveUpdateDeleteView,OurTeamCreateView,OurTeamRetrieveUpdateDeleteView,OurTeamListView,
                     WhatWeAreCreateView,WhatWeAreListView,WhatWeAreRetrieveUpdateDeleteView,CertificationRetrieveUpdateDeleteView,
 
-                    CertificatioListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateDestroyView,CertificationTitleListCreate,
+                    CertificationListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateDestroyView,CertificationTitleListCreate,
                     CertificationTitleRetrieveUpdateDestroy, OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView,
                     MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy,WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView)
 
@@ -46,7 +46,7 @@ urlpatterns = [
     # urls for certifications
     path('certification/create/', CertificationCreateView.as_view(), name='certificate-create'),
     path('certification/<int:pk>/', CertificationRetrieveUpdateDeleteView.as_view(), name='certificate-detail'),
-    path('certification/', CertificatioListView.as_view(), name='certificate-list'),
+    path('certification/', CertificationListView.as_view(), name='certificate-list'),
 
     path('certificationtitle/',CertificationTitleListCreate.as_view(),name='certificate-section-create'),
     path('certificationtitle/<int:pk>/',CertificationTitleRetrieveUpdateDestroy.as_view(),name='certificate-section-retrieve-update-delete'),

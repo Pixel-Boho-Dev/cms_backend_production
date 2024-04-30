@@ -13,6 +13,11 @@ class IndustryCardListAPIView(generics.ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
 class IndustryCardDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = IndustryCard.objects.all()
     serializer_class = IndustryCardSerializer
@@ -24,6 +29,11 @@ class IndustryTitleListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = IndustryTitleSerializer
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 class IndustryTitleDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = IndustryTitles.objects.all()
