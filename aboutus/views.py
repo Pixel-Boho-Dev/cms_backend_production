@@ -107,6 +107,10 @@ class OurTeamListView(generics.ListAPIView):
     queryset = OurTeam.objects.all().order_by('-id')
     serializer_class = OurTeamSerializer
 
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 class OurTeamTitleCreateView(generics.CreateAPIView):
     queryset = OurTeamTitle.objects.all()
@@ -121,7 +125,11 @@ class OurTeamTitleListView(generics.ListAPIView):
     queryset = OurTeamTitle.objects.all()
     serializer_class = OurTeamTitleSerializer
 
-
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+    
 # views for what we are
 class WhatWeAreCreateView(generics.CreateAPIView):
     queryset = WhatWeAre.objects.all()
@@ -141,6 +149,11 @@ class WhatWeAreListView(generics.ListAPIView):
     queryset = WhatWeAre.objects.all().order_by('-id')
     serializer_class = WhatWeAreSerializer
 
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
 # views for certifications
 class CertificationCreateView(generics.CreateAPIView):
     queryset=Certifications.objects.all()
@@ -157,9 +170,14 @@ class CertificationRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIVie
     lookup_field = 'pk'
 
 
-class CertificatioListView(generics.ListAPIView):
+class CertificationListView(generics.ListAPIView):
     queryset = Certifications.objects.all().order_by('-id')
     serializer_class = CertificationSerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 class CertificationTitleListCreate(generics.ListCreateAPIView):
     queryset = CertificateTitle.objects.all()
@@ -208,3 +226,12 @@ class WhatWeAreTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIVi
 class WhatWeAreTitleListView(generics.ListAPIView):
     queryset = WhatWeAreTitle.objects.all().order_by('-id')
     serializer_class = WhatWeAreTitleSerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+    
+    
+    
