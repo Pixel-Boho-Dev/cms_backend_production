@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
+from django.db import models
 
 from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,OurTeamTitle,MilestoneTitle,WhatWeAreTitle
 
@@ -31,10 +33,23 @@ class OurTeamSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
     
-    def create(self, validated_data):
-        # Calculate order_by based on the number of existing objects + 1
-        validated_data['order_by'] = OurTeam.objects.count() + 1
-        return super().create(validated_data)
+    def update(self, instance, validated_data):
+        new_order = validated_data.get('order_by', instance.order_by)
+
+        # Get the current order_by value of the instance
+        current_order = instance.order_by
+
+        # If the new order is greater than the current order,
+        # move all objects with order_by values between current_order and new_order down by 1
+        if new_order > current_order:
+            OurTeam.objects.filter(order_by__gt=current_order, order_by__lte=new_order).update(order_by=models.F('order_by') - 1)
+
+        # If the new order is less than the current order,
+        # move all objects with order_by values between new_order and current_order up by 1
+        elif new_order < current_order:
+            OurTeam.objects.filter(order_by__lt=current_order, order_by__gte=new_order).update(order_by=models.F('order_by') + 1)
+
+        return super().update(instance, validated_data)
 
 
 class OurTeamTitleSerializer(serializers.ModelSerializer):
