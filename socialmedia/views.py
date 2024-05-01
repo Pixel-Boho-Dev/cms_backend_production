@@ -73,7 +73,11 @@ class AchievementCreateView(generics.CreateAPIView):
 class AchievementListView(generics.ListAPIView):
     queryset = Achievement.objects.all().order_by('-id')
     serializer_class = AchievementSerializer
-    pagination_class = PageNumberPagination
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 class AchievementRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Achievement.objects.all()
@@ -106,8 +110,12 @@ class HighlightCreateView(generics.CreateAPIView):
 class HighlightListView(generics.ListAPIView):
     queryset = HomeHighlights.objects.all()
     serializer_class = HighlightSerializer
-    pagination_class = PageNumberPagination
 
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+    
 class HighlightRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = HomeHighlights.objects.all()
     serializer_class = HighlightSerializer
@@ -199,6 +207,7 @@ class MarketTitleListView(generics.ListAPIView):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+    
 class MarketTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MarketTitle.objects.all()
     serializer_class = MarketTitleSerializer
