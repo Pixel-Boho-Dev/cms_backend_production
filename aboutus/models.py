@@ -38,12 +38,12 @@ class Milestone(models.Model):
     def __str__(self):
         return f"{self.year} - {self.title}"
 
-class MilestoneTitle(models.Model):
-    title = models.CharField(max_length=200)
-    sub_title = models.CharField(max_length=200)
+# class MilestoneTitle(models.Model):
+#     title = models.CharField(max_length=200)
+#     sub_title = models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title
 
 # model for storing ourTeam
 class OurTeam(models.Model):
