@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,WhatWeAreTitle
-from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,WhatWeAreTitleSerializer
+from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,WhatWeAreTitle,MilestoneTitle
+from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,WhatWeAreTitleSerializer,MilestoneTitleSerializer
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
 from rest_framework.response import Response
@@ -74,19 +74,19 @@ class MilestoneRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-# class MilestoneTitleListCreate(generics.ListCreateAPIView):
-#     queryset = MilestoneTitle.objects.all()
-#     serializer_class = MilestoneTitleSerializer
+class MilestoneTitleListCreate(generics.ListCreateAPIView):
+    queryset = MilestoneTitle.objects.all()
+    serializer_class = MilestoneTitleSerializer
 
 
-#     def list(self, request, *args, **kwargs):
-#         queryset = self.filter_queryset(self.get_queryset())
-#         serializer = self.get_serializer(queryset, many=True)
-#         return Response(serializer.data)
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
     
-# class MilestoneTitleRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = MilestoneTitle.objects.all()
-#     serializer_class = MilestoneTitleSerializer
+class MilestoneTitleRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MilestoneTitle.objects.all()
+    serializer_class = MilestoneTitleSerializer
 
 # views for our team
 class OurTeamCreateView(generics.CreateAPIView):

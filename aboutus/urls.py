@@ -6,7 +6,7 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
 
                     CertificationListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateDestroyView,CertificationTitleListCreate,
                     CertificationTitleRetrieveUpdateDestroy, OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView,
-                    WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView)
+                    WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView,MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy)
 
 
 urlpatterns = [
@@ -23,8 +23,8 @@ urlpatterns = [
     path('milestones/', MilestoneCreateView.as_view(), name='milestone-create'),
     path('milestones/<int:pk>/', MilestoneRetrieveUpdateDeleteView.as_view(), name='milestone-retrieve-update-delete'),
 
-    # path('milestonetitle/', MilestoneTitleListCreate.as_view(), name='milestonetitle-create'),
-    # path('milestonetitle/<int:pk>/', MilestoneTitleRetrieveUpdateDestroy.as_view(),name='milestonetitle-detail'),
+    path('milestonetitle/', MilestoneTitleListCreate.as_view(), name='milestonetitle-create'),
+    path('milestonetitle/<int:pk>/', MilestoneTitleRetrieveUpdateDestroy.as_view(),name='milestonetitle-detail'),
 
     # urls for our team
 
