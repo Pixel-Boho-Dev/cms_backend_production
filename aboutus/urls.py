@@ -6,7 +6,10 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
 
                     CertificationListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateDestroyView,CertificationTitleListCreate,
                     CertificationTitleRetrieveUpdateDestroy, OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView,
+
                     MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy,WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView,OurstoryTitleCreateView,OurstoryTitleRetrieveUpdateDeleteView,OurstoryTitleListView)
+
+                    WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView,MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestro
 
 
 urlpatterns = [
