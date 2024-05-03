@@ -54,7 +54,8 @@ class LocationCreateView(generics.CreateAPIView):
 class LocationListView(generics.ListAPIView):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
-    pagination_class = PageNumberPagination
+    pagination_class = None
+
 
 class LocationRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Location.objects.all()
