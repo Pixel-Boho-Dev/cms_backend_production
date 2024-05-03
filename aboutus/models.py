@@ -1,6 +1,6 @@
 # Create your models here.
 from django.db import models
-from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator
 
 
 # Model for about page header sections
@@ -28,6 +28,12 @@ class OurStory(models.Model):
         return self.title
     
 
+class OurstoryTitle(models.Model):
+    # Fields specific to titles
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
 
 
 # model for storing milestones 
@@ -55,7 +61,7 @@ class OurTeam(models.Model):
     profile_pic = models.ImageField(upload_to='our_team/')
     title_name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
-    order_by = models.IntegerField()
+    order_by = models.IntegerField(validators=[MinValueValidator(0)], unique=True)
  # atlernative tags for team profile_pic
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)

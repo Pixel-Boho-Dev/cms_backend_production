@@ -34,9 +34,19 @@ class OurTeamSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
     
+class OurTeamSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OurTeam
+        fields = '__all__'
+
+    def validate_order_by(self, value):
+        if self.instance and OurTeam.objects.exclude(pk=self.instance.pk).filter(order_by=value).exists():
+            raise serializers.ValidationError("Already exist.")
+        return value
+
     def update(self, instance, validated_data):
         new_order = validated_data.get('order_by', instance.order_by)
-
+        
         # Get the current order_by value of the instance
         current_order = instance.order_by
 
@@ -52,6 +62,13 @@ class OurTeamSerializer(serializers.ModelSerializer):
 
         return super().update(instance, validated_data)
 
+    def to_internal_value(self, data):
+        order_by = data.get('order_by')
+        if OurTeam.objects.filter(order_by=order_by).exists():
+            raise serializers.ValidationError({"order_by": ["Already exist."]})
+        return super().to_internal_value(data)
+
+    
 
 class OurTeamTitleSerializer(serializers.ModelSerializer):
     class Meta:
