@@ -26,6 +26,15 @@ class OurStory(models.Model):
  # atlernative tags for image 
     def __str__(self):
         return self.title
+    
+
+class OurstoryTitle(models.Model):
+    # Fields specific to titles
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
 
 # model for storing milestones 
 class Milestone(models.Model):
