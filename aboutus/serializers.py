@@ -3,8 +3,7 @@ from rest_framework.exceptions import ValidationError
 from django.db import models
 
 
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,OurTeamTitle,MilestoneTitle,WhatWeAreTitle,OurstoryTitle
-
+from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,OurTeamTitle,MilestoneTitle,WhatWeAreTitle
 from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,OurTeamTitle,WhatWeAreTitle,MilestoneTitle
 
 
@@ -21,11 +20,6 @@ class OurStorySerializer(serializers.ModelSerializer):
         model = OurStory
         fields = '__all__'
 
-
-class OurstoryitleSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = OurstoryTitle
-        fields = '__all__'
 
 class MilestoneSerializer(serializers.ModelSerializer):
     class Meta:
