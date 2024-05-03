@@ -8,20 +8,20 @@ from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certif
 class AboutPageSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutPageSection
-        fields = '_all_'
+        fields = '__all__'
 
 
 class OurStorySerializer(serializers.ModelSerializer):
     class Meta:
         model = OurStory
-        fields = '_all_'
+        fields = '__all__'
 
 
 
 class MilestoneSerializer(serializers.ModelSerializer):
     class Meta:
         model = Milestone
-        fields = '_all_'
+        fields = '__all__'
 
 class MilestoneTitleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -31,7 +31,7 @@ class MilestoneTitleSerializer(serializers.ModelSerializer):
 class OurTeamSerializer(serializers.ModelSerializer):
     class Meta:
         model = OurTeam
-        fields = '_all_'
+        fields = '__all__'
     
     
     def update(self, instance, validated_data):
@@ -56,18 +56,18 @@ class OurTeamSerializer(serializers.ModelSerializer):
 class OurTeamTitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = OurTeamTitle
-        fields = '_all_'
+        fields = '__all__'
 
 
 class WhatWeAreSerializer(serializers.ModelSerializer):
     class Meta:
         model = WhatWeAre
-        fields='_all_'
+        fields='__all__'
 
 class CertificationSerializer(serializers.ModelSerializer):
     class Meta:
         model=Certifications
-        fields='_all_'
+        fields='__all__'
 
 class CertificateTitleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -77,7 +77,7 @@ class CertificateTitleSerializer(serializers.ModelSerializer):
 class About_metadataSerializers(serializers.ModelSerializer):
     class Meta:
         model   =   MetaTagsAbout
-        fields  =   '_all_'
+        fields  =   '__all__'
 
 class WhatWeAreTitleSerializer(serializers.ModelSerializer):
     class Meta:
