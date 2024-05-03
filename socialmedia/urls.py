@@ -4,7 +4,7 @@ from .views import (HomeMetaRetrieveUpdateDeleteView, SocialMediaCreateView, Soc
                     AchievementCreateView, AchievementListView, AchievementRetrieveUpdateDeleteView,HighlightCreateView, 
                     HighlightListView, HighlightRetrieveUpdateDeleteView,IndustryCreateView, IndustryListView, IndustryUpdateView,
                     MarketCreateView, MarketListView, MarketRetrieveUpdateDeleteView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
-                    HighlightSectionListCreate,HighlightSectionRetrieveUpdateDestroy,MarketTitleCreateView,MarketTitleListView,MarketTitleRetrieveUpdateDeleteView
+                    HighlightSectionListCreate,HighlightSectionRetrieveUpdateDestroy,MarketTitleCreateView,MarketTitleListView,MarketTitleRetrieveUpdateDeleteView,OurNetworkTitleCreateView,OurNetworkTitleListView,OurNetworkTitleRetrieveUpdateDeleteView
 
 )
 
@@ -23,6 +23,14 @@ urlpatterns = [
     path('locations/create/', LocationCreateView.as_view(), name='location-create'),
     path('locations/', LocationListView.as_view(), name='location-list'),
     path('locations/<int:pk>/', LocationRetrieveUpdateDeleteView.as_view(), name='location-retrieve-update-delete'),
+
+
+# urls for ournetwork title
+    path('ournetwork_title/create/', OurNetworkTitleCreateView.as_view(), name='ournetwork-title-create'),
+    path('ournetwork_title/', OurNetworkTitleListView.as_view(), name='ournetwork-title-list'),
+    path('ournetwork_title/<int:pk>/', OurNetworkTitleRetrieveUpdateDeleteView.as_view(), name='ournetwork-title-detail'),
+
+
 
 # urls for achievements
     path('achievements/create/', AchievementCreateView.as_view(), name='achievement-create'),

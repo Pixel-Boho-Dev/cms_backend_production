@@ -1,8 +1,8 @@
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import SocialMedia,Service,Location,HomeHighlights,Industry,Market,Home,Achievement,MetaTagsHome,AchievementSection,HighlightsSection,MarketTitle
-from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,HomeSerializer,AchievementSerializer,MetaTagsHomeSerializer,AchievementSectionSerializer,HighlightsSectionSerializer,MarketTitleSerializer,ServiceheaderSerializer
+from .models import SocialMedia,Service,Location,HomeHighlights,Industry,Market,Home,Achievement,MetaTagsHome,AchievementSection,HighlightsSection,MarketTitle,OurNetworkTitle
+from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,HomeSerializer,AchievementSerializer,MetaTagsHomeSerializer,AchievementSectionSerializer,HighlightsSectionSerializer,MarketTitleSerializer,ServiceheaderSerializer,OurNetworkTitleSerializer
 from rest_framework.pagination import PageNumberPagination
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
@@ -62,6 +62,32 @@ class LocationRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = LocationSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [JWTAuthentication]
+
+
+
+
+class OurNetworkTitleCreateView(generics.CreateAPIView):
+    queryset = OurNetworkTitle.objects.all()
+    serializer_class = OurNetworkTitleSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+class OurNetworkTitleListView(generics.ListAPIView):
+    queryset = OurNetworkTitle.objects.all()
+    serializer_class = OurNetworkTitleSerializer
+
+class OurNetworkTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OurNetworkTitle.objects.all()
+    serializer_class = OurNetworkTitleSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+
+
+
+
+
+
+
+
 
 # views for achievements
 

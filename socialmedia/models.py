@@ -51,6 +51,15 @@ class Location(models.Model):
 
     def __str__(self):
         return self.place_name
+    
+
+class OurNetworkTitle(models.Model):
+    title = models.CharField(max_length=100)
+    def __str__(self):
+        return self.title
+    
+
+
 
 
 # model for achievements
