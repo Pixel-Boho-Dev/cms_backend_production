@@ -53,12 +53,12 @@ class OurTeamSerializer(serializers.ModelSerializer):
         # If the new order is greater than the current order,
         # move all objects with order_by values between current_order and new_order down by 1
         if new_order > current_order:
-            OurTeam.objects.filter(order_by__gt=current_order, order_by__lte=new_order).update(order_by=models.F('order_by') - 1)
+            OurTeam.objects.filter(order_by_gt=current_order, order_by_lte=new_order).update(order_by=models.F('order_by') - 1)
 
         # If the new order is less than the current order,
         # move all objects with order_by values between new_order and current_order up by 1
         elif new_order < current_order:
-            OurTeam.objects.filter(order_by__lt=current_order, order_by__gte=new_order).update(order_by=models.F('order_by') + 1)
+            OurTeam.objects.filter(order_by_lt=current_order, order_by_gte=new_order).update(order_by=models.F('order_by') + 1)
 
         return super().update(instance, validated_data)
 
