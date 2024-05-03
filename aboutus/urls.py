@@ -6,7 +6,7 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
 
                     CertificationListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateDestroyView,CertificationTitleListCreate,
                     CertificationTitleRetrieveUpdateDestroy, OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView,
-                    MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy,WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView)
+                    MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy,WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView,OurstoryTitleCreateView,OurstoryTitleRetrieveUpdateDeleteView,OurstoryTitleListView)
 
 
 urlpatterns = [
@@ -15,7 +15,10 @@ urlpatterns = [
     path('about-page-sections/<int:pk>/', AboutPageSectionRetrieveUpdateDestroyView.as_view(), name='about-page-section-retrieve-update-destroy'),
 
     # urls for our story.
-   
+    path('ourstory_title/', OurstoryTitleCreateView.as_view(), name='ourstorytitle-create'),
+    path('ourstory_titles/', OurstoryTitleListView.as_view(), name='ourstorytitle-list'),
+    path('ourstory_title/<int:pk>/', OurstoryTitleRetrieveUpdateDeleteView.as_view(),name='ourstorytitle-detail'),
+
     path('our-story/create/', OurStoryCreateView.as_view(), name='our-story-create'),#not for end users
     path('our-story/', OurStoryRetrieveUpdateDeleteView.as_view(), name='our-story-update'),
 
