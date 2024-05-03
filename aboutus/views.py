@@ -39,38 +39,8 @@ class AboutPageSectionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAP
 
 
 # views for ourstory
-class OurStoryCreateView(generics.CreateAPIView):
-    queryset = OurStory.objects.all()
-    serializer_class = OurStorySerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
-    def get_object(self):
-        # There should be only one instance of the OurStory model
-        if OurStory.objects.exists():
-            return OurStory.objects.first()
-        else:
-            return None
-
-# views for updating and for unauthenticated users to see our story
-class OurStoryRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = OurStorySerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
-
-    def get_object(self):
-        # There should be only one instance of the OurStory model
-        if OurStory.objects.exists():
-            return OurStory.objects.first()
-        else:
-            return None
         
 
-
-
-
-
-
-        
 # views for milestones
 class MilestoneCreateView(generics.CreateAPIView,generics.ListAPIView):
     queryset = Milestone.objects.all()

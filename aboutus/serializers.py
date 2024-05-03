@@ -4,7 +4,6 @@ from django.db import models
 
 
 from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,OurTeamTitle,MilestoneTitle,WhatWeAreTitle
-
 from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,OurTeamTitle,WhatWeAreTitle,MilestoneTitle
 
 
@@ -14,14 +13,6 @@ class AboutPageSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutPageSection
         fields = '__all__'
-
-
-class OurStorySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = OurStory
-        fields = '__all__'
-
-
 
 class MilestoneSerializer(serializers.ModelSerializer):
     class Meta:

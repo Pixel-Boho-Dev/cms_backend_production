@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 cms_django.zip
 *.jpg
+cms_django_2.zip
