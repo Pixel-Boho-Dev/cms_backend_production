@@ -2,10 +2,9 @@ from django.urls import path
 from .views import (HomeMetaRetrieveUpdateDeleteView, SocialMediaCreateView, SocialMediaRetrieveUpdateDeleteView,ServiceCreateView, ServiceListView, 
                     ServiceRetrieveUpdateDeleteView,LocationCreateView,LocationListView,LocationRetrieveUpdateDeleteView,
                     AchievementCreateView, AchievementListView, AchievementRetrieveUpdateDeleteView,HighlightCreateView, 
-
                     HighlightListView, HighlightRetrieveUpdateDeleteView,IndustryCreateView, IndustryListView, IndustryUpdateView,
-                  MarketCreateView, MarketListView, MarketRetrieveUpdateDeleteView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
-                  HighlightSectionListCreate,HighlightSectionRetrieveUpdateDestroy,MarketTitleCreateView,MarketTitleListView,MarketTitleRetrieveUpdateDeleteView
+                    MarketCreateView, MarketListView, MarketRetrieveUpdateDeleteView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
+                    HighlightSectionListCreate,HighlightSectionRetrieveUpdateDestroy,MarketTitleCreateView,MarketTitleListView,MarketTitleRetrieveUpdateDeleteView
 
 )
 

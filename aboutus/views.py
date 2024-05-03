@@ -1,10 +1,9 @@
 from rest_framework import generics
 
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,MilestoneTitle,WhatWeAreTitle,OurstoryTitle
-from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,MilestoneTitleSerializer,WhatWeAreTitleSerializer,OurstoryitleSerializer
+from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,MilestoneTitle,WhatWeAreTitle
+from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,MilestoneTitleSerializer,WhatWeAreTitleSerializer
 
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,WhatWeAreTitle,MilestoneTitle
-from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,WhatWeAreTitleSerializer,MilestoneTitleSerializer
+
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
 from rest_framework.response import Response
@@ -65,20 +64,6 @@ class OurStoryRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
         else:
             return None
         
-class OurstoryTitleCreateView(generics.CreateAPIView):
-    queryset = OurstoryTitle.objects.all()
-    serializer_class = OurstoryitleSerializer
-
-class OurstoryTitleListView(generics.ListAPIView):
-    queryset = OurstoryTitle.objects.all()
-    serializer_class = OurstoryitleSerializer
-    pagination_class = None
-
-class OurstoryTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = OurstoryTitle.objects.all()
-    serializer_class = OurstoryitleSerializer
-
-
 
 
 
@@ -256,7 +241,3 @@ class WhatWeAreTitleListView(generics.ListAPIView):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
-
-    
-    
-    
