@@ -14,13 +14,6 @@ class AboutPageSectionSerializer(serializers.ModelSerializer):
         model = AboutPageSection
         fields = '__all__'
 
-
-class OurStorySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = OurStory
-        fields = '__all__'
-
-
 class MilestoneSerializer(serializers.ModelSerializer):
     class Meta:
         model = Milestone

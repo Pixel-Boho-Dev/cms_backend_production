@@ -18,8 +18,6 @@ urlpatterns = [
     path('about-page-sections/<int:pk>/', AboutPageSectionRetrieveUpdateDestroyView.as_view(), name='about-page-section-retrieve-update-destroy'),
 
     # urls for our story.
-    
-
     path('our-story/create/', OurStoryCreateView.as_view(), name='our-story-create'),#not for end users
     path('our-story/', OurStoryRetrieveUpdateDeleteView.as_view(), name='our-story-update'),
 

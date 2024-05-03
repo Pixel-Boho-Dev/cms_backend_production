@@ -1,10 +1,9 @@
 from rest_framework import generics
 
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,MilestoneTitle,WhatWeAreTitle,OurstoryTitle
+from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,MilestoneTitle,WhatWeAreTitle
 from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,MilestoneTitleSerializer,WhatWeAreTitleSerializer
 
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,WhatWeAreTitle,MilestoneTitle
-from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,WhatWeAreTitleSerializer,MilestoneTitleSerializer
+
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
 from rest_framework.response import Response
@@ -40,30 +39,6 @@ class AboutPageSectionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAP
 
 
 # views for ourstory
-class OurStoryCreateView(generics.CreateAPIView):
-    queryset = OurStory.objects.all()
-    serializer_class = OurStorySerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
-    def get_object(self):
-        # There should be only one instance of the OurStory model
-        if OurStory.objects.exists():
-            return OurStory.objects.first()
-        else:
-            return None
-
-# views for updating and for unauthenticated users to see our story
-class OurStoryRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = OurStorySerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
-
-    def get_object(self):
-        # There should be only one instance of the OurStory model
-        if OurStory.objects.exists():
-            return OurStory.objects.first()
-        else:
-            return None
         
 
 # views for milestones
