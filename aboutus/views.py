@@ -1,6 +1,9 @@
 from rest_framework import generics
-from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,WhatWeAreTitle,MilestoneTitle
-from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,WhatWeAreTitleSerializer,MilestoneTitleSerializer
+
+from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,MilestoneTitle,WhatWeAreTitle
+from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,MilestoneTitleSerializer,WhatWeAreTitleSerializer
+
+
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
 from rest_framework.response import Response
@@ -60,6 +63,13 @@ class OurStoryRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
             return OurStory.objects.first()
         else:
             return None
+        
+
+
+
+
+
+
         
 # views for milestones
 class MilestoneCreateView(generics.CreateAPIView,generics.ListAPIView):
@@ -231,7 +241,3 @@ class WhatWeAreTitleListView(generics.ListAPIView):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
-
-    
-    
-    
