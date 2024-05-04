@@ -39,7 +39,7 @@ class ServiceViewSet(viewsets.ModelViewSet):
             subservice_data = SubServiceSerializer(subservices, many=True).data
             subheading_data = {
                 'id': subheading.id,
-                'subheading': subheading.title,
+                'title': subheading.title,
                 'subservices': subservice_data
             }
             subheadings_data.append(subheading_data)
