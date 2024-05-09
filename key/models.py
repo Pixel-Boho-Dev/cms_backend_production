@@ -9,7 +9,7 @@ class key_diffrentiates(models.Model):
 
 class key_diffrentiatesSection(models.Model):
     title = models.CharField(max_length=100)
-    subtitle = models.CharField(max_length=100)
+    subtitle = models.TextField()
 
     def __str__(self):
         return self.title  # Return an appropriate representation for the model
