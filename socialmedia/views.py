@@ -81,16 +81,7 @@ class OurNetworkTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIV
     # permission_classes = [permissions.IsAuthenticated]
 
 
-
-
-
-
-
-
-
-
 # views for achievements
-
 class AchievementCreateView(generics.CreateAPIView):
     queryset = Achievement.objects.all()
     serializer_class = AchievementSerializer
@@ -125,9 +116,9 @@ class AchievementSectionListCreate(generics.ListCreateAPIView):
 class AchievementSectionRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = AchievementSection.objects.all()
     serializer_class = AchievementSectionSerializer
+    
+    
 # views for highlights
-
-
 class HighlightCreateView(generics.CreateAPIView):
     queryset = HomeHighlights.objects.all()
     serializer_class = HighlightSerializer
@@ -163,8 +154,6 @@ class HighlightSectionRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIVie
     serializer_class = HighlightsSectionSerializer
 
 # views for Industries
-
-
 class IndustryCreateView(generics.CreateAPIView):
     queryset = Industry.objects.all()
     serializer_class = IndustrySerializer
@@ -194,7 +183,6 @@ class IndustryUpdateView(generics.UpdateAPIView):
 
 
 # views for market news
-
 class MarketCreateView(generics.CreateAPIView):
     queryset = Market.objects.all()
     serializer_class = MarketSerializer
@@ -210,7 +198,6 @@ class MarketListView(generics.ListAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-
 class MarketRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Market.objects.all()
     serializer_class = MarketSerializer
@@ -218,7 +205,6 @@ class MarketRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes = [JWTAuthentication]
 
 #views for market title
-
 class MarketTitleCreateView(generics.CreateAPIView):
     queryset = MarketTitle.objects.all()
     serializer_class = MarketTitleSerializer

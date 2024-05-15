@@ -22,6 +22,7 @@ class BlogPostSerializer(serializers.ModelSerializer):
     images = ImageSerializer(many=True, read_only=True)
     highlights = HighlightSerializer(many=True, read_only=True)
     quotes = QuoteSerializer(many=True, read_only=True)
+    publish_date = serializers.DateTimeField(format='%d-%m-%Y %I:%M %p')
 
     class Meta:
         model = BlogPost

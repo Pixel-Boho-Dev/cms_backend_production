@@ -6,8 +6,6 @@ class IndustriesPageSerializer(serializers.ModelSerializer):
         model = IndustriesPage
         fields = ['id', 'title', 'subtitle', 'description', 'image', 'alt_img_text', 'alt_img_title', 'alt_img_Caption', 'alt_img_description']
         
-
-
 class Industries_metadataSerializers(serializers.ModelSerializer):
     class Meta:
         model   =   MetaTagsIndustries
