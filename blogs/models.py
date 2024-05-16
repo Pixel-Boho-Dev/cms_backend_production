@@ -5,6 +5,7 @@ class BlogPost(models.Model):
     header_title = models.CharField(max_length=255)
     publish_date = models.DateTimeField(auto_now_add=True)
     quotes = models.TextField()
+    publish_date = models.DateTimeField()
     description = models.TextField()    
     author = models.CharField(max_length=50,null=True,blank=True)
  # atlernative tags for header_image -->Arya

@@ -1,9 +1,6 @@
 from rest_framework import generics
-
 from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,MilestoneTitle,WhatWeAreTitle
 from .serializers import AboutPageSectionSerializer,OurStorySerializer,MilestoneSerializer,OurTeamSerializer,WhatWeAreSerializer,CertificationSerializer,About_metadataSerializers,CertificateTitleSerializer,MilestoneTitleSerializer,WhatWeAreTitleSerializer
-
-
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
 from rest_framework.response import Response
@@ -63,13 +60,6 @@ class OurStoryRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
             return OurStory.objects.first()
         else:
             return None
-        
-
-
-
-
-
-
         
 # views for milestones
 class MilestoneCreateView(generics.CreateAPIView,generics.ListAPIView):
@@ -152,7 +142,6 @@ class WhatWeAreRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = WhatWeAreSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
     lookup_field = 'pk'  # This tells DRF to use 'pk' as the lookup field.
 
 class WhatWeAreListView(generics.ListAPIView):
@@ -176,9 +165,7 @@ class CertificationRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIVie
     serializer_class=CertificationSerializer
     permission_classes=[permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
     lookup_field = 'pk'
-
 
 class CertificationListView(generics.ListAPIView):
     queryset = Certifications.objects.all().order_by('-id')
@@ -216,8 +203,7 @@ class AboutMetaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     def get_object(self):
         # Since we want only one Aboutmeta data record, always retrieve the first one
         aboutmeta, created = MetaTagsAbout.objects.get_or_create(pk=1)
-        return aboutmeta
-    
+        return aboutmeta  
 
 class WhatWeAreTitleCreateView(generics.CreateAPIView):
     queryset = WhatWeAreTitle.objects.all()
@@ -230,7 +216,6 @@ class WhatWeAreTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIVi
     serializer_class = WhatWeAreTitleSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
     lookup_field = 'pk'
 
 class WhatWeAreTitleListView(generics.ListAPIView):

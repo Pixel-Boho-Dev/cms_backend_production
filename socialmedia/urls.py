@@ -3,7 +3,7 @@ from .views import (HomeMetaRetrieveUpdateDeleteView, SocialMediaCreateView, Soc
                     ServiceRetrieveUpdateDeleteView,LocationCreateView,LocationListView,LocationRetrieveUpdateDeleteView,
                     AchievementCreateView, AchievementListView, AchievementRetrieveUpdateDeleteView,HighlightCreateView, 
                     HighlightListView, HighlightRetrieveUpdateDeleteView,IndustryCreateView, IndustryListView, IndustryUpdateView,
-                    MarketCreateView, MarketListView, MarketRetrieveUpdateDeleteView,HomeRetrieveUpdateView,HomeListView,HomeMetaListView,Home,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
+                    MarketCreateView, MarketListView, MarketRetrieveUpdateDeleteView,HomeMetaListView,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
                     HighlightSectionListCreate,HighlightSectionRetrieveUpdateDestroy,MarketTitleCreateView,MarketTitleListView,MarketTitleRetrieveUpdateDeleteView,OurNetworkTitleCreateView,OurNetworkTitleListView,OurNetworkTitleRetrieveUpdateDeleteView
 
 )
@@ -64,11 +64,6 @@ urlpatterns = [
     path('markets/create/',MarketTitleCreateView.as_view(),name='market-title-create'),
     path('markets/',MarketTitleListView.as_view(),name='market-title-list'),
     path('markets/<int:pk>/',MarketTitleRetrieveUpdateDeleteView.as_view(),name='market-title-retrieve-update-delete'),
-
-# urls for home details
-
-    path('home/', HomeRetrieveUpdateView.as_view(), name='home-retrieve-update'),
-    path('homeall/', HomeListView.as_view(), name='home-list'),
 
 # urls for meta tags in home
 
