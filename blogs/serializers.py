@@ -11,7 +11,6 @@ class HighlightSerializer(serializers.ModelSerializer):
 
 class BlogPostSerializer(serializers.ModelSerializer):
     highlights = HighlightSerializer(many=True, read_only=True)
-    quotes = QuoteSerializer(many=True, read_only=True)
     publish_date = serializers.DateTimeField(format='%d-%m-%Y %I:%M %p')
 
 
