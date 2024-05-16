@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SocialMedia,Service,Location,Achievement,HomeHighlights,Industry,Market,Home,MetaTagsHome,AchievementSection,HighlightsSection,MarketTitle,OurNetworkTitle
+from .models import SocialMedia,Service,Location,Achievement,HomeHighlights,Industry,Market,MetaTagsHome,AchievementSection,HighlightsSection,MarketTitle,OurNetworkTitle
 from services.models import SubService
 from services.serializers import subheadingSerializers
 
@@ -44,12 +44,6 @@ class OurNetworkTitleSerializer(serializers.ModelSerializer):
         model = OurNetworkTitle
         fields = '__all__'
 
-
-
-
-
-
-
 # serializers for achievements
 
 class AchievementSerializer(serializers.ModelSerializer):
@@ -74,14 +68,12 @@ class HighlightsSectionSerializer(serializers.ModelSerializer):
         fields =['id','title']
 
 # serializers for Industries
-
 class IndustrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Industry
         fields = '__all__'
 
 # serializers for Market News
-
 class MarketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Market
@@ -92,12 +84,11 @@ class MarketTitleSerializer(serializers.ModelSerializer):
         model = MarketTitle
         fields = ['id','title']
 
-# serializers for Home details
-
-class HomeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Home
-        fields = '__all__'
+# # serializers for Home details
+# class HomeSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Home
+#         fields = '__all__'
 
 # serializers for Metatags home
 class MetaTagsHomeSerializer(serializers.ModelSerializer):
