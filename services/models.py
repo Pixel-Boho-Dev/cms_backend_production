@@ -7,7 +7,7 @@ from socialmedia.models import Service
 
 
 class Subheading(models.Model):
-    title = models.CharField(max_length=200)
+    subheading = models.CharField(max_length=200)
     related_service = models.ForeignKey(Service, on_delete=models.CASCADE)
     
 

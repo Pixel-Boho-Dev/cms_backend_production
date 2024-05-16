@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (OfficeListCreateView, OfficeRetrieveUpdateDestroyView,
                     OfficeListByLocationView,Location_pageCreateView,
-                    Location_pageRetrieveUpdateDestroyView,LocationMetaListView,LocationMetaRetrieveUpdateDestroyView,Office_locationListCreateView,Office_locationRetrieveUpdateDestroyView,Location_pageRetrieveView)
+                    Location_pageRetrieveUpdateDestroyView,LocationMetaListView,LocationMetaRetrieveUpdateDestroyView,Location_pageRetrieveView)
 
 urlpatterns = [
     path('offices/', OfficeListCreateView.as_view(), name='office-list-create'),
@@ -17,6 +17,4 @@ urlpatterns = [
     path('locationmeta/',LocationMetaRetrieveUpdateDestroyView.as_view(),name='location_meta_data'),
     path('locationmetas/',LocationMetaListView.as_view(),name='location_all'),
 
-    path('office_location/create/',Office_locationListCreateView.as_view(),name='office_locationpage-create'),
-    path('office_locations/<int:pk>/',Office_locationRetrieveUpdateDestroyView.as_view(),name='office_location_get_update_delete'),
 ]

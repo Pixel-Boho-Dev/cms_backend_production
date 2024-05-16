@@ -25,8 +25,7 @@ class OurStory(models.Model):
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
  # atlernative tags for image 
     def __str__(self):
-        return self.title
-    
+        return self.title   
 
 class OurstoryTitle(models.Model):
     # Fields specific to titles
@@ -147,11 +146,9 @@ class MetaTagsAbout(models.Model):
     def __str__(self):
         return self.title
     
-
-
-
 class WhatWeAreTitle(models.Model):
     title = models.CharField(max_length=100)
+    
     def __str__(self):
         return self.title
     
