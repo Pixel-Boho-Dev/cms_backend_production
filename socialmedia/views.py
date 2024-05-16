@@ -1,12 +1,10 @@
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import SocialMedia,Service,Location,HomeHighlights,Industry,Market,Home,Achievement,MetaTagsHome,AchievementSection,HighlightsSection,MarketTitle,OurNetworkTitle
-from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,HomeSerializer,AchievementSerializer,MetaTagsHomeSerializer,AchievementSectionSerializer,HighlightsSectionSerializer,MarketTitleSerializer,ServiceheaderSerializer,OurNetworkTitleSerializer
+from .models import SocialMedia,Service,Location,HomeHighlights,Industry,Market,Achievement,MetaTagsHome,AchievementSection,HighlightsSection,MarketTitle,OurNetworkTitle
+from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSerializer,HighlightSerializer,IndustrySerializer,MarketSerializer,AchievementSerializer,MetaTagsHomeSerializer,AchievementSectionSerializer,HighlightsSectionSerializer,MarketTitleSerializer,ServiceheaderSerializer,OurNetworkTitleSerializer
 from rest_framework.pagination import PageNumberPagination
 from rest_framework_simplejwt.authentication import JWTAuthentication
-
-
 
 class SocialMediaCreateView(generics.CreateAPIView):
     queryset = SocialMedia.objects.all()
@@ -26,7 +24,6 @@ class SocialMediaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView)
 
 
 # views for services
-
 class ServiceCreateView(generics.CreateAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
@@ -44,7 +41,6 @@ class ServiceRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     
 
 # views for locations
-
 class LocationCreateView(generics.CreateAPIView):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
@@ -56,20 +52,16 @@ class LocationListView(generics.ListAPIView):
     serializer_class = LocationSerializer
     pagination_class = None
 
-
 class LocationRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [JWTAuthentication]
 
-
-
-
+#views for ournetwork
 class OurNetworkTitleCreateView(generics.CreateAPIView):
     queryset = OurNetworkTitle.objects.all()
     serializer_class = OurNetworkTitleSerializer
-    # permission_classes = [permissions.IsAuthenticated]
 
 class OurNetworkTitleListView(generics.ListAPIView):
     queryset = OurNetworkTitle.objects.all()
@@ -78,9 +70,7 @@ class OurNetworkTitleListView(generics.ListAPIView):
 class OurNetworkTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = OurNetworkTitle.objects.all()
     serializer_class = OurNetworkTitleSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
-
+    
 # views for achievements
 class AchievementCreateView(generics.CreateAPIView):
     queryset = Achievement.objects.all()
@@ -228,25 +218,23 @@ class MarketTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView)
     authentication_classes = [JWTAuthentication]
 
 
-# views for home details
+# # views for home details
+# class HomeListView(generics.ListAPIView):
+#     queryset = Home.objects.all()
+#     serializer_class = HomeSerializer
 
-class HomeListView(generics.ListAPIView):
-    queryset = Home.objects.all()
-    serializer_class = HomeSerializer
+# class HomeRetrieveUpdateView(generics.RetrieveUpdateAPIView):
+#     queryset = Home.objects.all()
+#     serializer_class = HomeSerializer
+#     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+#     authentication_classes = [JWTAuthentication]
 
-class HomeRetrieveUpdateView(generics.RetrieveUpdateAPIView):
-    queryset = Home.objects.all()
-    serializer_class = HomeSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
+#     def get_object(self):
+#         # Since you want only one Home record, always retrieve the first one
+#         home, created = Home.objects.get_or_create(pk=1)
+#         return home
 
-    def get_object(self):
-        # Since you want only one Home record, always retrieve the first one
-        home, created = Home.objects.get_or_create(pk=1)
-        return home
-
-# views for home meta tags 
-    
+# views for home meta tags    
 class HomeMetaListView(generics.ListAPIView):
     queryset = MetaTagsHome.objects.all()
     serializer_class = MetaTagsHomeSerializer

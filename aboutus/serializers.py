@@ -1,8 +1,6 @@
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from django.db import models
-
-
 from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,OurTeamTitle,MilestoneTitle,WhatWeAreTitle
 
 class AboutPageSectionSerializer(serializers.ModelSerializer):
@@ -10,13 +8,10 @@ class AboutPageSectionSerializer(serializers.ModelSerializer):
         model = AboutPageSection
         fields = '__all__'
 
-
 class OurStorySerializer(serializers.ModelSerializer):
     class Meta:
         model = OurStory
         fields = '__all__'
-
-
 
 class MilestoneSerializer(serializers.ModelSerializer):
     class Meta:
