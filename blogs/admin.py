@@ -1,16 +1,9 @@
 from django.contrib import admin
-from .models import BlogPost, BlogImage, Highlight, Quote, MetaTagsBlogs
+from .models import BlogPost, Highlight,  MetaTagsBlogs
 
-class ImageInline(admin.TabularInline):
-    model = BlogImage
-    extra = 1
 
 class HighlightInline(admin.TabularInline):
     model = Highlight
-    extra = 1
-
-class QuoteInline(admin.TabularInline):
-    model = Quote
     extra = 1
 
 class MetaTagsBlogsInline(admin.StackedInline):
@@ -18,6 +11,6 @@ class MetaTagsBlogsInline(admin.StackedInline):
     extra = 1 
     
 class BlogPostAdmin(admin.ModelAdmin):
-    inlines = [ImageInline, HighlightInline, QuoteInline, MetaTagsBlogsInline]
+    inlines = [HighlightInline, MetaTagsBlogsInline]
 
 admin.site.register(BlogPost, BlogPostAdmin)

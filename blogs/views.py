@@ -1,7 +1,7 @@
 from rest_framework import permissions,generics
 from rest_framework import viewsets
-from .models import BlogPost, BlogImage, Highlight, Quote, MetaTagsBlogs
-from .serializers import BlogPostSerializer, ImageSerializer, HighlightSerializer, QuoteSerializer, Blogs_metadataSerializers
+from .models import BlogPost, Highlight, MetaTagsBlogs
+from .serializers import BlogPostSerializer, HighlightSerializer, Blogs_metadataSerializers
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 class BlogPostViewSet(viewsets.ModelViewSet):
@@ -14,21 +14,10 @@ class BlogPostViewSet(viewsets.ModelViewSet):
         # Associate the logged-in user with the new blog post
         serializer.save(author=self.request.user)
 
-class ImageViewSet(viewsets.ModelViewSet):
-    queryset = BlogImage.objects.all().order_by('-id')
-    serializer_class = ImageSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
 
 class HighlightViewSet(viewsets.ModelViewSet):
     queryset = Highlight.objects.all().order_by('-id')
     serializer_class = HighlightSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
-
-class QuoteViewSet(viewsets.ModelViewSet):
-    queryset = Quote.objects.all().order_by('-id')
-    serializer_class = QuoteSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
