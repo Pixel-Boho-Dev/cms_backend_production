@@ -1,19 +1,12 @@
 from django.db import models
 from socialmedia.models import Service
 
-
-# Create your models here.
-
-
-
 class Subheading(models.Model):
     subheading = models.CharField(max_length=200)
-    related_service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    
+    related_service = models.ForeignKey(Service, on_delete=models.CASCADE)    
 
     def __str__(self):
         return self.title
-
 
 class SubService(models.Model):
     image = models.ImageField(upload_to='subservice_images/')
@@ -23,7 +16,6 @@ class SubService(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True,blank=True)
     alt_img_Caption = models.TextField(max_length=300,null=True,blank=True)
     alt_img_description = models.TextField(max_length=300,null=True,blank=True)
- # atlernative content for bg_image
     related_heading = models.ForeignKey(Subheading, on_delete=models.CASCADE)
     
     def __str__(self):

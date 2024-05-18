@@ -57,7 +57,6 @@ class ContactFormListCreateView(generics.ListCreateAPIView):
         recipient_list = ['ajayrenjith03@gmail.com','bibinofficial3@gmail.com']  # Replace with the admin's email address later
         send_mail(subject, message, from_email, recipient_list)
 
-
 class ContactFormRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = ContactForm.objects.all()
     serializer_class = ContactFormSerializer
