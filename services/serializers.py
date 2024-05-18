@@ -1,12 +1,10 @@
 from rest_framework import serializers
 from .models import MetaTagsservices,Subheading,SpecializedService,SpecializedSubService
 
-
 class Service_metadataSerializers(serializers.ModelSerializer):
     class Meta:
         model   =   MetaTagsservices
         fields  =   '__all__'
-
 
 class subheadingSerializers(serializers.ModelSerializer):
 

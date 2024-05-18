@@ -4,20 +4,19 @@ class BlogPost(models.Model):
     header_image = models.ImageField(upload_to='blog_headers/')
     header_title = models.CharField(max_length=255)
     publish_date = models.DateTimeField(auto_now_add=True)
-    quotes = models.TextField()
+    quotes = models.TextField(blank=True, null=True)
     publish_date = models.DateTimeField()
     description = models.TextField()    
     author = models.CharField(max_length=50,null=True,blank=True)
- # atlernative tags for header_image -->Arya
+ # atlernative tags for header_image
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
-  # atlernative content for header_image -->Arya
+
     def __str__(self):
         return self.header_title
 
- 
 
 # adding highlights for a blog post
 class Highlight(models.Model):

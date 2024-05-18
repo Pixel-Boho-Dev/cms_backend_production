@@ -15,8 +15,6 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import generics
 from rest_framework import permissions
 
-
-# Create your views here.
 class ServiceViewSet(viewsets.ModelViewSet):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
@@ -69,7 +67,6 @@ class SubheadingListView(generics.ListAPIView):
         serializer = subheadingSerializers(industries, many=True)
         return Response(serializer.data)
     
-
 class SubheadingRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Subheading.objects.all()
     serializer_class = subheadingSerializers

@@ -1,8 +1,6 @@
 from rest_framework import serializers
 from .models import BlogPost, Highlight,MetaTagsBlogs
 
-
-
 class HighlightSerializer(serializers.ModelSerializer):
     class Meta:
         model = Highlight
@@ -12,7 +10,6 @@ class HighlightSerializer(serializers.ModelSerializer):
 class BlogPostSerializer(serializers.ModelSerializer):
     highlights = HighlightSerializer(many=True, read_only=True)
     publish_date = serializers.DateTimeField(format='%d-%m-%Y %I:%M %p')
-
 
     class Meta:
         model = BlogPost

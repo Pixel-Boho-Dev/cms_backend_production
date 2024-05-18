@@ -5,7 +5,6 @@ from .models import key_diffrentiates,key_diffrentiatesSection
 from .serializers import key_diffrentiatesSerializer,key_diffrentiatesSectionSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
-
 from rest_framework.pagination import PageNumberPagination
 
 class NoPagination(PageNumberPagination):
@@ -16,11 +15,9 @@ class key_diffrentiatesListCreate(generics.ListCreateAPIView):
     serializer_class = key_diffrentiatesSerializer
     pagination_class = NoPagination
     
-
 class key_diffrentiatesRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = key_diffrentiates.objects.all()
     serializer_class = key_diffrentiatesSerializer
-
 
 class key_diffrentiatesSectionListCreate(generics.ListCreateAPIView):
     queryset = key_diffrentiatesSection.objects.all()

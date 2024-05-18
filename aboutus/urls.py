@@ -3,12 +3,9 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
                     OurStoryRetrieveUpdateDeleteView,OurStoryCreateView,MilestoneCreateView,
                     MilestoneRetrieveUpdateDeleteView,OurTeamCreateView,OurTeamRetrieveUpdateDeleteView,OurTeamListView,
                     WhatWeAreCreateView,WhatWeAreListView,WhatWeAreRetrieveUpdateDeleteView,CertificationRetrieveUpdateDeleteView,
-
                     CertificationListView,CertificationCreateView,AboutMetaListView,AboutMetaRetrieveUpdateDestroyView,CertificationTitleListCreate,
                     CertificationTitleRetrieveUpdateDestroy, OurTeamTitleCreateView,OurTeamTitleRetrieveUpdateDeleteView,OurTeamTitleListView,
-
                     MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy,WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView,
-
                     WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView,MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy)
 
 
