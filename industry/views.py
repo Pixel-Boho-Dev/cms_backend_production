@@ -22,7 +22,6 @@ class IndustriesPageRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIVi
         pk = self.kwargs.get('pk')
         return get_object_or_404(IndustriesPage, pk=pk)
     
-
 class IndustriesMetaListView(generics.ListAPIView):
     queryset = MetaTagsIndustries.objects.all()
     serializer_class = Industries_metadataSerializers

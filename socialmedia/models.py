@@ -10,7 +10,6 @@ class SocialMedia(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
- # atlernative content for image -->krishna
 
     def __str__(self):
         return self.name
@@ -24,7 +23,6 @@ class Service(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
- # atlernative content for bg_image
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
@@ -47,11 +45,9 @@ class Location(models.Model):
    #  description = models.TextField()
     is_active = models.BooleanField(default=True)
     
-
     def __str__(self):
         return self.place_name
     
-
 class OurNetworkTitle(models.Model):
     title = models.CharField(max_length=100)
     def __str__(self):
@@ -65,7 +61,6 @@ class Achievement(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
- # atlernative content for image 
     achievements_subtitle = models.CharField(max_length=100)
 
 
@@ -94,7 +89,6 @@ class HighlightsSection(models.Model):
 
 
 # model for industries
-
 class Industry(models.Model):
     industry_image = models.ImageField(upload_to='industry_images/')
  # atlernative content for image
@@ -102,7 +96,6 @@ class Industry(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
- # atlernative content for image
     industry_title = models.CharField(max_length=100)
     industry_description = models.TextField()
     def __str__(self):
@@ -117,7 +110,6 @@ class Market(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
- # atlernative content for image -->krishna
     market_title = models.CharField(max_length=100)
     market_description = models.TextField()
 

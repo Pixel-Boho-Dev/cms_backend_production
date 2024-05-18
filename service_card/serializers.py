@@ -6,7 +6,6 @@ class ServicesCardSerializer(serializers.ModelSerializer):
         model = ServicesCard
         fields = '__all__'
 
-
 class ServiceTitleSerializer(serializers.ModelSerializer):  # Change here
     class Meta:
         model = ServiceTitle
