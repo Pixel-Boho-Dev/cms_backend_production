@@ -17,7 +17,7 @@ urlpatterns = [
 # urls for services.
     path('header/services/create/', ServiceCreateView.as_view(), name='service-create'),
     path('header/services/', ServiceListView.as_view(), name='service-list'),
-    path('services/<int:pk>/', ServiceRetrieveUpdateDeleteView.as_view(), name='service-retrieve-update-delete'),
+    path('header/services/<int:pk>/', ServiceRetrieveUpdateDeleteView.as_view(), name='service-retrieve-update-delete'),
 
 # urls for location
     path('locations/create/', LocationCreateView.as_view(), name='location-create'),
