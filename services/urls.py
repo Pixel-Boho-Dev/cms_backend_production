@@ -5,7 +5,7 @@ from .views import ServiceViewSet,SubServiceViewSet,ServicesMetaListView,Service
 
 urlpatterns = [
     # Subservices for a specific service
-    path('services/<int:pk>/subservices/', ServiceViewSet.as_view({'get': 'subservices'}), name='service-subservices'),
+    path('services/<int:pk>/subservices/', ServiceViewSet.as_view({'get': 'subservices', 'delete': 'delete_subservices'}), name='service-subservices'),
 
     path('subservices/', SubServiceViewSet.as_view({'get': 'list', 'post': 'create'}), name='subservice-list-create'),
     path('subservices/<int:pk>/', SubServiceViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='subservice-retrieve-update-delete'),
