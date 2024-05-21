@@ -2,7 +2,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 
-
 # Model for about page header sections
 class AboutPageSection(models.Model):
     title = models.CharField(max_length=255,null=True, blank=True)
@@ -89,7 +88,7 @@ class WhatWeAre(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
-    # atlernative tags for icon
+    
 
     def __str__(self):
         return self.title

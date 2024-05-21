@@ -15,8 +15,6 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import generics
 from rest_framework import permissions
 
-
-# Create your views here.
 class ServiceViewSet(viewsets.ModelViewSet):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
@@ -52,8 +50,21 @@ class ServiceViewSet(viewsets.ModelViewSet):
 
         # Return the response
         return Response(response_data)
+    
+    @action(detail=True, methods=['DELETE'])
+    def delete_subservices(self, request, pk=None):
+        service = self.get_object()
+        subheadings = Subheading.objects.filter(related_service=service)
+        
+        for subheading in subheadings:
+            SubService.objects.filter(related_heading=subheading).delete()
+        subheadings.delete()
 
+         # Delete the service itself
+        service.delete()
 
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
 class SubheadingCreateView(generics.CreateAPIView):
     queryset = Subheading.objects.all()
     serializer_class = subheadingSerializers
@@ -69,7 +80,6 @@ class SubheadingListView(generics.ListAPIView):
         serializer = subheadingSerializers(industries, many=True)
         return Response(serializer.data)
     
-
 class SubheadingRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Subheading.objects.all()
     serializer_class = subheadingSerializers
