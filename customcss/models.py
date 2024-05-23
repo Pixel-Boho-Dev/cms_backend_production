@@ -4,4 +4,10 @@ class HomeHeaderCustom(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return self.title
+        return self.text
+
+class ServicecardsCustom(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
