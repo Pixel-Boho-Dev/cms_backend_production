@@ -43,9 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    
     'corsheaders',
-
     'header',
     'socialmedia',
     'location_page',
@@ -60,14 +58,11 @@ INSTALLED_APPS = [
     'footer',
     'industry_cards',
     'service_card',
-    
-
     # 'customadmin',
-    
     'rest_framework_simplejwt',
     'documentation',
-
     'drf_yasg',
+    'customcss',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
