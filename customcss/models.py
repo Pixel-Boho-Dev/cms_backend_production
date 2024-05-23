@@ -4,10 +4,18 @@ class HomeHeaderCustom(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return self.text
+        return self.title
+
+class AboutPageSectionCustom(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.title
+
 
 class ServicecardsCustom(models.Model):
     text = models.TextField()
 
     def __str__(self):
         return self.text
+

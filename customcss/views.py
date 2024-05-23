@@ -1,4 +1,7 @@
 from rest_framework import generics
+from .models import HomeHeaderCustom,AboutPageSectionCustom
+from .serializers import HomeHeaderCustomSerializer,AboutPageSectionCustomSerializer
+from rest_framework.permissions import IsAuthenticated
 from .models import HomeHeaderCustom,ServicecardsCustom
 from .serializers import HomeHeaderCustomSerializer,ServicecardCustomSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
@@ -20,6 +23,14 @@ class HomeHeaderCustomListCreateView(generics.ListCreateAPIView):
 class HomeHeaderCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = HomeHeaderCustom.objects.all()
     serializer_class = HomeHeaderCustomSerializer
+
+
+#views for 
+
+class AboutPageSectionCustomListCreateView(generics.ListCreateAPIView):
+    queryset = AboutPageSectionCustom.objects.all()
+    serializer_class = AboutPageSectionCustomSerializer
+    
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -36,6 +47,10 @@ class ServicecardCustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
+class AboutPageSectionCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = AboutPageSectionCustom.objects.all()
+    serializer_class = AboutPageSectionCustomSerializer
+    
 class ServiceRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = ServicecardsCustom.objects.all()
     serializer_class = ServicecardCustomSerializer
