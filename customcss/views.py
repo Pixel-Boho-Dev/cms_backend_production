@@ -9,6 +9,11 @@ class HomeHeaderCustomListCreateView(generics.ListCreateAPIView):
     queryset = HomeHeaderCustom.objects.all()
     serializer_class = HomeHeaderCustomSerializer
 
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
 class HomeHeaderCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = HomeHeaderCustom.objects.all()
     serializer_class = HomeHeaderCustomSerializer
