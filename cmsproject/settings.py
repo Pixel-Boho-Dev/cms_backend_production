@@ -43,9 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    
     'corsheaders',
-
     'header',
     'socialmedia',
     'location_page',
@@ -60,14 +58,11 @@ INSTALLED_APPS = [
     'footer',
     'industry_cards',
     'service_card',
-    
-
     # 'customadmin',
-    
     'rest_framework_simplejwt',
     'documentation',
-
     'drf_yasg',
+    'customcss',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -96,7 +91,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5174", "http://localhost:5173" # Example for a React development server
+    "http://localhost:5173", "http://localhost:3000", "http://localhost:5174", # Example for a React development server
 ]
 
 ROOT_URLCONF = 'cmsproject.urls'
