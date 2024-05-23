@@ -11,3 +11,11 @@ class AboutPageSectionCustom(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ServicecardsCustom(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
+
