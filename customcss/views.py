@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,milestoneCustom,ournetworkCustom
-from .serializers import HomeHeaderCustomSerializer,AboutPageSectionCustomSerializer,ourstoryCustomSerializer,milestoneCustomserializers,ournetworkCustomserializers
+from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,milestoneCustom,ourteamCustom
+from .serializers import HomeHeaderCustomSerializer,AboutPageSectionCustomSerializer,ourstoryCustomSerializer,milestoneCustomserializers,ourteamCustomserializers
 from rest_framework.permissions import IsAuthenticated
 from .models import HomeHeaderCustom,ServicecardsCustom
 from .serializers import HomeHeaderCustomSerializer,ServicecardCustomSerializer
@@ -103,11 +103,11 @@ class milestoneCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPI
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-#views for ournetwork
+#views for ourteam
 
-class ournetworkCustomListCreateView(generics.ListCreateAPIView):
-    queryset = ournetworkCustom.objects.all()
-    serializer_class = ournetworkCustomserializers
+class ourteamCustomListCreateView(generics.ListCreateAPIView):
+    queryset = ourteamCustom.objects.all()
+    serializer_class = ourteamCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -117,9 +117,9 @@ class ournetworkCustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class ournetworkCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = ournetworkCustom.objects.all()
-    serializer_class = ournetworkCustomserializers
+class ourteamCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ourteamCustom.objects.all()
+    serializer_class = ourteamCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 

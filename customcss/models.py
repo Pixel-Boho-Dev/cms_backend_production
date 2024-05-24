@@ -39,9 +39,9 @@ class milestoneCustom(models.Model):
     def __str__(self):
         return self.text
 
-#models for ournetwork
+#models for ourteam
 
-class ournetworkCustom(models.Model):
+class ourteamCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):

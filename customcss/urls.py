@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import HomeHeaderCustomListCreateView,HomeHeaderCustomRetrieveUpdateDistroyView,AboutPageSectionCustomListCreateView,AboutPageSectionCustomRetrieveUpdateDistroyView,ourstoryCustomListCreateView,ourstoryCustomRetrieveUpdateDistroyView
 
-from .views import HomeHeaderCustomListCreateView,HomeHeaderCustomRetrieveUpdateDistroyView,ServicecardCustomListCreateView,ServiceRetrieveUpdateDistroyView,milestoneListCreateView,milestoneCustomRetrieveUpdateDistroyView,ournetworkCustomListCreateView,ournetworkCustomRetrieveUpdateDistroyView
+from .views import HomeHeaderCustomListCreateView,HomeHeaderCustomRetrieveUpdateDistroyView,ServicecardCustomListCreateView,ServiceRetrieveUpdateDistroyView,milestoneListCreateView,milestoneCustomRetrieveUpdateDistroyView,ourteamCustomListCreateView,ourteamCustomRetrieveUpdateDistroyView
 
 
 urlpatterns = [
@@ -31,10 +31,10 @@ urlpatterns = [
     path('milestone/custom/',milestoneListCreateView.as_view(),name="service-cards-list-create"),
     path('milestone/custom/<int:pk>/',milestoneCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
 
-   #urls for ournetwork
+   #urls for ourteam
 
-    path('ournetwork/custom/',ournetworkCustomListCreateView.as_view(),name="service-cards-list-create"),
-    path('ournetwork/custom/<int:pk>/',ournetworkCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+    path('ourteam/custom/',ourteamCustomListCreateView.as_view(),name="service-cards-list-create"),
+    path('ourteam/custom/<int:pk>/',ourteamCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
 
     
 
