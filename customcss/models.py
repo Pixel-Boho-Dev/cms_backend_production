@@ -20,7 +20,6 @@ class AboutPageSectionCustom(models.Model):
 
 class ourstoryCustom(models.Model):
     text = models.TextField()
-
     def __str__(self):
         return self.title
 
@@ -31,4 +30,23 @@ class ServicecardsCustom(models.Model):
 
     def __str__(self):
         return self.text
+    
+#models for milestone
+  
+class milestoneCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+
+#models for ournetwork
+
+class ournetworkCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+
+
+    
 
