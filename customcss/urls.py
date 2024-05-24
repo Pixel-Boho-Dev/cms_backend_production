@@ -55,6 +55,13 @@ urlpatterns = [
     path('contactform/custom/',contactformCustomListCreateView.as_view(),name="service-cards-list-create"),
     path('contactform/custom/<int:pk>/',contactformCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
 
+    #urls for footer
+        #urls for contactform
+    path('footer/custom/',footerCustomCListCreateView.as_view(),name="service-cards-list-create"),
+    path('footer/custom/<int:pk>/',footerCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+
+    
+
 
 
 
