@@ -36,7 +36,12 @@ urlpatterns = [
 
     path('highlights/custom/',HighlightsCustomListCreateView.as_view(),name = "highlights-list-create"),
     path('highlights/custom/<int:pk>/',HighlightsCustomRetrieveUpdateDistroyView.as_view(),name="highlights-retrieve-update-distroy"),
-    
+
+    #urls for industriescards
+
+    path('industries/custom-css/',IndustriesCardsCustomListCreateView.as_view(),name="industries-list-create"),
+    path('industries/custom-css/<int:pk>/',IndustriesCardsCustomRetrieveUpdateDistroyView.as_view(),name="industries-retrieve-update-distroy"),
+
     # urls for aboupagesection
 
     path('about_page/custom/',AboutPageSectionCustomListCreateView.as_view(),name="aboupages-list-create"),
