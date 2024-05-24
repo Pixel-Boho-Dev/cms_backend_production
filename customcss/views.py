@@ -95,6 +95,24 @@ class KeydiffrentiatesCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDes
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for Acheievements
+class AcheievmentCustomListCreateView(generics.ListCreateAPIView):
+    queryset = AcheievementCustom.objects.all()
+    serializer_class = AcheievementCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+    
+class AcheievementCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset   = AcheievementCustom.objects.all()
+    serializer_class = AcheievementCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication] 
+
 #views for  aboupage section
 class AboutPageSectionCustomListCreateView(generics.ListCreateAPIView):
     queryset = AboutPageSectionCustom.objects.all()
