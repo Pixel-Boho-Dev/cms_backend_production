@@ -31,6 +31,11 @@ urlpatterns = [
 
     path('acheievement/custom/',AcheievmentCustomListCreateView.as_view(),name = "acheievement-list-create"),
     path('acheievement/custom/<int:pk>/',AcheievementCustomRetrieveUpdateDistroyView.as_view(),name="acheievement-retrieve-update-distroy"),
+
+     #urls for Acheievments
+
+    path('highlights/custom/',HighlightsCustomListCreateView.as_view(),name = "highlights-list-create"),
+    path('highlights/custom/<int:pk>/',HighlightsCustomRetrieveUpdateDistroyView.as_view(),name="highlights-retrieve-update-distroy"),
     
     # urls for aboupagesection
 
