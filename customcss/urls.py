@@ -14,8 +14,13 @@ urlpatterns = [
 
     #urls for chooseus
 
-    path('chooseus/custom/',ChooseusCustomListCreateView.as_view(),name="chooseus-list-create"),
-    path('chooseus/custom/<int:pk>/',ChooseusCustomRetrieveUpdateDistroyView.as_view(),name = 'choose-retrieve-update-distroy'),
+    path('chooseus/custom/',ChooseusCustomListCreateView.as_view(),name="chooseus-custom-list-create"),
+    path('chooseus/custom/<int:pk>/',ChooseusCustomRetrieveUpdateDistroyView.as_view(),name = 'chooseus-custom-retrieve-update-distroy'),
+
+    #urls for ournetwork
+
+    path('ournetwork/custom/',OurnetworkCustomListCreateView.as_view(),name="ournetwork-custom-list-create"),
+    path('ournetwork/custom/<int:pk>/',OurnetworkCustomRetrieveUpdateDistroyView.as_view(),name="ournetwork-custom-retrieve-update-distroy"),
     
     # urls for aboupagesection
 
