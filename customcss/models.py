@@ -114,14 +114,14 @@ class contactformCustom(models.Model):
     def __str__(self):
         return self.text
     
-#urls for footer
+#models for footer
 class footerCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
     
-#urls for headerournetwork
+#models for header ournetwork
 class headerournetworkCustom(models.Model):
     text = models.TextField()
     
@@ -129,13 +129,19 @@ class headerournetworkCustom(models.Model):
         return self.text
     
 
-#urls for ournetworkdescription
+#models for ournetwork description
 class ournetworkdescriptionCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
     
+#models for service
+class ServiceCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
 
 #urls for ournetworklocation
 
