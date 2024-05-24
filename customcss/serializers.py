@@ -90,4 +90,10 @@ class footerCustomserializers(serializers.ModelSerializer):
     class Meta:
         model = footerCustom
         fields = "__all__"
+#serializers for headerournetwork
+class headerournetworkCustomserializers(serializers.ModelSerializer):
+    class Meta:
+        model = headerournetworkCustom
+        fields = "__all__"
+
 

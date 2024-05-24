@@ -19,8 +19,8 @@ urlpatterns = [
 
     #urls for ournetwork
 
-    path('ournetwork/custom/',OurnetworkCustomListCreateView.as_view(),name="ournetwork-custom-list-create"),
-    path('ournetwork/custom/<int:pk>/',OurnetworkCustomRetrieveUpdateDistroyView.as_view(),name="ournetwork-custom-retrieve-update-distroy"),
+    path('home/ournetwork/custom/',OurnetworkCustomListCreateView.as_view(),name="ournetwork-custom-list-create"),
+    path('home/ournetwork/custom/<int:pk>/',OurnetworkCustomRetrieveUpdateDistroyView.as_view(),name="ournetwork-custom-retrieve-update-distroy"),
 
     #urls for keydiffrentiates
 
@@ -39,41 +39,43 @@ urlpatterns = [
     
     # urls for aboupagesection
 
-    path('about_page/custom/',AboutPageSectionCustomListCreateView.as_view(),name="homeheadercustom-list-create"),
-    path('about_page/custom/<int:pk>/',AboutPageSectionCustomRetrieveUpdateDistroyView.as_view(),name="homeheadercustom-retrieve-update-distroy"),
+    path('about_page/custom/',AboutPageSectionCustomListCreateView.as_view(),name="aboupages-list-create"),
+    path('about_page/custom/<int:pk>/',AboutPageSectionCustomRetrieveUpdateDistroyView.as_view(),name="aboutpage-retrieve-update-distroy"),
 
     #urls for ourstory
 
-    path('ourstory/custom/',ourstoryCustomListCreateView.as_view(),name="homeheadercustom-list-create"),
-    path('ourstory/custom/<int:pk>/',ourstoryCustomRetrieveUpdateDistroyView.as_view(),name="homeheadercustom-retrieve-update-distroy"),
+    path('ourstory/custom/',ourstoryCustomListCreateView.as_view(),name="ourstory-list-create"),
+    path('ourstory/custom/<int:pk>/',ourstoryCustomRetrieveUpdateDistroyView.as_view(),name="ourstory-retrieve-update-distroy"),
 
    #urls for milestone
 
-    path('milestone/custom/',milestoneListCreateView.as_view(),name="service-cards-list-create"),
+    path('milestone/custom/',milestoneListCreateView.as_view(),name="milestones-list-create"),
     path('milestone/custom/<int:pk>/',milestoneCustomRetrieveUpdateDistroyView.as_view(),name="milestone-retrieve-update-distroy"),
 
    #urls for ourteam
 
-    path('ourteam/custom/',ourteamCustomListCreateView.as_view(),name="service-cards-list-create"),
+    path('ourteam/custom/',ourteamCustomListCreateView.as_view(),name="ourteam-list-create"),
     path('ourteam/custom/<int:pk>/',ourteamCustomRetrieveUpdateDistroyView.as_view(),name="ourteam-retrieve-update-distroy"),
     
     #urls for whatweare
-    path('whatweare/custom/',whatweareCustomListCreateView.as_view(),name="service-cards-list-create"),
+    path('whatweare/custom/',whatweareCustomListCreateView.as_view(),name="whatweare-list-create"),
     path('whatweare/custom/<int:pk>/',whatweareCustomRetrieveUpdateDistroyView.as_view(),name="whatweare-retrieve-update-distroy"),
 
     #urls for contactform
-    path('contactform/custom/',contactformCustomListCreateView.as_view(),name="service-cards-list-create"),
+    path('contactform/custom/',contactformCustomListCreateView.as_view(),name="contactform-list-create"),
     path('contactform/custom/<int:pk>/',contactformCustomRetrieveUpdateDistroyView.as_view(),name="conatactform-retrieve-update-distroy"),
 
-    #urls for footer
-        #urls for contactform
-    path('footer/custom/',footerCustomCListCreateView.as_view(),name="service-cards-list-create"),
+    #urls for contactform
+    path('footer/custom/',footerCustomCListCreateView.as_view(),name="footer-list-create"),
     path('footer/custom/<int:pk>/',footerCustomRetrieveUpdateDistroyView.as_view(),name="footer-retrieve-update-distroy"),
 
+    #urls for headeournetwork
+    path('header/ournetwork/custom/',headerournetworkCustomListCreateView.as_view(),name="header-list-create"),
+    path('header/ournetwork/custom/<int:pk>/',headerournetworkCustomRetrieveUpdateDistroyView.as_view(),name="headerournetwork-retrieve-update-distroy"),
+
+
     
-
-
-
+   
 
 
 

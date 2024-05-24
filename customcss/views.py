@@ -280,4 +280,25 @@ class footerCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIVie
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for headerournetwork
+
+class headerournetworkCustomListCreateView(generics.ListCreateAPIView):
+    queryset = headerournetworkCustom.objects.all()
+    serializer_class = headerournetworkCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class headerournetworkCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = headerournetworkCustom.objects.all()
+    serializer_class = headerournetworkCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+
 
