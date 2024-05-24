@@ -24,7 +24,7 @@ class ourstoryCustom(models.Model):
     def __str__(self):
         return self.title
 
-
+#models for servicecard
 
 class ServicecardsCustom(models.Model):
     text = models.TextField()
