@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,ChooseusCustom,ServicecardsCustom, milestoneCustom,ourteamCustom,whatweareCustom
-from .serializers import HomeHeaderCustomSerializer,AboutPageSectionCustomSerializer,ourstoryCustomSerializer,ChooseusCustomSerializer,ServicecardCustomSerializer,milestoneCustomserializers,ourteamCustomserializers,whatweareCustomserializers
+from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,ChooseusCustom,ServicecardsCustom, milestoneCustom,ourteamCustom,OurnetworkCustom,whatweareCustom
+from .serializers import HomeHeaderCustomSerializer,AboutPageSectionCustomSerializer,ourstoryCustomSerializer,ChooseusCustomSerializer,ServicecardCustomSerializer,milestoneCustomserializers,ourteamCustomserializers,OurnetworkCustomSerializer,whatweareCustomserializers
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.response import Response
@@ -56,6 +56,24 @@ class ChooseusCustomListCreateView(generics.ListCreateAPIView):
 class ChooseusCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = ChooseusCustom.objects.all()
     serializer_class = ChooseusCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+#views for ournetwork
+class OurnetworkCustomListCreateView(generics.ListCreateAPIView):
+    queryset = OurnetworkCustom.objects.all()
+    serializer_class = OurnetworkCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class OurnetworkCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OurnetworkCustom.objects.all()
+    serializer_class = OurnetworkCustomSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 

@@ -20,6 +20,13 @@ class ChooseusCustom(models.Model):
 
     def __str__(self):
         return self.text
+
+#models for ournetwork
+class OurnetworkCustom(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
     
 #models fo aboutpagesection
 class AboutPageSectionCustom(models.Model):
