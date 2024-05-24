@@ -30,6 +30,18 @@ class KeydiffrentiatorsSerializer(serializers.ModelSerializer):
         model = KeydiffrentiatorsCustom
         fields = "__all__"
 
+#serializers for Acheievements
+class AcheievementCustomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AcheievementCustom
+        fields = "__all__"
+
+#serializers for highlights
+class HighlightsCustomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HighlightsCustom
+        fields = "__all__"
+
 #serializers for aboutpagesction
 class AboutPageSectionCustomSerializer(serializers.ModelSerializer):
     class Meta:

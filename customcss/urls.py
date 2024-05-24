@@ -24,8 +24,22 @@ urlpatterns = [
 
     #urls for keydiffrentiates
 
+
     path('keydiffrentiates/custom-css/',KeydiffretiatesCustomListCreateView.as_view(),name="keydiffrentiates-list-create"),
     path('keydiffrentiates/custom-css/<int:pk>/',KeydiffrentiatesCustomRetrieveUpdateDistroyView.as_view(),name="keydiffrentiates-retrieve-update-distroy"),
+    path('keydiffrentiates/custom/',KeydiffretiatesCustomListCreateView.as_view(),name="keydiffrentiates-list-create"),
+    path('keydiffrentiates/custom/<int:pk>/',KeydiffrentiatesCustomRetrieveUpdateDistroyView.as_view(),name="keydiffrentiates-retrieve-update-distroy"),
+
+    #urls for Acheievments
+
+    path('acheievement/custom/',AcheievmentCustomListCreateView.as_view(),name = "acheievement-list-create"),
+    path('acheievement/custom/<int:pk>/',AcheievementCustomRetrieveUpdateDistroyView.as_view(),name="acheievement-retrieve-update-distroy"),
+
+     #urls for Acheievments
+
+    path('highlights/custom/',HighlightsCustomListCreateView.as_view(),name = "highlights-list-create"),
+    path('highlights/custom/<int:pk>/',HighlightsCustomRetrieveUpdateDistroyView.as_view(),name="highlights-retrieve-update-distroy"),
+
     
     # urls for aboupagesection
 
