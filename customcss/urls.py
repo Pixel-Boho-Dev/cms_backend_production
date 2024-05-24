@@ -1,7 +1,5 @@
 from django.urls import path
-from .views import HomeHeaderCustomListCreateView,HomeHeaderCustomRetrieveUpdateDistroyView,AboutPageSectionCustomListCreateView,AboutPageSectionCustomRetrieveUpdateDistroyView,ourstoryCustomListCreateView,ourstoryCustomRetrieveUpdateDistroyView,ServicecardCustomListCreateView,ServiceRetrieveUpdateDistroyView,ChooseusCustomListCreateView,ChooseusCustomRetrieveUpdateDistroyView
-from .views import milestoneListCreateView,milestoneCustomRetrieveUpdateDistroyView,ourteamCustomListCreateView,ourteamCustomRetrieveUpdateDistroyView
-
+from .views import *
 
 urlpatterns = [
     # urls for homeheader
