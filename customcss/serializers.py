@@ -103,4 +103,19 @@ class ournetworkdescriptionCustomSerializers(serializers.ModelSerializer):
         model = ournetworkdescriptionCustom
         fields = "__all__"
 
+#serializers for ournetworklocation       
+class ournetworklocationCustomSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = ournetworklocationCustom
+        fields = "__all__"
+
+#serializers for ournetworklocation       
+class ournetworkofficesCustomSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = ournetworkofficesCustom
+        fields = "__all__"
+
+
+
+
 

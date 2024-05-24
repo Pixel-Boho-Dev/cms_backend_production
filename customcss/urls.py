@@ -2,7 +2,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    # urls for homeheader
+    #urls for homeheader
 
     path('home/headercustom-css/',HomeHeaderCustomListCreateView.as_view(),name="homeheadercustom-list-create"),
     path('home/headercustom-css/<int:pk>/',HomeHeaderCustomRetrieveUpdateDistroyView.as_view(),name="homeheadercustom-retrieve-update-distroy"),
@@ -27,8 +27,6 @@ urlpatterns = [
 
     path('keydiffrentiates/custom-css/',KeydiffretiatesCustomListCreateView.as_view(),name="keydiffrentiates-list-create"),
     path('keydiffrentiates/custom-css/<int:pk>/',KeydiffrentiatesCustomRetrieveUpdateDistroyView.as_view(),name="keydiffrentiates-retrieve-update-distroy"),
-    path('keydiffrentiates/custom/',KeydiffretiatesCustomListCreateView.as_view(),name="keydiffrentiates-list-create"),
-    path('keydiffrentiates/custom/<int:pk>/',KeydiffrentiatesCustomRetrieveUpdateDistroyView.as_view(),name="keydiffrentiates-retrieve-update-distroy"),
 
     #urls for Acheievments
 
@@ -79,12 +77,15 @@ urlpatterns = [
 
     #urls for ournetworkdescription
     path('ournetwork/description/custom-css/',ournetworkdescriptioncustomListCreateView.as_view(),name="description-list-create"),
-    path('ournetwork/description/custom-css/<int:pk>/',ournetworkdescriptionCustomRetrieveUpdateDistroyView.as_view(),name="description-retrieve-update-distroy"),
+    path('ournetwork/description/custom-css/<int:pk>/',ournetworkdescriptionCustomRetrieveUpdateDistroyView.as_view(),name="descriptions-retrieve-update-distroy"),
 
-
-   
-
-
+    #urls for ournetworklocation
+    path('ournetwork/location/custom-css/',ournetworklocationcustomListCreateView.as_view(),name="location-list-create"),
+    path('ournetwork/location/custom-css/<int:pk>/',ournetworklocationCustomRetrieveUpdateDistroyView.as_view(),name="locations-retrieve-update-distroy"),
+     
+    #urls for ournetworkoffices
+    path('ournetwork/offices/custom-css/',ournetworkofficesCustomListCreateView.as_view(),name="office-list-create"),
+    path('ournetwork/offices/custom-css/<int:pk>/',ournetworkofficesCustomRetrieveUpdateDistroyView.as_view(),name="offices-retrieve-update-distroy"),
 
 
 
