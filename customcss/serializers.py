@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import HomeHeaderCustom ,ServicecardsCustom
-from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,milestoneCustom,ournetworkCustom
+from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,milestoneCustom,ourteamCustom
 
 
 #serializers for headersection
@@ -41,9 +41,9 @@ class milestoneCustomserializers(serializers.ModelSerializer):
         model = milestoneCustom
         fields = "__all__"
 
-#serializers for ournetwork
+#serializers for ourteam
 
-class ournetworkCustomserializers(serializers.ModelSerializer):
+class ourteamCustomserializers(serializers.ModelSerializer):
     class Meta:
-        model = ournetworkCustom
+        model = ourteamCustom
         fields = "__all__"
