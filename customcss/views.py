@@ -414,7 +414,7 @@ class ournetworkofficesCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDe
 #views for careerspage
 class careerspageCustomListCreateView(generics.ListCreateAPIView):
     queryset = careerspageCustom.objects.all()
-    serializer_class = careerspageCustomCustomSerializers
+    serializer_class = careerspageCustomSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -426,7 +426,7 @@ class careerspageCustomListCreateView(generics.ListCreateAPIView):
 
 class careerspageCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = careerspageCustom.objects.all()
-    serializer_class = careerspageCustomCustomSerializers
+    serializer_class = careerspageCustomSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
