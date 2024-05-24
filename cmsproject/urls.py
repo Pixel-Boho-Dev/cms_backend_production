@@ -47,6 +47,7 @@ urlpatterns = [
     path('api/',include("footer.urls")),
     path('api/',include("industry_cards.urls")),
     path('api/',include("service_card.urls")),
+    path('api/',include("customcss.urls")),
 
 
 ]

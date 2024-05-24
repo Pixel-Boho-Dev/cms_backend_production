@@ -1,4 +1,3 @@
-
 from rest_framework import generics
 from .models import Footer
 from .serializers import FooterSerializer
