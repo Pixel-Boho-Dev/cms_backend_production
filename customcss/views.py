@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,ChooseusCustom,ServicecardsCustom, milestoneCustom,ourteamCustom,OurnetworkCustom,whatweareCustom
-from .serializers import HomeHeaderCustomSerializer,AboutPageSectionCustomSerializer,ourstoryCustomSerializer,ChooseusCustomSerializer,ServicecardCustomSerializer,milestoneCustomserializers,ourteamCustomserializers,OurnetworkCustomSerializer,whatweareCustomserializers
+from .models import *
+from .serializers import *
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.response import Response
