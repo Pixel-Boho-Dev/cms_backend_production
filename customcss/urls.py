@@ -27,9 +27,7 @@ urlpatterns = [
 
     path('keydiffrentiates/custom-css/',KeydiffretiatesCustomListCreateView.as_view(),name="keydiffrentiates-list-create"),
     path('keydiffrentiates/custom-css/<int:pk>/',KeydiffrentiatesCustomRetrieveUpdateDistroyView.as_view(),name="keydiffrentiates-retrieve-update-distroy"),
-    path('keydiffrentiates/custom/',KeydiffretiatesCustomListCreateView.as_view(),name="keydiffrentiates-list-create"),
-    path('keydiffrentiates/custom/<int:pk>/',KeydiffrentiatesCustomRetrieveUpdateDistroyView.as_view(),name="keydiffrentiates-retrieve-update-distroy"),
-
+  
     #urls for Acheievments
 
     path('acheievement/custom/',AcheievmentCustomListCreateView.as_view(),name = "acheievement-list-create"),
@@ -40,7 +38,12 @@ urlpatterns = [
     path('highlights/custom/',HighlightsCustomListCreateView.as_view(),name = "highlights-list-create"),
     path('highlights/custom/<int:pk>/',HighlightsCustomRetrieveUpdateDistroyView.as_view(),name="highlights-retrieve-update-distroy"),
 
-    
+
+    #urls for industriescards
+
+    path('industries/custom-css/',IndustriesCardsCustomListCreateView.as_view(),name="industries-list-create"),
+    path('industries/custom-css/<int:pk>/',IndustriesCardsCustomRetrieveUpdateDistroyView.as_view(),name="industries-retrieve-update-distroy"),
+
     # urls for aboupagesection
 
     path('about_page/custom-css/',AboutPageSectionCustomListCreateView.as_view(),name="aboupages-list-create"),
