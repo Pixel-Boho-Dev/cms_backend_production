@@ -1,7 +1,6 @@
 from django.urls import path
-from .views import HomeHeaderCustomListCreateView,HomeHeaderCustomRetrieveUpdateDistroyView,AboutPageSectionCustomListCreateView,AboutPageSectionCustomRetrieveUpdateDistroyView,ourstoryCustomListCreateView,ourstoryCustomRetrieveUpdateDistroyView
-
-from .views import HomeHeaderCustomListCreateView,HomeHeaderCustomRetrieveUpdateDistroyView,ServicecardCustomListCreateView,ServiceRetrieveUpdateDistroyView,milestoneListCreateView,milestoneCustomRetrieveUpdateDistroyView,ourteamCustomListCreateView,ourteamCustomRetrieveUpdateDistroyView
+from .views import HomeHeaderCustomListCreateView,HomeHeaderCustomRetrieveUpdateDistroyView,AboutPageSectionCustomListCreateView,AboutPageSectionCustomRetrieveUpdateDistroyView,ourstoryCustomListCreateView,ourstoryCustomRetrieveUpdateDistroyView,ServicecardCustomListCreateView,ServiceRetrieveUpdateDistroyView,ChooseusCustomListCreateView,ChooseusCustomRetrieveUpdateDistroyView
+from .views import milestoneListCreateView,milestoneCustomRetrieveUpdateDistroyView,ourteamCustomListCreateView,ourteamCustomRetrieveUpdateDistroyView
 
 
 urlpatterns = [
@@ -9,8 +8,17 @@ urlpatterns = [
 
     path('home/headercustom/',HomeHeaderCustomListCreateView.as_view(),name="homeheadercustom-list-create"),
     path('home/headercustom/<int:pk>/',HomeHeaderCustomRetrieveUpdateDistroyView.as_view(),name="homeheadercustom-retrieve-update-distroy"),
-    
 
+    #urls for servicecard
+
+    path('servicecard/custom/',ServicecardCustomListCreateView.as_view(),name="service-cards-list-create"),
+    path('servicecard/custom/<int:pk>/',ServiceRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+
+    #urls for chooseus
+
+    path('chooseus/custom/',ChooseusCustomListCreateView.as_view(),name="chooseus-list-create"),
+    path('chooseus/custom/<int:pk>/',ChooseusCustomRetrieveUpdateDistroyView.as_view(),name = 'choose-retrieve-update-distroy'),
+    
     # urls for aboupagesection
 
     path('about_page/custom/',AboutPageSectionCustomListCreateView.as_view(),name="homeheadercustom-list-create"),
@@ -20,11 +28,6 @@ urlpatterns = [
 
     path('ourstory/custom/',ourstoryCustomListCreateView.as_view(),name="homeheadercustom-list-create"),
     path('ourstory/custom/<int:pk>/',ourstoryCustomRetrieveUpdateDistroyView.as_view(),name="homeheadercustom-retrieve-update-distroy"),
-
-    #urls for service
-
-    path('servicecard/custom/',ServicecardCustomListCreateView.as_view(),name="service-cards-list-create"),
-    path('servicecard/custom/<int:pk>/',ServiceRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
 
    #urls for milestone
 
@@ -36,6 +39,5 @@ urlpatterns = [
     path('ourteam/custom/',ourteamCustomListCreateView.as_view(),name="service-cards-list-create"),
     path('ourteam/custom/<int:pk>/',ourteamCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
 
-    
-
+  
 ]
