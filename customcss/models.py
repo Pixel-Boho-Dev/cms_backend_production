@@ -49,6 +49,20 @@ class HighlightsCustom(models.Model):
     def __str__(self):
         return self.text
     
+#models for industriescards
+class IndustriesCardsCustom(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
+    
+#models for marketupdates
+class MarketUpdatesCustom(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
+    
 #models fo aboutpagesection
 class AboutPageSectionCustom(models.Model):
     text = models.TextField()
