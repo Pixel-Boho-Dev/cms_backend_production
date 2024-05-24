@@ -52,12 +52,16 @@ class milestoneCustom(models.Model):
         return self.text
 
 #models for ourteam
-
 class ourteamCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
 
-
+#models for whatweare
+class whatweareCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
 

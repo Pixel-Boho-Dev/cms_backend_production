@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,ChooseusCustom,ServicecardsCustom, milestoneCustom,ourteamCustom,OurnetworkCustom
-from .serializers import HomeHeaderCustomSerializer,AboutPageSectionCustomSerializer,ourstoryCustomSerializer,ChooseusCustomSerializer,ServicecardCustomSerializer,milestoneCustomserializers,ourteamCustomserializers,OurnetworkCustomSerializer
+from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,ChooseusCustom,ServicecardsCustom, milestoneCustom,ourteamCustom,OurnetworkCustom,whatweareCustom
+from .serializers import HomeHeaderCustomSerializer,AboutPageSectionCustomSerializer,ourstoryCustomSerializer,ChooseusCustomSerializer,ServicecardCustomSerializer,milestoneCustomserializers,ourteamCustomserializers,OurnetworkCustomSerializer,whatweareCustomserializers
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.response import Response
@@ -147,6 +147,27 @@ class ourteamCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIVi
     serializer_class = ourteamCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
+
+#views for whatweare
+
+class whatweareCustomListCreateView(generics.ListCreateAPIView):
+    queryset = whatweareCustom.objects.all()
+    serializer_class = whatweareCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class whatweareCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = whatweareCustom.objects.all()
+    serializer_class = whatweareCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
 
 
 

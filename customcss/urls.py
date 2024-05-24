@@ -41,6 +41,12 @@ urlpatterns = [
 
     path('ourteam/custom/',ourteamCustomListCreateView.as_view(),name="service-cards-list-create"),
     path('ourteam/custom/<int:pk>/',ourteamCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+    
+    #urls for whatweare
+    path('whatweare/custom/',whatweareCustomListCreateView.as_view(),name="service-cards-list-create"),
+    path('whatweare/custom/<int:pk>/',whatweareCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+
+
 
   
 ]

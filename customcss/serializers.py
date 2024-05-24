@@ -50,3 +50,9 @@ class ourteamCustomserializers(serializers.ModelSerializer):
     class Meta:
         model = ourteamCustom
         fields = "__all__"
+
+#serializers for whatweare
+class whatweareCustomserializers(serializers.ModelSerializer):
+    class Meta:
+        model = whatweareCustom
+        fields = "__all__"
