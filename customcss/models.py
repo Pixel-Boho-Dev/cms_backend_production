@@ -115,3 +115,11 @@ class headerournetworkCustom(models.Model):
         return self.text
     
 
+#urls for ournetworkdescription
+class ournetworkdescriptionCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+    
+
