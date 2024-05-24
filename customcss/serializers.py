@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,milestoneCustom,ourteamCustom,ServicecardsCustom,ChooseusCustom,OurnetworkCustom
-
+from .models import *
 #serializers for headersection
 class HomeHeaderCustomSerializer(serializers.ModelSerializer):
     class Meta:
