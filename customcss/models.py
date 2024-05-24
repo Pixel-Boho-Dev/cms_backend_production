@@ -93,3 +93,11 @@ class footerCustom(models.Model):
     def __str__(self):
         return self.text
     
+#urls for headerournetwork
+class headerournetworkCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+    
+
