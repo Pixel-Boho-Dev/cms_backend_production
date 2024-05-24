@@ -31,7 +31,25 @@ class AboutPageSectionCustom(models.Model):
 #models fo ourstorysection
 class ourstoryCustom(models.Model):
     text = models.TextField()
+    def __str__(self):
+        return self.text
 
+    def __str__(self):
+        return self.text
+    
+#models for milestone
+  
+class milestoneCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+
+#models for ourteam
+
+class ourteamCustom(models.Model):
+    text = models.TextField()
+    
     def __str__(self):
         return self.text
 

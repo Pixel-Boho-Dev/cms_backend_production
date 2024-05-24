@@ -1,9 +1,6 @@
 from rest_framework import generics
-from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,ChooseusCustom
-from .serializers import HomeHeaderCustomSerializer,AboutPageSectionCustomSerializer,ourstoryCustomSerializer,ChooseusCustomSerializer
-from rest_framework.permissions import IsAuthenticated
-from .models import HomeHeaderCustom,ServicecardsCustom
-from .serializers import HomeHeaderCustomSerializer,ServicecardCustomSerializer
+from .models import HomeHeaderCustom,AboutPageSectionCustom,ourstoryCustom,ChooseusCustom,ServicecardsCustom, milestoneCustom,ourteamCustom
+from .serializers import HomeHeaderCustomSerializer,AboutPageSectionCustomSerializer,ourstoryCustomSerializer,ChooseusCustomSerializer,ServicecardCustomSerializer,milestoneCustomserializers,ourteamCustomserializers
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.response import Response
@@ -90,6 +87,46 @@ class ourstoryCustomListCreateView(generics.ListCreateAPIView):
 class ourstoryCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = ourstoryCustom.objects.all()
     serializer_class = ourstoryCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+#views for milestones
+
+class milestoneListCreateView(generics.ListCreateAPIView):
+    queryset = milestoneCustom.objects.all()
+    serializer_class = milestoneCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class milestoneCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = milestoneCustom.objects.all()
+    serializer_class = milestoneCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+#views for ourteam
+
+class ourteamCustomListCreateView(generics.ListCreateAPIView):
+    queryset = ourteamCustom.objects.all()
+    serializer_class = ourteamCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class ourteamCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ourteamCustom.objects.all()
+    serializer_class = ourteamCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 

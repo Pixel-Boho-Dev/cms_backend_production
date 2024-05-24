@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import HomeHeaderCustomListCreateView,HomeHeaderCustomRetrieveUpdateDistroyView,AboutPageSectionCustomListCreateView,AboutPageSectionCustomRetrieveUpdateDistroyView,ourstoryCustomListCreateView,ourstoryCustomRetrieveUpdateDistroyView,ServicecardCustomListCreateView,ServiceRetrieveUpdateDistroyView,ChooseusCustomListCreateView,ChooseusCustomRetrieveUpdateDistroyView
+from .views import milestoneListCreateView,milestoneCustomRetrieveUpdateDistroyView,ourteamCustomListCreateView,ourteamCustomRetrieveUpdateDistroyView
 
 
 urlpatterns = [
@@ -28,5 +29,15 @@ urlpatterns = [
     path('ourstory/custom/',ourstoryCustomListCreateView.as_view(),name="homeheadercustom-list-create"),
     path('ourstory/custom/<int:pk>/',ourstoryCustomRetrieveUpdateDistroyView.as_view(),name="homeheadercustom-retrieve-update-distroy"),
 
+   #urls for milestone
 
+    path('milestone/custom/',milestoneListCreateView.as_view(),name="service-cards-list-create"),
+    path('milestone/custom/<int:pk>/',milestoneCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+
+   #urls for ourteam
+
+    path('ourteam/custom/',ourteamCustomListCreateView.as_view(),name="service-cards-list-create"),
+    path('ourteam/custom/<int:pk>/',ourteamCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+
+  
 ]
