@@ -115,4 +115,8 @@ class ournetworkdescriptionCustomSerializers(serializers.ModelSerializer):
         model = ournetworkdescriptionCustom
         fields = "__all__"
 
-
+#serializer of service
+class ServiceCustomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ServiceCustom
+        fields = "__all__"

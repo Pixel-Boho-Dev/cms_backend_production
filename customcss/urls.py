@@ -89,6 +89,12 @@ urlpatterns = [
     path('ournetwork/description/custom-css/',ournetworkdescriptioncustomListCreateView.as_view(),name="description-list-create"),
     path('ournetwork/description/custom-css/<int:pk>/',ournetworkdescriptionCustomRetrieveUpdateDistroyView.as_view(),name="description-retrieve-update-distroy"),
 
+    #urls for Service
+    path('service/custom-css/',ServiceCustomListCreateView.as_view(),name="description-list-create"),
+    path('service/custom-css/<int:pk>/',ServiceCustomRetrieveUpdateDistroyView.as_view(),name="description-retrieve-update-distroy"),
+
+
+
 
    
 

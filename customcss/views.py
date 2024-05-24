@@ -344,7 +344,6 @@ class ournetworkdescriptioncustomListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-    
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
@@ -353,6 +352,24 @@ class ournetworkdescriptioncustomListCreateView(generics.ListCreateAPIView):
 class ournetworkdescriptionCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = ournetworkdescriptionCustom.objects.all()
     serializer_class = ournetworkdescriptionCustomSerializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+#views for service
+class ServiceCustomListCreateView(generics.ListCreateAPIView):
+    queryset = ServiceCustom.objects.all()
+    serializer_class = ServiceCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class ServiceCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ServiceCustom.objects.all()
+    serializer_class = ServiceCustomSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
