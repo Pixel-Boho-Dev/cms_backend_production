@@ -207,6 +207,23 @@ class contactformCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyA
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for footer
+class footerCustomCListCreateView(generics.ListCreateAPIView):
+    queryset = footerCustom.objects.all()
+    serializer_class = footerCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class footerCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = footerCustom.objects.all()
+    serializer_class = footerCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
 
