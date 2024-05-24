@@ -55,3 +55,15 @@ class whatweareCustomserializers(serializers.ModelSerializer):
     class Meta:
         model = whatweareCustom
         fields = "__all__"
+#serializers for certification
+class certificationCustomserializers(serializers.ModelSerializer):
+    class Meta:
+        model = certificationCustom
+        fields = "__all__"
+
+#serializers for contactform
+class contactformCustomserializers(serializers.ModelSerializer):
+    class Meta:
+        model = contactformCustom
+        fields = "__all__"
+
