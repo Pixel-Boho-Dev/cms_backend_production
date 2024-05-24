@@ -48,6 +48,12 @@ class IndustriesCardsCustomSerializer(serializers.ModelSerializer):
         model = IndustriesCardsCustom
         fields = "__all__"
 
+#serializers for marketsupdates
+class MarketUpdatesCustomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MarketUpdatesCustom
+        fields = "__all__"
+
 #serializers for aboutpagesction
 class AboutPageSectionCustomSerializer(serializers.ModelSerializer):
     class Meta:
