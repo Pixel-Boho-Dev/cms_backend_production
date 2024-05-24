@@ -1,32 +1,38 @@
 from django.db import models
 
 # models for homeheader
-
 class HomeHeaderCustom(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return self.title
+        return self.text
+    
+#models for servicecard
+class ServicecardsCustom(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
+    
+#models for chooseus
+class ChooseusCustom(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
     
 #models fo aboutpagesection
-
 class AboutPageSectionCustom(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return self.title
+        return self.text
 
 #models fo ourstorysection
-
 class ourstoryCustom(models.Model):
     text = models.TextField()
     def __str__(self):
-        return self.title
-
-#models for servicecard
-
-class ServicecardsCustom(models.Model):
-    text = models.TextField()
+        return self.text
 
     def __str__(self):
         return self.text
@@ -48,5 +54,4 @@ class ourteamCustom(models.Model):
         return self.text
 
 
-    
 
