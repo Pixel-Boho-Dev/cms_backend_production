@@ -143,3 +143,27 @@ class ServiceCustom(models.Model):
     def __str__(self):
         return self.text
 
+#urls for ournetworklocation
+
+class ournetworklocationCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+    
+#urls for ournetworkoffices
+
+class ournetworkofficesCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+    
+#urls for careerspage
+
+class careerspageCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+

@@ -2,7 +2,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    # urls for homeheader
+    #urls for homeheader
 
     path('home/headercustom-css/',HomeHeaderCustomListCreateView.as_view(),name="homeheadercustom-list-create"),
     path('home/headercustom-css/<int:pk>/',HomeHeaderCustomRetrieveUpdateDistroyView.as_view(),name="homeheadercustom-retrieve-update-distroy"),
@@ -27,7 +27,7 @@ urlpatterns = [
 
     path('keydiffrentiates/custom-css/',KeydiffretiatesCustomListCreateView.as_view(),name="keydiffrentiates-list-create"),
     path('keydiffrentiates/custom-css/<int:pk>/',KeydiffrentiatesCustomRetrieveUpdateDistroyView.as_view(),name="keydiffrentiates-retrieve-update-distroy"),
-  
+
     #urls for Acheievments
 
     path('acheievement/custom/',AcheievmentCustomListCreateView.as_view(),name = "acheievement-list-create"),
@@ -93,13 +93,17 @@ urlpatterns = [
     path('service/custom-css/',ServiceCustomListCreateView.as_view(),name="description-list-create"),
     path('service/custom-css/<int:pk>/',ServiceCustomRetrieveUpdateDistroyView.as_view(),name="description-retrieve-update-distroy"),
 
-
-
-
+    #urls for ournetworklocation
+    path('ournetwork/location/custom-css/',ournetworklocationcustomListCreateView.as_view(),name="location-list-create"),
+    path('ournetwork/location/custom-css/<int:pk>/',ournetworklocationCustomRetrieveUpdateDistroyView.as_view(),name="locations-retrieve-update-distroy"),
+     
+    #urls for ournetworkoffices
+    path('ournetwork/offices/custom-css/',ournetworkofficesCustomListCreateView.as_view(),name="office-list-create"),
+    path('ournetwork/offices/custom-css/<int:pk>/',ournetworkofficesCustomRetrieveUpdateDistroyView.as_view(),name="offices-retrieve-update-distroy"),
    
-
-
-
+    #urls for careerspage
+    path('careers/custom-css/',careerspageCustomListCreateView.as_view(),name="careers-list-create"),
+    path('careers/custom-css/<int:pk>/',careerspageCustomRetrieveUpdateDistroyView.as_view(),name="career-retrieve-update-distroy"),
 
 
 

@@ -366,10 +366,71 @@ class ServiceCustomListCreateView(generics.ListCreateAPIView):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
-
+    
 class ServiceCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = ServiceCustom.objects.all()
     serializer_class = ServiceCustomSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
+
+
+#views for ournetwork location
+class ournetworklocationcustomListCreateView(generics.ListCreateAPIView):
+    queryset = ournetworklocationCustom.objects.all()
+    serializer_class = ournetworklocationCustomSerializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class ournetworklocationCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ournetworklocationCustom.objects.all()
+    serializer_class = ournetworklocationCustomSerializers
+    permissionclasses = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+#views for ournetwork location
+class ournetworkofficesCustomListCreateView(generics.ListCreateAPIView):
+    queryset = ournetworkofficesCustom.objects.all()
+    serializer_class = ournetworkofficesCustomSerializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class ournetworkofficesCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ournetworkofficesCustom.objects.all()
+    serializer_class = ournetworkofficesCustomSerializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+#views for careerspage
+class careerspageCustomListCreateView(generics.ListCreateAPIView):
+    queryset = careerspageCustom.objects.all()
+    serializer_class = careerspageCustomCustomSerializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class careerspageCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = careerspageCustom.objects.all()
+    serializer_class = careerspageCustomCustomSerializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+
+
+
 

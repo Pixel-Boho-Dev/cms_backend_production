@@ -115,8 +115,31 @@ class ournetworkdescriptionCustomSerializers(serializers.ModelSerializer):
         model = ournetworkdescriptionCustom
         fields = "__all__"
 
+
 #serializer of service
 class ServiceCustomSerializer(serializers.ModelSerializer):
     class Meta:
         model = ServiceCustom
         fields = "__all__"
+        
+#serializers for ournetworklocation       
+class ournetworklocationCustomSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = ournetworklocationCustom
+        fields = "__all__"
+
+#serializers for ournetworklocation       
+class ournetworkofficesCustomSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = ournetworkofficesCustom
+        fields = "__all__"
+        
+#serializers for ournetworklocation       
+class careerspageCustomCustomSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = careerspageCustom
+        fields = "__all__"
+
+
+
+
