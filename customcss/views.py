@@ -394,6 +394,26 @@ class ournetworkofficesCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDe
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for careerspage
+class careerspageCustomListCreateView(generics.ListCreateAPIView):
+    queryset = careerspageCustom.objects.all()
+    serializer_class = careerspageCustomCustomSerializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class careerspageCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = careerspageCustom.objects.all()
+    serializer_class = careerspageCustomCustomSerializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+
 
 
 

@@ -96,7 +96,10 @@ urlpatterns = [
     #urls for ournetworkoffices
     path('ournetwork/offices/custom-css/',ournetworkofficesCustomListCreateView.as_view(),name="office-list-create"),
     path('ournetwork/offices/custom-css/<int:pk>/',ournetworkofficesCustomRetrieveUpdateDistroyView.as_view(),name="offices-retrieve-update-distroy"),
-
+   
+    #urls for careerspage
+    path('careers/custom-css/',careerspageCustomListCreateView.as_view(),name="careers-list-create"),
+    path('careers/custom-css/<int:pk>/',careerspageCustomRetrieveUpdateDistroyView.as_view(),name="career-retrieve-update-distroy"),
 
 
 
