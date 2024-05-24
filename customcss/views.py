@@ -430,6 +430,23 @@ class careerspageCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyA
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for industries page
+class IndustriesHeaderCustomListCreateView(generics.ListCreateAPIView):
+    queryset = IndustriesHeaderCustom.objects.all()
+    serializer_class = IndustriesHeaderCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+    
+class IndustriesHeaderCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = IndustriesHeaderCustom.objects.all()
+    serializer_class = IndustriesHeaderCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
 
 

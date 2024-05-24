@@ -121,6 +121,7 @@ class ServiceCustomSerializer(serializers.ModelSerializer):
     class Meta:
         model = ServiceCustom
         fields = "__all__"
+
         
 #serializers for ournetworklocation       
 class ournetworklocationCustomSerializers(serializers.ModelSerializer):
@@ -140,6 +141,10 @@ class careerspageCustomSerializers(serializers.ModelSerializer):
         model = careerspageCustom
         fields = "__all__"
 
-
+#serializers for Industriespage       
+class IndustriesHeaderCustomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IndustriesHeaderCustom
+        fields = "__all__"
 
 

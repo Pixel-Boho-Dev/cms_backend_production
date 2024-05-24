@@ -143,8 +143,8 @@ class ServiceCustom(models.Model):
     def __str__(self):
         return self.text
 
-#models for ournetworklocation
 
+#models for ournetworklocation
 class ournetworklocationCustom(models.Model):
     text = models.TextField()
     
@@ -152,15 +152,14 @@ class ournetworklocationCustom(models.Model):
         return self.text
     
 #models for ournetworkoffices
-
 class ournetworkofficesCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
     
-#models for careerspage
 
+#models for careerspage
 class careerspageCustom(models.Model):
     text = models.TextField()
     
@@ -170,3 +169,9 @@ class careerspageCustom(models.Model):
 
 #models for heademarketupdate
 
+#models for indutries header
+class IndustriesHeaderCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text

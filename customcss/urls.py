@@ -105,11 +105,9 @@ urlpatterns = [
     path('careers/custom-css/',careerspageCustomListCreateView.as_view(),name="careers-list-create"),
     path('careers/custom-css/<int:pk>/',careerspageCustomRetrieveUpdateDistroyView.as_view(),name="career-retrieve-update-distroy"),
 
-
-
-
-
-
+    #urls for industries page
+    path('header/industries/custom-css/',IndustriesHeaderCustomListCreateView.as_view(),name="industries-header-list-create"),
+    path('header/industries/custom-css/<int:pk>/',IndustriesHeaderCustomRetrieveUpdateDistroyView.as_view(),name="industries-header-retrieve-update-distroy"),
 
   
 ]
