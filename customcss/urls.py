@@ -21,6 +21,11 @@ urlpatterns = [
 
     path('ournetwork/custom/',OurnetworkCustomListCreateView.as_view(),name="ournetwork-custom-list-create"),
     path('ournetwork/custom/<int:pk>/',OurnetworkCustomRetrieveUpdateDistroyView.as_view(),name="ournetwork-custom-retrieve-update-distroy"),
+
+    #urls for keydiffrentiates
+
+    path('keydiffrentiates/custom/',KeydiffretiatesCustomListCreateView.as_view(),name="keydiffrentiates-list-create"),
+    path('keydiffrentiates/custom/<int:pk>/',KeydiffrentiatesCustomRetrieveUpdateDistroyView.as_view(),name="keydiffrentiates-retrieve-update-distroy"),
     
     # urls for aboupagesection
 

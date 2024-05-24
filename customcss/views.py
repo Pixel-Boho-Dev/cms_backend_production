@@ -77,6 +77,24 @@ class OurnetworkCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAP
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for keydiffrentiates
+class KeydiffretiatesCustomListCreateView(generics.ListCreateAPIView):
+    queryset = KeydiffrentiatorsCustom.objects.all()
+    serializer_class = KeydiffrentiatorsSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class KeydiffrentiatesCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = KeydiffrentiatorsCustom
+    serializer_class = KeydiffrentiatorsSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
 #views for  aboupage section
 class AboutPageSectionCustomListCreateView(generics.ListCreateAPIView):
     queryset = AboutPageSectionCustom.objects.all()
