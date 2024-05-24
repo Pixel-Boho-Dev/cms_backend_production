@@ -4,29 +4,30 @@ from .views import *
 urlpatterns = [
     # urls for homeheader
 
-    path('home/headercustom/',HomeHeaderCustomListCreateView.as_view(),name="homeheadercustom-list-create"),
-    path('home/headercustom/<int:pk>/',HomeHeaderCustomRetrieveUpdateDistroyView.as_view(),name="homeheadercustom-retrieve-update-distroy"),
+    path('home/headercustom-css/',HomeHeaderCustomListCreateView.as_view(),name="homeheadercustom-list-create"),
+    path('home/headercustom-css/<int:pk>/',HomeHeaderCustomRetrieveUpdateDistroyView.as_view(),name="homeheadercustom-retrieve-update-distroy"),
 
     #urls for servicecard
 
-    path('servicecard/custom/',ServicecardCustomListCreateView.as_view(),name="service-cards-list-create"),
-    path('servicecard/custom/<int:pk>/',ServiceRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+    path('servicecard/custom-css/',ServicecardCustomListCreateView.as_view(),name="service-cards-list-create"),
+    path('servicecard/custom-css/<int:pk>/',ServiceRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
 
     #urls for chooseus
 
-    path('chooseus/custom/',ChooseusCustomListCreateView.as_view(),name="chooseus-custom-list-create"),
-    path('chooseus/custom/<int:pk>/',ChooseusCustomRetrieveUpdateDistroyView.as_view(),name = 'chooseus-custom-retrieve-update-distroy'),
+    path('chooseus/custom-css/',ChooseusCustomListCreateView.as_view(),name="chooseus-custom-list-create"),
+    path('chooseus/custom-css/<int:pk>/',ChooseusCustomRetrieveUpdateDistroyView.as_view(),name = 'chooseus-custom-retrieve-update-distroy'),
 
     #urls for ournetwork
 
-    path('home/ournetwork/custom/',OurnetworkCustomListCreateView.as_view(),name="ournetwork-custom-list-create"),
-    path('home/ournetwork/custom/<int:pk>/',OurnetworkCustomRetrieveUpdateDistroyView.as_view(),name="ournetwork-custom-retrieve-update-distroy"),
+    path('home/ournetwork/custom-css/',OurnetworkCustomListCreateView.as_view(),name="ournetwork-custom-list-create"),
+    path('home/ournetwork/custom-css/<int:pk>/',OurnetworkCustomRetrieveUpdateDistroyView.as_view(),name="ournetwork-custom-retrieve-update-distroy"),
 
     #urls for keydiffrentiates
 
-    path('keydiffrentiates/custom/',KeydiffretiatesCustomListCreateView.as_view(),name="keydiffrentiates-list-create"),
-    path('keydiffrentiates/custom/<int:pk>/',KeydiffrentiatesCustomRetrieveUpdateDistroyView.as_view(),name="keydiffrentiates-retrieve-update-distroy"),
 
+    path('keydiffrentiates/custom-css/',KeydiffretiatesCustomListCreateView.as_view(),name="keydiffrentiates-list-create"),
+    path('keydiffrentiates/custom-css/<int:pk>/',KeydiffrentiatesCustomRetrieveUpdateDistroyView.as_view(),name="keydiffrentiates-retrieve-update-distroy"),
+  
     #urls for Acheievments
 
     path('acheievement/custom/',AcheievmentCustomListCreateView.as_view(),name = "acheievement-list-create"),
@@ -37,6 +38,7 @@ urlpatterns = [
     path('highlights/custom/',HighlightsCustomListCreateView.as_view(),name = "highlights-list-create"),
     path('highlights/custom/<int:pk>/',HighlightsCustomRetrieveUpdateDistroyView.as_view(),name="highlights-retrieve-update-distroy"),
 
+
     #urls for industriescards
 
     path('industries/custom-css/',IndustriesCardsCustomListCreateView.as_view(),name="industries-list-create"),
@@ -44,42 +46,45 @@ urlpatterns = [
 
     # urls for aboupagesection
 
-    path('about_page/custom/',AboutPageSectionCustomListCreateView.as_view(),name="aboupages-list-create"),
-    path('about_page/custom/<int:pk>/',AboutPageSectionCustomRetrieveUpdateDistroyView.as_view(),name="aboutpage-retrieve-update-distroy"),
+    path('about_page/custom-css/',AboutPageSectionCustomListCreateView.as_view(),name="aboupages-list-create"),
+    path('about_page/custom-css/<int:pk>/',AboutPageSectionCustomRetrieveUpdateDistroyView.as_view(),name="aboutpage-retrieve-update-distroy"),
 
     #urls for ourstory
 
-    path('ourstory/custom/',ourstoryCustomListCreateView.as_view(),name="ourstory-list-create"),
-    path('ourstory/custom/<int:pk>/',ourstoryCustomRetrieveUpdateDistroyView.as_view(),name="ourstory-retrieve-update-distroy"),
+    path('ourstory/custom-css/',ourstoryCustomListCreateView.as_view(),name="ourstory-list-create"),
+    path('ourstory/custom-css/<int:pk>/',ourstoryCustomRetrieveUpdateDistroyView.as_view(),name="ourstory-retrieve-update-distroy"),
 
    #urls for milestone
 
-    path('milestone/custom/',milestoneListCreateView.as_view(),name="milestones-list-create"),
-    path('milestone/custom/<int:pk>/',milestoneCustomRetrieveUpdateDistroyView.as_view(),name="milestone-retrieve-update-distroy"),
+    path('milestone/custom-css/',milestoneListCreateView.as_view(),name="milestones-list-create"),
+    path('milestone/custom-css/<int:pk>/',milestoneCustomRetrieveUpdateDistroyView.as_view(),name="milestone-retrieve-update-distroy"),
 
    #urls for ourteam
 
-    path('ourteam/custom/',ourteamCustomListCreateView.as_view(),name="ourteam-list-create"),
-    path('ourteam/custom/<int:pk>/',ourteamCustomRetrieveUpdateDistroyView.as_view(),name="ourteam-retrieve-update-distroy"),
+    path('ourteam/custom-css/',ourteamCustomListCreateView.as_view(),name="ourteam-list-create"),
+    path('ourteam/custom-css/<int:pk>/',ourteamCustomRetrieveUpdateDistroyView.as_view(),name="ourteam-retrieve-update-distroy"),
     
     #urls for whatweare
-    path('whatweare/custom/',whatweareCustomListCreateView.as_view(),name="whatweare-list-create"),
-    path('whatweare/custom/<int:pk>/',whatweareCustomRetrieveUpdateDistroyView.as_view(),name="whatweare-retrieve-update-distroy"),
+    path('whatweare/custom-css/',whatweareCustomListCreateView.as_view(),name="whatweare-list-create"),
+    path('whatweare/custom-css/<int:pk>/',whatweareCustomRetrieveUpdateDistroyView.as_view(),name="whatweare-retrieve-update-distroy"),
 
     #urls for contactform
-    path('contactform/custom/',contactformCustomListCreateView.as_view(),name="contactform-list-create"),
-    path('contactform/custom/<int:pk>/',contactformCustomRetrieveUpdateDistroyView.as_view(),name="conatactform-retrieve-update-distroy"),
+    path('contactform/custom-css/',contactformCustomListCreateView.as_view(),name="contactform-list-create"),
+    path('contactform/custom-css/<int:pk>/',contactformCustomRetrieveUpdateDistroyView.as_view(),name="conatactform-retrieve-update-distroy"),
 
     #urls for contactform
-    path('footer/custom/',footerCustomCListCreateView.as_view(),name="footer-list-create"),
-    path('footer/custom/<int:pk>/',footerCustomRetrieveUpdateDistroyView.as_view(),name="footer-retrieve-update-distroy"),
+    path('footer/custom-css/',footerCustomCListCreateView.as_view(),name="footer-list-create"),
+    path('footer/custom-css/<int:pk>/',footerCustomRetrieveUpdateDistroyView.as_view(),name="footer-retrieve-update-distroy"),
 
     #urls for headeournetwork
-    path('header/ournetwork/custom/',headerournetworkCustomListCreateView.as_view(),name="header-list-create"),
-    path('header/ournetwork/custom/<int:pk>/',headerournetworkCustomRetrieveUpdateDistroyView.as_view(),name="headerournetwork-retrieve-update-distroy"),
+    path('header/ournetwork/custom-css/',headerournetworkCustomListCreateView.as_view(),name="header-list-create"),
+    path('header/ournetwork/custom-css/<int:pk>/',headerournetworkCustomRetrieveUpdateDistroyView.as_view(),name="headerournetwork-retrieve-update-distroy"),
+
+    #urls for ournetworkdescription
+    path('ournetwork/description/custom-css/',ournetworkdescriptioncustomListCreateView.as_view(),name="description-list-create"),
+    path('ournetwork/description/custom-css/<int:pk>/',ournetworkdescriptionCustomRetrieveUpdateDistroyView.as_view(),name="description-retrieve-update-distroy"),
 
 
-    
    
 
 

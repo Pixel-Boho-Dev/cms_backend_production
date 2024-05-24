@@ -96,10 +96,17 @@ class footerCustomserializers(serializers.ModelSerializer):
     class Meta:
         model = footerCustom
         fields = "__all__"
+
 #serializers for headerournetwork
 class headerournetworkCustomserializers(serializers.ModelSerializer):
     class Meta:
         model = headerournetworkCustom
+        fields = "__all__"
+
+#serializers for ournetworkdescription       
+class ournetworkdescriptionCustomSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = ournetworkdescriptionCustom
         fields = "__all__"
 
 
