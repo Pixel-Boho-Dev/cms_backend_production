@@ -86,8 +86,15 @@ class certificationCustom(models.Model):
     def __str__(self):
         return self.text
     
-#class for contact
+#class for contactform
 class contactformCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+    
+#urls for footer
+class footerCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):

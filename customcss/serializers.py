@@ -80,3 +80,9 @@ class contactformCustomserializers(serializers.ModelSerializer):
         model = contactformCustom
         fields = "__all__"
 
+#serializers for footer
+class footerCustomserializers(serializers.ModelSerializer):
+    class Meta:
+        model = footerCustom
+        fields = "__all__"
+
