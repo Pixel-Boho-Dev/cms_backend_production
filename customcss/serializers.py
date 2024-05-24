@@ -128,13 +128,13 @@ class ournetworklocationCustomSerializers(serializers.ModelSerializer):
         model = ournetworklocationCustom
         fields = "__all__"
 
-#serializers for ournetworklocation       
+#serializers for ournetworkoffices     
 class ournetworkofficesCustomSerializers(serializers.ModelSerializer):
     class Meta:
         model = ournetworkofficesCustom
         fields = "__all__"
         
-#serializers for ournetworklocation       
+#serializers for careerspage      
 class careerspageCustomSerializers(serializers.ModelSerializer):
     class Meta:
         model = careerspageCustom
