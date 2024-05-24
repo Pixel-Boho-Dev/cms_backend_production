@@ -24,6 +24,12 @@ class OurnetworkCustomSerializer(serializers.ModelSerializer):
         model = OurnetworkCustom
         fields = "__all__"
 
+#serializers for keydiffrentiators
+class KeydiffrentiatorsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = KeydiffrentiatorsCustom
+        fields = "__all__"
+
 #serializers for aboutpagesction
 class AboutPageSectionCustomSerializer(serializers.ModelSerializer):
     class Meta:
