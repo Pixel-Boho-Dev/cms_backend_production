@@ -42,6 +42,13 @@ class AcheievementCustom(models.Model):
     def __str__(self):
         return self.text
     
+#models for highlights
+class HighlightsCustom(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
+    
 #models fo aboutpagesection
 class AboutPageSectionCustom(models.Model):
     text = models.TextField()

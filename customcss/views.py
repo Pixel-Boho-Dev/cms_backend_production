@@ -113,7 +113,25 @@ class AcheievementCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroy
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication] 
 
-#views for  aboupage section
+#views for highlights
+class HighlightsCustomListCreateView(generics.ListCreateAPIView):
+    queryset = HighlightsCustom.objects.all()
+    serializer_class = HighlightsCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+    
+class HighlightsCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset   = HighlightsCustom.objects.all()
+    serializer_class = HighlightsCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication] 
+
+#views for  aboupagesection
 class AboutPageSectionCustomListCreateView(generics.ListCreateAPIView):
     queryset = AboutPageSectionCustom.objects.all()
     serializer_class = AboutPageSectionCustomSerializer
