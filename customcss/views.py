@@ -186,6 +186,44 @@ class whatweareCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPI
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for certification
+
+class certificationCustomListCreateView(generics.ListCreateAPIView):
+    queryset = certificationCustom.objects.all()
+    serializer_class = certificationCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class certificationCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = certificationCustom.objects.all()
+    serializer_class = certificationCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+#views for contactform
+class contactformCustomListCreateView(generics.ListCreateAPIView):
+    queryset = contactformCustom.objects.all()
+    serializer_class = contactformCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class contactformCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = contactformCustom.objects.all()
+    serializer_class = contactformCustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
 
 
