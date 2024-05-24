@@ -40,25 +40,25 @@ urlpatterns = [
    #urls for milestone
 
     path('milestone/custom/',milestoneListCreateView.as_view(),name="service-cards-list-create"),
-    path('milestone/custom/<int:pk>/',milestoneCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+    path('milestone/custom/<int:pk>/',milestoneCustomRetrieveUpdateDistroyView.as_view(),name="milestone-retrieve-update-distroy"),
 
    #urls for ourteam
 
     path('ourteam/custom/',ourteamCustomListCreateView.as_view(),name="service-cards-list-create"),
-    path('ourteam/custom/<int:pk>/',ourteamCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+    path('ourteam/custom/<int:pk>/',ourteamCustomRetrieveUpdateDistroyView.as_view(),name="ourteam-retrieve-update-distroy"),
     
     #urls for whatweare
     path('whatweare/custom/',whatweareCustomListCreateView.as_view(),name="service-cards-list-create"),
-    path('whatweare/custom/<int:pk>/',whatweareCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+    path('whatweare/custom/<int:pk>/',whatweareCustomRetrieveUpdateDistroyView.as_view(),name="whatweare-retrieve-update-distroy"),
 
     #urls for contactform
     path('contactform/custom/',contactformCustomListCreateView.as_view(),name="service-cards-list-create"),
-    path('contactform/custom/<int:pk>/',contactformCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+    path('contactform/custom/<int:pk>/',contactformCustomRetrieveUpdateDistroyView.as_view(),name="conatactform-retrieve-update-distroy"),
 
     #urls for footer
         #urls for contactform
     path('footer/custom/',footerCustomCListCreateView.as_view(),name="service-cards-list-create"),
-    path('footer/custom/<int:pk>/',footerCustomRetrieveUpdateDistroyView.as_view(),name="service-cards-retrieve-update-distroy"),
+    path('footer/custom/<int:pk>/',footerCustomRetrieveUpdateDistroyView.as_view(),name="footer-retrieve-update-distroy"),
 
     
 
