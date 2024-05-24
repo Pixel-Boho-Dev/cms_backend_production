@@ -65,3 +65,17 @@ class whatweareCustom(models.Model):
     def __str__(self):
         return self.text
 
+#models for certification
+class certificationCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+    
+#class for contact
+class contactformCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+    
