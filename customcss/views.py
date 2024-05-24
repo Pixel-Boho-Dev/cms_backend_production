@@ -148,6 +148,25 @@ class IndustriesCardsCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDest
     serializer_class = IndustriesCardsCustomSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication] 
+
+#views for marketupdates
+class MarketUpdatesCustomListCreateView(generics.ListCreateAPIView):
+    queryset = MarketUpdatesCustom.objects.all()
+    serializer_class = MarketUpdatesCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+class MarketUpdatesCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset   = MarketUpdatesCustom.objects.all()
+    serializer_class = MarketUpdatesCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication] 
+    
 #views for  aboupagesection
 class AboutPageSectionCustomListCreateView(generics.ListCreateAPIView):
     queryset = AboutPageSectionCustom.objects.all()
