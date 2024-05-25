@@ -15,6 +15,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import generics
 from rest_framework import permissions
 
+#views for service full page
 class ServiceViewSet(viewsets.ModelViewSet):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
@@ -64,7 +65,8 @@ class ServiceViewSet(viewsets.ModelViewSet):
         service.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
+
+#views for subheading
 class SubheadingCreateView(generics.CreateAPIView):
     queryset = Subheading.objects.all()
     serializer_class = subheadingSerializers
@@ -84,12 +86,14 @@ class SubheadingRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Subheading.objects.all()
     serializer_class = subheadingSerializers
 
+#views for subservice
 class SubServiceViewSet(viewsets.ModelViewSet):
     queryset = SubService.objects.all().order_by('-id')  # Order by '-id'
     serializer_class = SubServiceSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for servicemeta
 class ServiceMetaCreateView(generics.CreateAPIView):
     queryset = MetaTagsservices.objects.all()
     serializer_class = Service_metadataSerializers
@@ -114,7 +118,8 @@ class ServicesMetaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIVie
         except MetaTagsservices.DoesNotExist:
             # If the service ID does not exist, return 404 Not Found
             return Response(status=status.HTTP_404_NOT_FOUND)
-    
+
+#views for specialized service
 class SpecializedServiceListCreate(generics.ListCreateAPIView):
     queryset = SpecializedService.objects.all()
     serializer_class = SpecializedServiceSerializer
@@ -128,6 +133,7 @@ class SpecializedServiceRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIV
     queryset = SpecializedService.objects.all()
     serializer_class = SpecializedServiceSerializer
 
+#views for specialized subservice
 class SpecializedSubServiceListCreate(generics.ListCreateAPIView):
     queryset = SpecializedSubService.objects.all()
     serializer_class = SpecializedSubServiceSerializer

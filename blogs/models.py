@@ -1,5 +1,6 @@
 from django.db import models
 
+#models for blogpost
 class BlogPost(models.Model):
     header_image = models.ImageField(upload_to='blog_headers/')
     header_title = models.CharField(max_length=255)

@@ -6,6 +6,7 @@ from .serializers import ServicesCardSerializer,ServiceTitleSerializer
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
+#views for servicecards
 class ServicesCardCreateView(generics.ListCreateAPIView):
     queryset = ServicesCard.objects.all()
     serializer_class = ServicesCardSerializer
@@ -22,6 +23,7 @@ class ServicesCardRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIVie
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for servicetitle
 class ServiceTitleListCreateView(generics.ListCreateAPIView):
     queryset = ServiceTitle.objects.all()
     serializer_class = ServiceTitleSerializer

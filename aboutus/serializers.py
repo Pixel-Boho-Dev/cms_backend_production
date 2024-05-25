@@ -61,7 +61,6 @@ class OurTeamTitleSerializer(serializers.ModelSerializer):
         model = OurTeamTitle
         fields = '__all__'
 
-
 class WhatWeAreSerializer(serializers.ModelSerializer):
     class Meta:
         model = WhatWeAre

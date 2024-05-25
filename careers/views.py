@@ -8,7 +8,7 @@ from django.conf import settings
 from .serializers import CareerSubmissionSerializer ,Careers_metadataSerializers
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
-
+#views for careers
 class CareerPageRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = CareerPage.objects.all()
     serializer_class = CareerPageSerializer
@@ -29,7 +29,6 @@ class IsReadOnlyOrAuthenticated(permissions.BasePermission):
             return request.user and request.user.is_authenticated
         return True  # Allow all other methods (e.g., POST) for creating careers forms
     
-
 class CareerSubmissionListCreateView(generics.ListCreateAPIView):
     queryset = CareerSubmission.objects.all().order_by('-submitted_at')
     serializer_class = CareerSubmissionSerializer

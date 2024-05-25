@@ -187,9 +187,9 @@ class AboutPageSectionCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDes
     authentication_classes = [JWTAuthentication]
     
 #views for ourstory
-class ourstoryCustomListCreateView(generics.ListCreateAPIView):
-    queryset = ourstoryCustom.objects.all()
-    serializer_class = ourstoryCustomSerializer
+class OurstoryCustomListCreateView(generics.ListCreateAPIView):
+    queryset = OurstoryCustom.objects.all()
+    serializer_class = OurstoryCustomSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -198,16 +198,16 @@ class ourstoryCustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class ourstoryCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = ourstoryCustom.objects.all()
-    serializer_class = ourstoryCustomSerializer
+class OurstoryCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OurstoryCustom.objects.all()
+    serializer_class = OurstoryCustomSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 #views for milestones
-class milestoneListCreateView(generics.ListCreateAPIView):
-    queryset = milestoneCustom.objects.all()
-    serializer_class = milestoneCustomserializers
+class MilestoneListCreateView(generics.ListCreateAPIView):
+    queryset = MilestoneCustom.objects.all()
+    serializer_class = MilestoneCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -217,16 +217,16 @@ class milestoneListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class milestoneCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = milestoneCustom.objects.all()
-    serializer_class = milestoneCustomserializers
+class MilestoneCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MilestoneCustom.objects.all()
+    serializer_class = MilestoneCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 #views for ourteam
-class ourteamCustomListCreateView(generics.ListCreateAPIView):
-    queryset = ourteamCustom.objects.all()
-    serializer_class = ourteamCustomserializers
+class OurteamCustomListCreateView(generics.ListCreateAPIView):
+    queryset = OurteamCustom.objects.all()
+    serializer_class = OurteamCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -236,16 +236,16 @@ class ourteamCustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class ourteamCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = ourteamCustom.objects.all()
-    serializer_class = ourteamCustomserializers
+class OurteamCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OurteamCustom.objects.all()
+    serializer_class = OurteamCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 #views for whatweare
-class whatweareCustomListCreateView(generics.ListCreateAPIView):
-    queryset = whatweareCustom.objects.all()
-    serializer_class = whatweareCustomserializers
+class WhatweareCustomListCreateView(generics.ListCreateAPIView):
+    queryset = WhatweareCustom.objects.all()
+    serializer_class = WhatweareCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -255,16 +255,16 @@ class whatweareCustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class whatweareCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = whatweareCustom.objects.all()
-    serializer_class = whatweareCustomserializers
+class WhatweareCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = WhatweareCustom.objects.all()
+    serializer_class = WhatweareCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 #views for certification
-class certificationCustomListCreateView(generics.ListCreateAPIView):
-    queryset = certificationCustom.objects.all()
-    serializer_class = certificationCustomserializers
+class CertificationCustomListCreateView(generics.ListCreateAPIView):
+    queryset = CertificationCustom.objects.all()
+    serializer_class = CertificationCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -274,16 +274,16 @@ class certificationCustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class certificationCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = certificationCustom.objects.all()
-    serializer_class = certificationCustomserializers
+class CertificationCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CertificationCustom.objects.all()
+    serializer_class = CertificationCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 #views for contactform
-class contactformCustomListCreateView(generics.ListCreateAPIView):
-    queryset = contactformCustom.objects.all()
-    serializer_class = contactformCustomserializers
+class ContactformCustomListCreateView(generics.ListCreateAPIView):
+    queryset = ContactformCustom.objects.all()
+    serializer_class = ContactformCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -293,16 +293,16 @@ class contactformCustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class contactformCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = contactformCustom.objects.all()
-    serializer_class = contactformCustomserializers
+class ContactformCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ContactformCustom.objects.all()
+    serializer_class = ContactformCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 #views for footer
-class footerCustomCListCreateView(generics.ListCreateAPIView):
-    queryset = footerCustom.objects.all()
-    serializer_class = footerCustomserializers
+class FooterCustomCListCreateView(generics.ListCreateAPIView):
+    queryset = FooterCustom.objects.all()
+    serializer_class = FooterCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -312,16 +312,16 @@ class footerCustomCListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class footerCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = footerCustom.objects.all()
-    serializer_class = footerCustomserializers
+class FooterCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = FooterCustom.objects.all()
+    serializer_class = FooterCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 #views for headerournetwork
-class headerournetworkCustomListCreateView(generics.ListCreateAPIView):
-    queryset = headerournetworkCustom.objects.all()
-    serializer_class = headerournetworkCustomserializers
+class HeaderournetworkCustomListCreateView(generics.ListCreateAPIView):
+    queryset = HeaderournetworkCustom.objects.all()
+    serializer_class = HeaderournetworkCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -331,17 +331,17 @@ class headerournetworkCustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class headerournetworkCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = headerournetworkCustom.objects.all()
-    serializer_class = headerournetworkCustomserializers
+class HeaderournetworkCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = HeaderournetworkCustom.objects.all()
+    serializer_class = HeaderournetworkCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 
 #views for ournetwork description
-class ournetworkdescriptioncustomListCreateView(generics.ListCreateAPIView):
-    queryset = ournetworkdescriptionCustom.objects.all()
-    serializer_class = ournetworkdescriptionCustomSerializers
+class OurnetworkdescriptioncustomListCreateView(generics.ListCreateAPIView):
+    queryset = OurnetworkdescriptionCustom.objects.all()
+    serializer_class = OurnetworkdescriptionCustomSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -350,9 +350,9 @@ class ournetworkdescriptioncustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class ournetworkdescriptionCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = ournetworkdescriptionCustom.objects.all()
-    serializer_class = ournetworkdescriptionCustomSerializers
+class OurnetworkdescriptionCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OurnetworkdescriptionCustom.objects.all()
+    serializer_class = OurnetworkdescriptionCustomSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -376,9 +376,9 @@ class ServiceCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIVi
 
 
 #views for ournetwork location
-class ournetworklocationcustomListCreateView(generics.ListCreateAPIView):
-    queryset = ournetworklocationCustom.objects.all()
-    serializer_class = ournetworklocationCustomSerializers
+class OurnetworklocationcustomListCreateView(generics.ListCreateAPIView):
+    queryset = OurnetworklocationCustom.objects.all()
+    serializer_class = OurnetworklocationCustomSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
     
@@ -387,16 +387,16 @@ class ournetworklocationcustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class ournetworklocationCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = ournetworklocationCustom.objects.all()
-    serializer_class = ournetworklocationCustomSerializers
+class OurnetworklocationCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OurnetworklocationCustom.objects.all()
+    serializer_class = OurnetworklocationCustomSerializers
     permissionclasses = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 #views for ournetwork location
-class ournetworkofficesCustomListCreateView(generics.ListCreateAPIView):
-    queryset = ournetworkofficesCustom.objects.all()
-    serializer_class = ournetworkofficesCustomSerializers
+class OurnetworkofficesCustomListCreateView(generics.ListCreateAPIView):
+    queryset = OurnetworkofficesCustom.objects.all()
+    serializer_class = OurnetworkofficesCustomSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -406,16 +406,16 @@ class ournetworkofficesCustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class ournetworkofficesCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = ournetworkofficesCustom.objects.all()
-    serializer_class = ournetworkofficesCustomSerializers
+class OurnetworkofficesCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OurnetworkofficesCustom.objects.all()
+    serializer_class = OurnetworkofficesCustomSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
 #views for careerspage
-class careerspageCustomListCreateView(generics.ListCreateAPIView):
-    queryset = careerspageCustom.objects.all()
-    serializer_class = careerspageCustomSerializers
+class CareerspageCustomListCreateView(generics.ListCreateAPIView):
+    queryset = CareerspageCustom.objects.all()
+    serializer_class = CareerspageCustomSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
@@ -425,9 +425,9 @@ class careerspageCustomListCreateView(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class careerspageCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = careerspageCustom.objects.all()
-    serializer_class = careerspageCustomSerializers
+class CareerspageCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CareerspageCustom.objects.all()
+    serializer_class = CareerspageCustomSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 

@@ -1,12 +1,12 @@
-# models.py
 from django.db import models
 
-
+#models for careerpage
 class CareerPage(models.Model):
     title = models.CharField(max_length=100)
     header_image = models.ImageField(upload_to='career_page')
     description = models.TextField()
-
+    
+#models for careersubmission    
 class CareerSubmission(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -17,6 +17,7 @@ class CareerSubmission(models.Model):
 class Meta:
     app_label = 'careers'
 
+#models for careermeta
 class MetaTagscareers(models.Model):
     charset = models.CharField(max_length=150,null=True,blank=True)
     viewport = models.CharField(max_length=150,null=True,blank=True)

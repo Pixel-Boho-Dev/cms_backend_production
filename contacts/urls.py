@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    
     # Endpoints for Header.
     path('contact/header/', views.HeaderRetrieveUpdateView.as_view(), name='header-retrieve-update'),
 
@@ -19,4 +20,5 @@ urlpatterns = [
     # End points for Frequently asked questions
     path('faqs/', views.FAQListCreateView.as_view(), name='faq-list-create'),
     path('faqs/<int:pk>/', views.FAQRetrieveUpdateDeleteView.as_view(), name='faq-retrieve-update-delete'),
+    
 ]

@@ -1,15 +1,17 @@
 from django.db import models
 
+#models for key diffrentiates
 class key_diffrentiates(models.Model):
     icon = models.ImageField(upload_to='key_diffrentiates/')
     tagline = models.TextField()
 
     def __str__(self):
-        return str(self.id)  # Return an appropriate representation for the model
-
+        return str(self.id)  
+    
+#models for keydiffrentiates title
 class key_diffrentiatesSection(models.Model):
     title = models.CharField(max_length=100)
     subtitle = models.TextField()
 
     def __str__(self):
-        return self.title  # Return an appropriate representation for the model
+        return self.title  
