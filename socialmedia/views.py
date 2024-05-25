@@ -22,7 +22,6 @@ class SocialMediaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView)
     permission_classes = [permissions.IsAuthenticated]  # Only authenticated users can update and delete
     authentication_classes = [JWTAuthentication]
 
-
 # views for services
 class ServiceCreateView(generics.CreateAPIView):
     queryset = Service.objects.all()
@@ -39,7 +38,6 @@ class ServiceRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceheaderSerializer
     
-
 # views for locations
 class LocationCreateView(generics.CreateAPIView):
     queryset = Location.objects.all()

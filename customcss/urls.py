@@ -109,5 +109,9 @@ urlpatterns = [
     path('header/industries/custom-css/',IndustriesHeaderCustomListCreateView.as_view(),name="industries-header-list-create"),
     path('header/industries/custom-css/<int:pk>/',IndustriesHeaderCustomRetrieveUpdateDistroyView.as_view(),name="industries-header-retrieve-update-distroy"),
 
-  
+    #urls for industries blocks
+    path('industries/blocks/custom-css/',IndustriesBlockCustomListCreateView.as_view(),name="industries-block-list-create"),
+    path('industries/block/custom-css/<int:pk>/',IndustriesBlockCustomRetrieveUpdateDistroyView.as_view(),name="industries-block-retrieve-update-distroy"),
+
+    path('industries/<int:pk>/custom-css/',IndustriesHeaderCustomViewSet.as_view(),name="industries-header-blocks"), 
 ]
