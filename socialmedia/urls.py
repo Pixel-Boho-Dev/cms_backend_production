@@ -55,7 +55,6 @@ urlpatterns = [
     path('header/markets/', MarketListView.as_view(), name='market-list'),
     path('header/markets/<int:pk>/', MarketRetrieveUpdateDeleteView.as_view(), name='market-retrieve-update-delete'),
     
-    
     path('markets/create/',MarketTitleCreateView.as_view(),name='market-title-create'),
     path('markets/',MarketTitleListView.as_view(),name='market-title-list'),
     path('markets/<int:pk>/',MarketTitleRetrieveUpdateDeleteView.as_view(),name='market-title-retrieve-update-delete'),

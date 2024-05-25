@@ -2,16 +2,17 @@ from rest_framework import generics
 from rest_framework import status
 from rest_framework.response import Response
 from .models import ContactHeader, Section, ContactForm,MetaTagsContacts,FAQ
-from .serializers import HeaderSerializer, SectionSerializer, ContactFormSerializer,Contact_metadataSerializers,FAQSerializer
+from .serializers import ContactHeaderSerializer, SectionSerializer, ContactFormSerializer,Contact_metadataSerializers,FAQSerializer
 from rest_framework import permissions
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.core.mail import send_mail
 from django.conf import settings
 
 
+#views for header and section of contacts
 class HeaderRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = ContactHeader.objects.all()
-    serializer_class = HeaderSerializer
+    serializer_class = ContactHeaderSerializer
     permission_classes=[permissions.IsAuthenticatedOrReadOnly]
     authentication_classes=[JWTAuthentication]
 
@@ -40,7 +41,8 @@ class IsReadOnlyOrAuthenticated(permissions.BasePermission):
             # Allow read access (GET, HEAD, OPTIONS) only to authenticated users
             return request.user and request.user.is_authenticated
         return True  # Allow all other methods (e.g., POST) for creating contact forms
-
+    
+#views for contactform
 class ContactFormListCreateView(generics.ListCreateAPIView):
     queryset = ContactForm.objects.all()
     serializer_class = ContactFormSerializer
@@ -68,8 +70,8 @@ class ContactFormRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView)
         instance.is_read = True  # mark as read 
         instance.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
 # views for contact page meta data
-
 class ContactMetaListView(generics.ListAPIView):
     queryset = MetaTagsContacts.objects.all()
     serializer_class = Contact_metadataSerializers

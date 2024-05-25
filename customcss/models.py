@@ -71,58 +71,56 @@ class AboutPageSectionCustom(models.Model):
         return self.text
 
 #models fo ourstorysection
-class ourstoryCustom(models.Model):
+class OurstoryCustom(models.Model):
     text = models.TextField()
-    def __str__(self):
-        return self.text
 
     def __str__(self):
         return self.text
     
 #models for milestone
-class milestoneCustom(models.Model):
+class MilestoneCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
 
 #models for ourteam
-class ourteamCustom(models.Model):
+class OurteamCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
 
 #models for whatweare
-class whatweareCustom(models.Model):
+class WhatweareCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
 
 #models for certification
-class certificationCustom(models.Model):
+class CertificationCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
     
 #class for contactform
-class contactformCustom(models.Model):
+class ContactformCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
     
 #models for footer
-class footerCustom(models.Model):
+class FooterCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
     
 #models for header ournetwork
-class headerournetworkCustom(models.Model):
+class HeaderournetworkCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
@@ -130,7 +128,7 @@ class headerournetworkCustom(models.Model):
     
 
 #models for ournetwork description
-class ournetworkdescriptionCustom(models.Model):
+class OurnetworkdescriptionCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
@@ -144,14 +142,14 @@ class ServiceCustom(models.Model):
         return self.text
 
 #models for ournetworklocation
-class ournetworklocationCustom(models.Model):
+class OurnetworklocationCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
     
 #models for ournetworkoffices
-class ournetworkofficesCustom(models.Model):
+class OurnetworkofficesCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
@@ -159,14 +157,11 @@ class ournetworkofficesCustom(models.Model):
     
 
 #models for careerspage
-class careerspageCustom(models.Model):
+class CareerspageCustom(models.Model):
     text = models.TextField()
     
     def __str__(self):
         return self.text
-    
-
-#models for heademarketupdate
 
 #models for indutries header
 class IndustriesHeaderCustom(models.Model):

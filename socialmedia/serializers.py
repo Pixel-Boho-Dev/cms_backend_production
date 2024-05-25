@@ -47,7 +47,6 @@ class OurNetworkTitleSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 # serializers for achievements
-
 class AchievementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Achievement
@@ -85,12 +84,6 @@ class MarketTitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = MarketTitle
         fields = ['id','title']
-
-# # serializers for Home details
-# class HomeSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Home
-#         fields = '__all__'
 
 # serializers for Metatags home
 class MetaTagsHomeSerializer(serializers.ModelSerializer):

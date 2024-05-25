@@ -1,7 +1,5 @@
 from django.db import models
 
-
-
 # Header of the contact page  
 class ContactHeader(models.Model):
     header_image = models.ImageField(upload_to='contact_header_images/')
@@ -12,8 +10,6 @@ class ContactHeader(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
-# atlernative content for header_image
-
 
 
 # model for section in contact page if needed
@@ -29,6 +25,9 @@ class ContactForm(models.Model):
     message = models.TextField()
     is_read = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
 
 # models for contact page metadata
 class MetaTagsContacts(models.Model):
@@ -64,7 +63,6 @@ class FAQ(models.Model):
     answer = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
     class Meta:
         ordering = ['-id']
 

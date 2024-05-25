@@ -5,8 +5,9 @@ from .serializers import ChoosesSectionSerializer
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-# from rest_framework import status
 
+
+#views for choose
 class ChoosesSectionListCreateView(generics.ListCreateAPIView):
     queryset = ChoosesSection.objects.all()
     serializer_class = ChoosesSectionSerializer

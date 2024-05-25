@@ -7,9 +7,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.pagination import PageNumberPagination
 
+#views for keydiffrentiates
 class NoPagination(PageNumberPagination):
     page_size = None
-
+    
 class key_diffrentiatesListCreate(generics.ListCreateAPIView):
     queryset = key_diffrentiates.objects.all()
     serializer_class = key_diffrentiatesSerializer
@@ -19,11 +20,12 @@ class key_diffrentiatesRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIVi
     queryset = key_diffrentiates.objects.all()
     serializer_class = key_diffrentiatesSerializer
 
+
+#views for keydiffrentiates title
 class key_diffrentiatesSectionListCreate(generics.ListCreateAPIView):
     queryset = key_diffrentiatesSection.objects.all()
     serializer_class = key_diffrentiatesSectionSerializer
-
-
+ 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)

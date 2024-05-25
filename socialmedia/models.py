@@ -1,6 +1,6 @@
 from django.db import models
 
-
+#model for socialmedia
 class SocialMedia(models.Model):
     name = models.CharField(max_length=50)
     link = models.URLField(max_length=1000)
@@ -29,7 +29,6 @@ class Service(models.Model):
 
     def __str__(self):
         return self.title
-
 
 # model for locations
 class Location(models.Model):

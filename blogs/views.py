@@ -14,7 +14,6 @@ class BlogPostViewSet(viewsets.ModelViewSet):
         # Associate the logged-in user with the new blog post
         serializer.save(author=self.request.user)
 
-
 class HighlightViewSet(viewsets.ModelViewSet):
     queryset = Highlight.objects.all().order_by('-id')
     serializer_class = HighlightSerializer

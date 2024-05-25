@@ -7,6 +7,7 @@ from .serializers import OfficeSerializer, Location_pageSerializer, Location_met
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
 
+#views for location page
 class OfficeListCreateView(generics.ListCreateAPIView):
     queryset = Office.objects.all().order_by('-id')
     serializer_class = OfficeSerializer
@@ -62,6 +63,7 @@ class Location_pageRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIVi
         self.perform_update(serializer)
         return Response(serializer.data)
 
+#views for location pagemeta
 class LocationMetaListView(generics.ListAPIView):
     queryset = MetaTagsLocation.objects.all().order_by('-id')
     serializer_class = Location_metadataSerializers
