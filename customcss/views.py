@@ -418,7 +418,6 @@ class CareerspageCustomListCreateView(generics.ListCreateAPIView):
     serializer_class = CareerspageCustomSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
     
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
@@ -431,45 +430,39 @@ class CareerspageCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyA
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-
 #views for headermarketupdatescustom
-
-class headermarketupdatescustomListCreateView(generics.ListCreateAPIView):
-    queryset = headermarketupdatescustom.objects.all()
-    serializer_class = headermarketupdatescustomserializers
+class HeadermarketupdatescustomListCreateView(generics.ListCreateAPIView):
+    queryset = Headermarketupdatescustom.objects.all()
+    serializer_class = Headermarketupdatescustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-    
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class headermarketupdatescustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = headermarketupdatescustom.objects.all()
-    serializer_class = headermarketupdatescustomserializers
+class HeadermarketupdatescustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Headermarketupdatescustom.objects.all()
+    serializer_class = Headermarketupdatescustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
 
 #views for marketcustom
-
-class marketcustomListCreateView(generics.ListCreateAPIView):
-    queryset = marketcustom.objects.all()
-    serializer_class = marketscustomserializers
+class MarketscustomListCreateView(generics.ListCreateAPIView):
+    queryset = Marketcustom.objects.all()
+    serializer_class = Marketscustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
     
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-class marketscustomserializersRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = marketcustom.objects.all()
-    serializer_class = marketscustomserializers
+class MarketscustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Marketcustom.objects.all()
+    serializer_class = Marketscustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 

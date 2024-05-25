@@ -162,7 +162,7 @@ class CareerspageCustom(models.Model):
     def __str__(self):
         return self.text
 
-class headermarketupdatescustom(models.Model):
+class Headermarketupdatescustom(models.Model):
     header_css = models.TextField()
 
     def __str__(self):
@@ -170,7 +170,7 @@ class headermarketupdatescustom(models.Model):
     
 #models for marketcustom
     
-class marketcustom(models.Model):
+class Marketcustom(models.Model):
     markets_css = models.TextField()
     
     def __str__(self):
