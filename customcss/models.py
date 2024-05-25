@@ -175,7 +175,7 @@ class headermarketupdatescustom(models.Model):
     
 #models for marketcustom
     
-class marketcustom(models.Model):
+class MarketCustom(models.Model):
     markets_css = models.TextField()
     
     def __str__(self):

@@ -455,24 +455,22 @@ class headermarketupdatescustomRetrieveUpdateDistroyView(generics.RetrieveUpdate
 
 #views for marketcustom
 
-class marketcustomListCreateView(generics.ListCreateAPIView):
-    queryset = marketcustom.objects.all()
-    serializer_class = marketscustomserializers
+class MarketCustomListCreateView(generics.ListCreateAPIView):
+    queryset = MarketCustom.objects.all()
+    serializer_class = MarketCustomSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-    
     def list(self, request, *args, **kwargs):
-        queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
+        queryset = self.get_queryset()
+        serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data)
 
-class marketscustomserializersRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = marketcustom.objects.all()
-    serializer_class = marketscustomserializers
+class MarketCustomRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MarketCustom.objects.all()
+    serializer_class = MarketCustomSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
 
 #views for industries page
 class IndustriesHeaderCustomListCreateView(generics.ListCreateAPIView):
