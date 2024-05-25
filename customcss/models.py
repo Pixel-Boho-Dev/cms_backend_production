@@ -170,16 +170,16 @@ class careerspageCustom(models.Model):
 
 #models for heademarketupdate
 
-class headermarketupdatescustom(models.Model):
-    header_css = models.TextField()
+# class headermarketupdatescustom(models.Model):
+#     header_css = models.TextField()
 
-    def __str__(self):
-        return self.header_css
+#     def __str__(self):
+#         return self.header_css
     
-#models for marketcustom
+# #models for marketcustom
     
-class marketcustom(models.Model):
-    markets_css = models.TextField()
+# class marketcustom(models.Model):
+#     markets_css = models.TextField()
     
-    def __str__(self):
-        return self.markets_css
+#     def __str__(self):
+#         return self.markets_css

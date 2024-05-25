@@ -432,43 +432,43 @@ class careerspageCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyA
 
 #views for headermarketupdatescustom
 
-class headermarketupdatescustomListCreateView(generics.ListCreateAPIView):
-    queryset = headermarketupdatescustom.objects.all()
-    serializer_class = headermarketupdatescustomserializers
-    permission_classes = [IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
+# class headermarketupdatescustomListCreateView(generics.ListCreateAPIView):
+#     queryset = headermarketupdatescustom.objects.all()
+#     serializer_class = headermarketupdatescustomserializers
+#     permission_classes = [IsAuthenticatedOrReadOnly]
+#     authentication_classes = [JWTAuthentication]
 
     
-    def list(self, request, *args, **kwargs):
-        queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
+#     def list(self, request, *args, **kwargs):
+#         queryset = self.filter_queryset(self.get_queryset())
+#         serializer = self.get_serializer(queryset, many=True)
+#         return Response(serializer.data)
 
-class headermarketupdatescustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = headermarketupdatescustom.objects.all()
-    serializer_class = headermarketupdatescustomserializers
-    permission_classes = [IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
+# class headermarketupdatescustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = headermarketupdatescustom.objects.all()
+#     serializer_class = headermarketupdatescustomserializers
+#     permission_classes = [IsAuthenticatedOrReadOnly]
+#     authentication_classes = [JWTAuthentication]
 
 
-#views for marketcustom
+# #views for marketcustom
 
-class marketcustomListCreateView(generics.ListCreateAPIView):
-    queryset = marketcustom.objects.all()
-    serializer_class = marketscustomserializers
-    permission_classes = [IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
+# class marketcustomListCreateView(generics.ListCreateAPIView):
+#     queryset = marketcustom.objects.all()
+#     serializer_class = marketscustomserializers
+#     permission_classes = [IsAuthenticatedOrReadOnly]
+#     authentication_classes = [JWTAuthentication]
 
     
-    def list(self, request, *args, **kwargs):
-        queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
+#     def list(self, request, *args, **kwargs):
+#         queryset = self.filter_queryset(self.get_queryset())
+#         serializer = self.get_serializer(queryset, many=True)
+#         return Response(serializer.data)
 
-class marketscustomserializersRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = marketcustom.objects.all()
-    serializer_class = marketscustomserializers
-    permission_classes = [IsAuthenticatedOrReadOnly]
-    authentication_classes = [JWTAuthentication]
+# class marketscustomserializersRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = marketcustom.objects.all()
+#     serializer_class = marketscustomserializers
+#     permission_classes = [IsAuthenticatedOrReadOnly]
+#     authentication_classes = [JWTAuthentication]
 
 
