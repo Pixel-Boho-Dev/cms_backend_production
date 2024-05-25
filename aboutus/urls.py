@@ -8,7 +8,6 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
                     MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy,WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView,
                     WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView,MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy)
 
-
 urlpatterns = [
     
     path('header/about-page-sections/create/', AboutPageSectionCreateView.as_view(), name='about-page-section-list-create'),
@@ -63,7 +62,5 @@ urlpatterns = [
     path('what-we-are-title/create/', WhatWeAreTitleCreateView.as_view(), name='what-we-are-title-create'),
     path('what-we-are-title/<int:pk>/', WhatWeAreTitleRetrieveUpdateDeleteView.as_view(), name='what-we-are-title-detail'),
     path('what-we-are-title/', WhatWeAreTitleListView.as_view(), name='what-we-are-title-list'),
-
-
-    
+       
 ]

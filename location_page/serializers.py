@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Office,Location,Location_page,MetaTagsLocation
 
+#serializers for location page
 class OfficeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Office
@@ -12,7 +13,6 @@ class Location_pageSerializer(serializers.ModelSerializer):
         fields='__all__'
 
 # serializers for Location page meta data
-
 class Location_metadataSerializers(serializers.ModelSerializer):
     class Meta:
         model   =   MetaTagsLocation
