@@ -105,13 +105,13 @@ urlpatterns = [
     path('careers/custom-css/',careerspageCustomListCreateView.as_view(),name="careers-list-create"),
     path('careers/custom-css/<int:pk>/',careerspageCustomRetrieveUpdateDistroyView.as_view(),name="career-retrieve-update-distroy"),
    
-    # #urls for headermarketsupdatecustom
-    # path('header/markets/custom-css/',headermarketupdatescustomListCreateView.as_view(),name="headermarkets-list-create"),
-    # path('header/markets/custom-css/<int:pk>/',headermarketupdatescustomRetrieveUpdateDistroyView.as_view(),name="headersmarkets-retrieve-update-distroy"),
+    #urls for headermarketsupdatecustom
+    path('header/markets/custom-css/',headermarketupdatescustomListCreateView.as_view(),name="headermarkets-list-create"),
+    path('header/markets/custom-css/<int:pk>/',headermarketupdatescustomRetrieveUpdateDistroyView.as_view(),name="headersmarkets-retrieve-update-distroy"),
 
-    # #urls for marketecustom
-    # path('markets/custom-css/',marketcustomListCreateView.as_view(),name="markets-list-create"),
-    # path('markets/custom-css/<int:pk>/',headermarketupdatescustomRetrieveUpdateDistroyView.as_view(),name="market-retrieve-update-distroy"),
+    #urls for marketecustom
+    path('markets/custom-css/',marketcustomListCreateView.as_view(),name="markets-list-create"),
+    path('markets/custom-css/<int:pk>/',headermarketupdatescustomRetrieveUpdateDistroyView.as_view(),name="market-retrieve-update-distroy"),
 
 
     #urls for industries page
@@ -121,6 +121,5 @@ urlpatterns = [
     #urls for industries blocks
     path('industries/blocks/custom-css/',IndustriesBlockCustomListCreateView.as_view(),name="industries-block-list-create"),
     path('industries/block/custom-css/<int:pk>/',IndustriesBlockCustomRetrieveUpdateDistroyView.as_view(),name="industries-block-retrieve-update-distroy"),
-
     path('industries/<int:pk>/custom-css/',IndustriesHeaderCustomViewSet.as_view(),name="industries-header-blocks"), 
 ]
