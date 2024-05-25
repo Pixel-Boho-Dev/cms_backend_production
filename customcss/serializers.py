@@ -140,6 +140,18 @@ class CareerspageCustomSerializers(serializers.ModelSerializer):
         model = CareerspageCustom
         fields = "__all__"
 
+#serializers for headermarketupdates      
+class headermarketupdatescustomserializers(serializers.ModelSerializer):
+    class Meta:
+        model = headermarketupdatescustom
+        fields = "__all__"
+
+#serializers for marketscustom   
+class marketscustomserializers(serializers.ModelSerializer):
+    class Meta:
+        model = marketcustom
+        fields = "__all__"
+
 #serializers for industriesblock 
 class IndustriesBlockCustomSerializer(serializers.ModelSerializer):
     class Meta:
