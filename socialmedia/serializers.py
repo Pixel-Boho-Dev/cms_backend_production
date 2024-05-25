@@ -14,6 +14,7 @@ class SubServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubService
         fields = '__all__'
+        
 # serializer for services
 class ServiceSerializer(serializers.ModelSerializer):
     subheadings = subheadingSerializers(many=True,read_only=True)
@@ -26,6 +27,7 @@ class ServiceheaderSerializer(serializers.ModelSerializer):
     class Meta:
         model= Service
         fields = '__all__'
+
 # serializers for retriving subservices of a service
 class ServiceheadingSubServiceSerializer(serializers.Serializer):
     service = ServiceSerializer()

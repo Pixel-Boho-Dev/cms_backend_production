@@ -144,7 +144,6 @@ class ServiceCustom(models.Model):
         return self.text
 
 #models for ournetworklocation
-
 class ournetworklocationCustom(models.Model):
     text = models.TextField()
     
@@ -152,7 +151,6 @@ class ournetworklocationCustom(models.Model):
         return self.text
     
 #models for ournetworkoffices
-
 class ournetworkofficesCustom(models.Model):
     text = models.TextField()
     
@@ -160,7 +158,6 @@ class ournetworkofficesCustom(models.Model):
         return self.text
     
 #models for careerspage
-
 class careerspageCustom(models.Model):
     text = models.TextField()
     
@@ -170,16 +167,31 @@ class careerspageCustom(models.Model):
 
 #models for heademarketupdate
 
-# class headermarketupdatescustom(models.Model):
-#     header_css = models.TextField()
+class headermarketupdatescustom(models.Model):
+    header_css = models.TextField()
 
-#     def __str__(self):
-#         return self.header_css
+    def __str__(self):
+        return self.header_css
     
-# #models for marketcustom
+#models for marketcustom
     
-# class marketcustom(models.Model):
-#     markets_css = models.TextField()
+class marketcustom(models.Model):
+    markets_css = models.TextField()
     
-#     def __str__(self):
-#         return self.markets_css
+    def __str__(self):
+        return self.markets_css
+#models for indutries header
+class IndustriesHeaderCustom(models.Model):
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.text
+    
+#models for industries blocks
+class IndustriesBlocksCustom(models.Model):
+    header = models.ForeignKey(IndustriesHeaderCustom, on_delete=models.CASCADE)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.content
+ 

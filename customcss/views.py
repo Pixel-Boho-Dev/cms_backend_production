@@ -4,6 +4,12 @@ from .serializers import *
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.response import Response
+from rest_framework import viewsets, status
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+
 
 #views for headersection
 class HomeHeaderCustomListCreateView(generics.ListCreateAPIView):
@@ -199,7 +205,6 @@ class ourstoryCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIV
     authentication_classes = [JWTAuthentication]
 
 #views for milestones
-
 class milestoneListCreateView(generics.ListCreateAPIView):
     queryset = milestoneCustom.objects.all()
     serializer_class = milestoneCustomserializers
@@ -219,7 +224,6 @@ class milestoneCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPI
     authentication_classes = [JWTAuthentication]
 
 #views for ourteam
-
 class ourteamCustomListCreateView(generics.ListCreateAPIView):
     queryset = ourteamCustom.objects.all()
     serializer_class = ourteamCustomserializers
@@ -239,7 +243,6 @@ class ourteamCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIVi
     authentication_classes = [JWTAuthentication]
 
 #views for whatweare
-
 class whatweareCustomListCreateView(generics.ListCreateAPIView):
     queryset = whatweareCustom.objects.all()
     serializer_class = whatweareCustomserializers
@@ -259,7 +262,6 @@ class whatweareCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPI
     authentication_classes = [JWTAuthentication]
 
 #views for certification
-
 class certificationCustomListCreateView(generics.ListCreateAPIView):
     queryset = certificationCustom.objects.all()
     serializer_class = certificationCustomserializers
@@ -317,7 +319,6 @@ class footerCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIVie
     authentication_classes = [JWTAuthentication]
 
 #views for headerournetwork
-
 class headerournetworkCustomListCreateView(generics.ListCreateAPIView):
     queryset = headerournetworkCustom.objects.all()
     serializer_class = headerournetworkCustomserializers
@@ -430,45 +431,121 @@ class careerspageCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyA
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+
 #views for headermarketupdatescustom
 
-# class headermarketupdatescustomListCreateView(generics.ListCreateAPIView):
-#     queryset = headermarketupdatescustom.objects.all()
-#     serializer_class = headermarketupdatescustomserializers
-#     permission_classes = [IsAuthenticatedOrReadOnly]
-#     authentication_classes = [JWTAuthentication]
+class headermarketupdatescustomListCreateView(generics.ListCreateAPIView):
+    queryset = headermarketupdatescustom.objects.all()
+    serializer_class = headermarketupdatescustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
     
-#     def list(self, request, *args, **kwargs):
-#         queryset = self.filter_queryset(self.get_queryset())
-#         serializer = self.get_serializer(queryset, many=True)
-#         return Response(serializer.data)
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
-# class headermarketupdatescustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = headermarketupdatescustom.objects.all()
-#     serializer_class = headermarketupdatescustomserializers
-#     permission_classes = [IsAuthenticatedOrReadOnly]
-#     authentication_classes = [JWTAuthentication]
+class headermarketupdatescustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = headermarketupdatescustom.objects.all()
+    serializer_class = headermarketupdatescustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
 
-# #views for marketcustom
+#views for marketcustom
 
-# class marketcustomListCreateView(generics.ListCreateAPIView):
-#     queryset = marketcustom.objects.all()
-#     serializer_class = marketscustomserializers
-#     permission_classes = [IsAuthenticatedOrReadOnly]
-#     authentication_classes = [JWTAuthentication]
+class marketcustomListCreateView(generics.ListCreateAPIView):
+    queryset = marketcustom.objects.all()
+    serializer_class = marketscustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
     
-#     def list(self, request, *args, **kwargs):
-#         queryset = self.filter_queryset(self.get_queryset())
-#         serializer = self.get_serializer(queryset, many=True)
-#         return Response(serializer.data)
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
-# class marketscustomserializersRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = marketcustom.objects.all()
-#     serializer_class = marketscustomserializers
-#     permission_classes = [IsAuthenticatedOrReadOnly]
-#     authentication_classes = [JWTAuthentication]
+class marketscustomserializersRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = marketcustom.objects.all()
+    serializer_class = marketscustomserializers
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
 
+#views for industries page
+class IndustriesHeaderCustomListCreateView(generics.ListCreateAPIView):
+    queryset = IndustriesHeaderCustom.objects.all()
+    serializer_class = IndustriesHeaderCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+    
+class IndustriesHeaderCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = IndustriesHeaderCustom.objects.all()
+    serializer_class = IndustriesHeaderCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+#views for industriesBlocks
+class IndustriesBlockCustomListCreateView(generics.ListCreateAPIView):
+    queryset = IndustriesBlocksCustom.objects.all()
+    serializer_class = IndustriesBlockCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+class IndustriesBlockCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = IndustriesBlocksCustom.objects.all()
+    serializer_class = IndustriesBlockCustomSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+class IndustriesHeaderCustomViewSet(APIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+    def get(self, request, pk=None):
+        # Retrieve the IndustriesHeaderCustom object
+        header = IndustriesHeaderCustom.objects.get(pk=pk)
+
+        # Serialize the header
+        header_data = IndustriesHeaderCustomSerializer(header).data
+
+        # Retrieve related blocks
+        blocks = IndustriesBlocksCustom.objects.filter(header=header)
+        blocks_data = IndustriesBlockCustomSerializer(blocks, many=True).data
+
+        # Combine data
+        response_data = {
+            'header': header_data,
+            'blocks': blocks_data
+        }
+
+        return Response(response_data)
+    
+    def delete(self, request, pk=None):
+        try:
+            # Retrieve the IndustriesHeaderCustom object
+            header = IndustriesHeaderCustom.objects.get(pk=pk)
+        except IndustriesHeaderCustom.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        
+        # Retrieve related blocks
+        blocks = IndustriesBlocksCustom.objects.filter(header=header)
+        
+        # Delete related blocks
+        blocks.delete()
+        
+        # Delete the IndustriesHeaderCustom object
+        header.delete()
+        
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+    
+ 
