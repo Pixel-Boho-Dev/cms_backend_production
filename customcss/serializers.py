@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import *
+
 #serializers for headersection
 class HomeHeaderCustomSerializer(serializers.ModelSerializer):
     class Meta:
@@ -67,14 +68,12 @@ class ourstoryCustomSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 #serializers for milestone
-
 class milestoneCustomserializers(serializers.ModelSerializer):
     class Meta:
         model = milestoneCustom
         fields = "__all__"
 
 #serializers for ourteam
-
 class ourteamCustomserializers(serializers.ModelSerializer):
     class Meta:
         model = ourteamCustom
@@ -85,6 +84,7 @@ class whatweareCustomserializers(serializers.ModelSerializer):
     class Meta:
         model = whatweareCustom
         fields = "__all__"
+
 #serializers for certification
 class certificationCustomserializers(serializers.ModelSerializer):
     class Meta:
@@ -115,7 +115,6 @@ class ournetworkdescriptionCustomSerializers(serializers.ModelSerializer):
         model = ournetworkdescriptionCustom
         fields = "__all__"
 
-
 #serializer of service
 class ServiceCustomSerializer(serializers.ModelSerializer):
     class Meta:
@@ -141,10 +140,15 @@ class careerspageCustomSerializers(serializers.ModelSerializer):
         model = careerspageCustom
         fields = "__all__"
 
+#serializers for industriesblock 
+class IndustriesBlockCustomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IndustriesBlocksCustom
+        fields = "__all__"
+
 #serializers for Industriespage       
 class IndustriesHeaderCustomSerializer(serializers.ModelSerializer):
+    blocks = IndustriesBlockCustomSerializer(many=True, read_only=True)
     class Meta:
         model = IndustriesHeaderCustom
         fields = "__all__"
-
-
