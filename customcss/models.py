@@ -143,10 +143,6 @@ class ServiceCustom(models.Model):
     def __str__(self):
         return self.text
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 #models for ournetworklocation
 class ournetworklocationCustom(models.Model):
     text = models.TextField()
@@ -161,10 +157,7 @@ class ournetworkofficesCustom(models.Model):
     def __str__(self):
         return self.text
     
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 #models for careerspage
 class careerspageCustom(models.Model):
     text = models.TextField()
