@@ -2,6 +2,7 @@ from django.urls import path
 from .views import IndustriesPageListCreateView, IndustriesPageRetrieveUpdateDeleteView,IndustriesMetaListView,IndustriesMetaRetrieveUpdateDeleteView
 
 urlpatterns = [
+   
     #end point for industries block
 
     path('industries/edit/', IndustriesPageListCreateView.as_view(), name='industries-list'),

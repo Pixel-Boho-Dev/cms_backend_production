@@ -126,7 +126,6 @@ class HeaderournetworkCustom(models.Model):
     def __str__(self):
         return self.text
     
-
 #models for ournetwork description
 class OurnetworkdescriptionCustom(models.Model):
     text = models.TextField()
@@ -161,7 +160,8 @@ class CareerspageCustom(models.Model):
     
     def __str__(self):
         return self.text
-
+    
+#models for Headermarket
 class Headermarketupdatescustom(models.Model):
     header_css = models.TextField()
 
@@ -169,12 +169,12 @@ class Headermarketupdatescustom(models.Model):
         return self.header_css
     
 #models for marketcustom
-    
 class Marketcustom(models.Model):
     markets_css = models.TextField()
     
     def __str__(self):
         return self.markets_css
+    
 #models for indutries header
 class IndustriesHeaderCustom(models.Model):
     text = models.TextField()

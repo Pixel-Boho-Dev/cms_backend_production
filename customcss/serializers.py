@@ -120,7 +120,6 @@ class ServiceCustomSerializer(serializers.ModelSerializer):
     class Meta:
         model = ServiceCustom
         fields = "__all__"
-
         
 #serializers for ournetworklocation       
 class OurnetworklocationCustomSerializers(serializers.ModelSerializer):

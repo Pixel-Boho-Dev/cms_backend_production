@@ -23,6 +23,7 @@ class ServiceSerializer(serializers.ModelSerializer):
         model = Service
         fields = '__all__'
 
+#serializer for serviceheader
 class ServiceheaderSerializer(serializers.ModelSerializer):
     class Meta:
         model= Service
@@ -40,7 +41,7 @@ class LocationSerializer(serializers.ModelSerializer):
         model = Location
         fields = '__all__'
 
-
+#models for ournetwork title
 class OurNetworkTitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = OurNetworkTitle
@@ -52,6 +53,7 @@ class AchievementSerializer(serializers.ModelSerializer):
         model = Achievement
         fields = '__all__'
 
+#serializers for acheievement title
 class AchievementSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = AchievementSection
@@ -63,6 +65,7 @@ class HighlightSerializer(serializers.ModelSerializer):
         model = HomeHighlights
         fields = '__all__'
 
+#serializers for highlight title
 class HighlightsSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = HighlightsSection
@@ -80,6 +83,7 @@ class MarketSerializer(serializers.ModelSerializer):
         model = Market
         fields = '__all__'
 
+#serializers for market title
 class MarketTitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = MarketTitle

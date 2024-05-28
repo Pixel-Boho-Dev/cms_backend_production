@@ -9,8 +9,6 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-
-
 #views for headersection
 class HomeHeaderCustomListCreateView(generics.ListCreateAPIView):
     queryset = HomeHeaderCustom.objects.all()
@@ -179,6 +177,11 @@ class AboutPageSectionCustomListCreateView(generics.ListCreateAPIView):
     serializer_class = AboutPageSectionCustomSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 class AboutPageSectionCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = AboutPageSectionCustom.objects.all()
@@ -267,7 +270,6 @@ class CertificationCustomListCreateView(generics.ListCreateAPIView):
     serializer_class = CertificationCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
     
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
@@ -286,7 +288,6 @@ class ContactformCustomListCreateView(generics.ListCreateAPIView):
     serializer_class = ContactformCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
     
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
@@ -305,7 +306,6 @@ class FooterCustomCListCreateView(generics.ListCreateAPIView):
     serializer_class = FooterCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
     
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
@@ -325,7 +325,6 @@ class HeaderournetworkCustomListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-    
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
@@ -336,7 +335,6 @@ class HeaderournetworkCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDes
     serializer_class = HeaderournetworkCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
 
 #views for ournetwork description
 class OurnetworkdescriptioncustomListCreateView(generics.ListCreateAPIView):
@@ -373,7 +371,6 @@ class ServiceCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIVi
     serializer_class = ServiceCustomSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
 
 #views for ournetwork location
 class OurnetworklocationcustomListCreateView(generics.ListCreateAPIView):
@@ -466,7 +463,6 @@ class MarketscustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIVi
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-
 #views for industries page
 class IndustriesHeaderCustomListCreateView(generics.ListCreateAPIView):
     queryset = IndustriesHeaderCustom.objects.all()
@@ -492,13 +488,18 @@ class IndustriesBlockCustomListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
 class IndustriesBlockCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = IndustriesBlocksCustom.objects.all()
     serializer_class = IndustriesBlockCustomSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-class IndustriesHeaderCustomViewSet(APIView):
+class IndustriesCustomViewSet(APIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
