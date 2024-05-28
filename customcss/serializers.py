@@ -146,9 +146,9 @@ class Headermarketupdatescustomserializers(serializers.ModelSerializer):
         fields = "__all__"
 
 #serializers for marketscustom   
-class Marketscustomserializers(serializers.ModelSerializer):
+class MarketCustomSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Marketcustom
+        model = MarketCustom
         fields = "__all__"
 
 #serializers for industriesblock 

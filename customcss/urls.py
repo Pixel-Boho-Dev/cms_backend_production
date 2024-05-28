@@ -74,6 +74,12 @@ urlpatterns = [
     path('whatweare/custom-css/',WhatweareCustomListCreateView.as_view(),name="whatweare-list-create"),
     path('whatweare/custom-css/<int:pk>/',WhatweareCustomRetrieveUpdateDistroyView.as_view(),name="whatweare-retrieve-update-distroy"),
 
+
+    #urls for certifications
+    path('certifications/custom-css/',CertificationCustomListCreateView.as_view(),name="certifications-list-create"),
+    path('certifications/custom-css/<int:pk>/',CertificationCustomRetrieveUpdateDistroyView.as_view(),name="certification-retrieve-update-distroy"),
+
+
     #urls for contactform
 
     path('contactform/custom-css/',ContactformCustomListCreateView.as_view(),name="contactform-list-create"),

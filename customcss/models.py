@@ -169,7 +169,7 @@ class Headermarketupdatescustom(models.Model):
         return self.header_css
     
 #models for marketcustom
-class Marketcustom(models.Model):
+class MarketCustom(models.Model):
     markets_css = models.TextField()
     
     def __str__(self):
