@@ -5,12 +5,14 @@ from .views import (OfficeListCreateView, OfficeRetrieveUpdateDestroyView,
 
 urlpatterns = [
 
-    #urls for location page
+    #urls for office
 
     path('offices/', OfficeListCreateView.as_view(), name='office-list-create'),
     path('offices/<int:pk>/', OfficeRetrieveUpdateDestroyView.as_view(), name='office-retrieve-update-destroy'),
 
     path('offices/by-location/<int:location_id>/', OfficeListByLocationView.as_view(), name='office-list-by-location'),
+    
+    #urls for header location_page
 
     path('header/locationpage/create/',Location_pageCreateView.as_view(),name='locationpage-create'),
     path('header/locationpage/', Location_pageRetrieveView.as_view(), name='location-list'),

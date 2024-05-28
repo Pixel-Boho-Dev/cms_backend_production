@@ -186,6 +186,7 @@ class CertificationTitleRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIV
     queryset = CertificateTitle.objects.all()
     serializer_class = CertificateTitleSerializer
 
+#views for aboutmeta
 class AboutMetaListView(generics.ListAPIView):
     queryset = MetaTagsAbout.objects.all()
     serializer_class = About_metadataSerializers
@@ -201,6 +202,7 @@ class AboutMetaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
         aboutmeta, created = MetaTagsAbout.objects.get_or_create(pk=1)
         return aboutmeta  
 
+# views for whatweare title
 class WhatWeAreTitleCreateView(generics.CreateAPIView):
     queryset = WhatWeAreTitle.objects.all()
     serializer_class = WhatWeAreTitleSerializer
