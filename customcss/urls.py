@@ -127,8 +127,8 @@ urlpatterns = [
 
     #urls for marketecustom
 
-    path('markets/custom-css/',MarketscustomListCreateView.as_view(),name="markets-list-create"),
-    path('markets/custom-css/<int:pk>/',MarketscustomRetrieveUpdateDistroyView.as_view(),name="market-retrieve-update-distroy"),
+    path('markets/custom-css/',MarketCustomListCreateView.as_view(),name="markets-list-create"),
+    path('markets/custom-css/<int:pk>/',MarketUpdatesCustomRetrieveUpdateDistroyView.as_view(),name="market-retrieve-update-distroy"),
 
     #urls for industries page
 
