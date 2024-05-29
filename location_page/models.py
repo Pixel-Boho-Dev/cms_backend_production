@@ -1,7 +1,7 @@
 from django.db import models
 from socialmedia.models import Location
 
-# Model for location page
+# Model for office
 class Office(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     place_name = models.CharField(max_length=100)
@@ -22,6 +22,7 @@ class Office(models.Model):
     def __str__(self):
         return f"Office at {self.location.place_name}"
 
+#models for location_page
 class Location_page(models.Model):
     Location_header_image = models.ImageField(upload_to='Location_header_image/')
     location_title = models.CharField(max_length=100)

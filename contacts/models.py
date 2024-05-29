@@ -11,7 +11,6 @@ class ContactHeader(models.Model):
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
 
-
 # model for section in contact page if needed
 class Section(models.Model):
     section_title = models.CharField(max_length=100)

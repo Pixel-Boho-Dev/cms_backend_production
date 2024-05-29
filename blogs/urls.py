@@ -2,8 +2,13 @@ from django.urls import path
 from .views import BlogPostViewSet, HighlightViewSet,BlogMetaCreateView, BlogMetaListView,BlogMetaRetrieveUpdateDeleteView
 
 urlpatterns = [
+
+    #urls for blog post
+
     path('blogposts/', BlogPostViewSet.as_view({'get': 'list', 'post': 'create'}), name='blogpost-list-create'),
     path('blogposts/<int:pk>/', BlogPostViewSet.as_view({'get': 'retrieve', 'put': 'update', 'patch': 'partial_update', 'delete': 'destroy'}), name='blogpost-detail'),
+    
+    #urls for blog highlights
 
     path('bloghighlights/', HighlightViewSet.as_view({'get': 'list', 'post': 'create'}), name='highlight-list-create'),
     path('bloghighlights/<int:pk>/', HighlightViewSet.as_view({'get': 'retrieve', 'put': 'update', 'patch': 'partial_update', 'delete': 'destroy'}), name='highlight-detail'),

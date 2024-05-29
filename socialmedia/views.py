@@ -57,7 +57,7 @@ class LocationRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [JWTAuthentication]
 
-#views for ournetwork
+#views for ournetwork title
 class OurNetworkTitleCreateView(generics.CreateAPIView):
     queryset = OurNetworkTitle.objects.all()
     serializer_class = OurNetworkTitleSerializer
@@ -91,7 +91,8 @@ class AchievementRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView)
     serializer_class = AchievementSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [JWTAuthentication]
-    
+
+#views for acheivement title
 class AchievementSectionListCreate(generics.ListCreateAPIView):
     queryset = AchievementSection.objects.all()
     serializer_class = AchievementSectionSerializer
@@ -104,7 +105,6 @@ class AchievementSectionListCreate(generics.ListCreateAPIView):
 class AchievementSectionRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = AchievementSection.objects.all()
     serializer_class = AchievementSectionSerializer
-    
     
 # views for highlights
 class HighlightCreateView(generics.CreateAPIView):
@@ -128,6 +128,7 @@ class HighlightRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for highlight title
 class HighlightSectionListCreate(generics.ListCreateAPIView):
     queryset = HighlightsSection.objects.all()
     serializer_class = HighlightsSectionSerializer

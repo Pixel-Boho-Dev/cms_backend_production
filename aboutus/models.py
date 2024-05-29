@@ -24,13 +24,13 @@ class OurStory(models.Model):
  
     def __str__(self):
         return self.title   
-
+    
+#model for ourstorytitle
 class OurstoryTitle(models.Model):
     title = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
-
 
 # model for storing milestones 
 class Milestone(models.Model):
@@ -42,7 +42,8 @@ class Milestone(models.Model):
 
     def __str__(self):
         return f"{self.year} - {self.title}"
-
+    
+#model for milestonetitle
 class MilestoneTitle(models.Model):
     title = models.CharField(max_length=200)
     sub_title = models.CharField(max_length=200)
@@ -63,8 +64,9 @@ class OurTeam(models.Model):
     alt_img_description = models.TextField(max_length=300, null=True, blank=True) 
 
     def __str__(self):
-        return self.name
-    
+        return self.title_name
+
+#model for ourteamtitle    
 class OurTeamTitle(models.Model):
     title = models.CharField(max_length=100)
 
@@ -80,8 +82,7 @@ class WhatWeAre(models.Model):
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_description = models.TextField(max_length=300, null=True, blank=True)
-    
+    alt_img_description = models.TextField(max_length=300, null=True, blank=True)    
 
     def __str__(self):
         return self.title
@@ -100,7 +101,8 @@ class Certifications(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
- 
+
+ #model for certificatetitle
 class CertificateTitle(models.Model):
     title = models.CharField(max_length=200)
 
