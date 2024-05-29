@@ -16,6 +16,7 @@ class CareerPageRetrieveUpdateView(generics.RetrieveUpdateAPIView):
         # Return the single CareerPage instance
         return CareerPage.objects.first()
 
+
 class IsReadOnlyOrAuthenticated(permissions.BasePermission):
     """
     Custom permission to allow authenticated users to read (list) careers forms,
@@ -42,14 +43,8 @@ class CareerSubmissionListCreateView(generics.ListCreateAPIView):
         subject = 'New career page Submission'
         message = f"Name: {instance.name}\nEmail: {instance.email}\nPhone: {instance.phone}\nMessage: {instance.message}\nResume: {instance.resume}\nSubmission Time: {instance.submitted_at}"
         from_email = settings.EMAIL_HOST_USER
-        recipient_list = ['smtp.office365.com']  # Replace with the admin's email address
-        try:
-            send_mail(subject, message, from_email, recipient_list)
-        except Exception as e:
-            # Handle email sending error
-            print(f"Error sending email: {e}")
-            # You can log the error or handle it in any appropriate way
-
+        recipient_list = ['smtptest@pixelboho.com']  # Replace with the admin's email address
+        send_mail(subject, message, from_email, recipient_list)
 
 class CareersMetaListView(generics.ListAPIView):
     queryset = MetaTagscareers.objects.all()
