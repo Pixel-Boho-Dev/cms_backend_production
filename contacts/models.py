@@ -17,6 +17,8 @@ class Section(models.Model):
     section_description = models.TextField()
 
 # Model for contact form
+from django.db import models
+
 class ContactForm(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -24,6 +26,9 @@ class ContactForm(models.Model):
     message = models.TextField()
     is_read = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def formatted_timestamp(self):
+        return self.timestamp.strftime('%Y-%m-%d %I:%M %p')
 
     def __str__(self):
         return self.name
