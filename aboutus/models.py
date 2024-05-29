@@ -11,8 +11,7 @@ class AboutPageSection(models.Model):
     def __str__(self):
         return self.title
 
-
-# model to store OurStory
+# model for OurStory
 class OurStory(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -22,17 +21,16 @@ class OurStory(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
- # atlernative tags for image 
+ 
     def __str__(self):
         return self.title   
-
+    
+#model for ourstorytitle
 class OurstoryTitle(models.Model):
-    # Fields specific to titles
     title = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
-
 
 # model for storing milestones 
 class Milestone(models.Model):
@@ -44,7 +42,8 @@ class Milestone(models.Model):
 
     def __str__(self):
         return f"{self.year} - {self.title}"
-
+    
+#model for milestonetitle
 class MilestoneTitle(models.Model):
     title = models.CharField(max_length=200)
     sub_title = models.CharField(max_length=200)
@@ -54,9 +53,7 @@ class MilestoneTitle(models.Model):
 
 # model for storing ourTeam
 class OurTeam(models.Model):
-    # team_title = models.CharField(max_length=100)
-    # team_description = models.CharField(max_length=1000)
-    profile_pic = models.ImageField(upload_to='our_team/',null=True, blank=True)
+    profile_pic = models.ImageField(upload_to='our_team/',)
     title_name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
     order_by = models.IntegerField(validators=[MinValueValidator(0)], unique=True)
@@ -64,15 +61,13 @@ class OurTeam(models.Model):
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_description = models.TextField(max_length=300, null=True, blank=True)
- # atlernative tags for profile_pic 
+    alt_img_description = models.TextField(max_length=300, null=True, blank=True) 
 
     def __str__(self):
-        return self.name
-    
+        return self.title_name
 
+#model for ourteamtitle    
 class OurTeamTitle(models.Model):
-    # Fields specific to titles
     title = models.CharField(max_length=100)
 
     def __str__(self):
@@ -87,29 +82,27 @@ class WhatWeAre(models.Model):
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
-    alt_img_description = models.TextField(max_length=300, null=True, blank=True)
-    
+    alt_img_description = models.TextField(max_length=300, null=True, blank=True)    
 
     def __str__(self):
         return self.title
-
-    # def clean(self):
-    #     # Check the number of existing instances
-    #     existing_instances = WhatWeAre.objects.count()
-    #     if existing_instances >= 3:
-    #         raise ValidationError("You can't create more than 3 instances of WhatWeAre.")
+    
+class WhatWeAreTitle(models.Model):
+    title = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.title
 
 # models for saving certificates
 class Certifications(models.Model):
     certificate_image = models.ImageField(upload_to='certifications/')
-    # description = models.TextField()
     # atlernative content for certificate_image
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
-    # atlernative content for certificate_image
 
+ #model for certificatetitle
 class CertificateTitle(models.Model):
     title = models.CharField(max_length=200)
 
@@ -145,10 +138,5 @@ class MetaTagsAbout(models.Model):
     def __str__(self):
         return self.title
     
-class WhatWeAreTitle(models.Model):
-    title = models.CharField(max_length=100)
-    
-    def __str__(self):
-        return self.title
     
 

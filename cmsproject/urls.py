@@ -22,8 +22,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-
-
 admin.site.site_header = 'ALSI Dashboard'  # Set the title
 admin.site.site_title = 'Alsi Dashboard'  # Set the title displayed in the browser tab
 admin.site.index_title = 'Dashboard'  
@@ -47,7 +45,7 @@ urlpatterns = [
     path('api/',include("footer.urls")),
     path('api/',include("industry_cards.urls")),
     path('api/',include("service_card.urls")),
-
+    path('api/',include("customcss.urls")),
 
 ]
 if settings.DEBUG:

@@ -1,6 +1,6 @@
 from django.db import models
 
-
+#model for socialmedia
 class SocialMedia(models.Model):
     name = models.CharField(max_length=50)
     link = models.URLField(max_length=1000)
@@ -27,10 +27,8 @@ class Service(models.Model):
     description = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
-
     def __str__(self):
         return self.title
-
 
 # model for locations
 class Location(models.Model):
@@ -47,7 +45,8 @@ class Location(models.Model):
     
     def __str__(self):
         return self.place_name
-    
+
+#models for ournetwork title
 class OurNetworkTitle(models.Model):
     title = models.CharField(max_length=100)
     def __str__(self):
@@ -67,6 +66,7 @@ class Achievement(models.Model):
     def __str__(self):
         return self.achievements_subtitle
     
+#models for acheievement title
 class AchievementSection(models.Model):
     title = models.CharField(max_length=100)
 
@@ -80,7 +80,8 @@ class HomeHighlights(models.Model):
 
    def __str__(self):
         return self.sub_title
-   
+
+#models for highlightstitle
 class HighlightsSection(models.Model):
     title = models.CharField(max_length=200)
 
@@ -116,6 +117,7 @@ class Market(models.Model):
     def __str__(self):
         return self.market_title
 
+#models for market title
 class MarketTitle(models.Model):
     title = models.CharField(max_length=100)
     

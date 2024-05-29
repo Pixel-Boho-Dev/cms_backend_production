@@ -3,26 +3,31 @@ from rest_framework.exceptions import ValidationError
 from django.db import models
 from .models import AboutPageSection,OurStory,Milestone,OurTeam,WhatWeAre,Certifications,MetaTagsAbout,CertificateTitle,OurTeamTitle,MilestoneTitle,WhatWeAreTitle
 
+#serializer for aboutpagesection
 class AboutPageSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutPageSection
         fields = '__all__'
 
+#serializer for ourstory
 class OurStorySerializer(serializers.ModelSerializer):
     class Meta:
         model = OurStory
         fields = '__all__'
 
+#serializer for milestone
 class MilestoneSerializer(serializers.ModelSerializer):
     class Meta:
         model = Milestone
         fields = '__all__'
 
+#serializer for milestonetitle
 class MilestoneTitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = MilestoneTitle
         fields = ['id','title','sub_title']
 
+#serializer for ourteam
 class OurTeamSerializer(serializers.ModelSerializer):
     class Meta:
         model = OurTeam
@@ -55,33 +60,37 @@ class OurTeamSerializer(serializers.ModelSerializer):
 
         return super().update(instance, validated_data)
 
-
+#serializer for ourteamtitle
 class OurTeamTitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = OurTeamTitle
         fields = '__all__'
 
-
+#serializer for whatweare
 class WhatWeAreSerializer(serializers.ModelSerializer):
     class Meta:
         model = WhatWeAre
         fields='__all__'
 
+#serializer for certification
 class CertificationSerializer(serializers.ModelSerializer):
     class Meta:
         model=Certifications
         fields='__all__'
 
+#serializer for certification title
 class CertificateTitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = CertificateTitle
         fields = ['id','title']
 
+#serializer for aboutmeta
 class About_metadataSerializers(serializers.ModelSerializer):
     class Meta:
         model   =   MetaTagsAbout
         fields  =   '__all__'
 
+#serializer for whatweare title
 class WhatWeAreTitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = WhatWeAreTitle

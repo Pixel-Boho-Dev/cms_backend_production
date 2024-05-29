@@ -6,7 +6,7 @@ from .serializers import IndustriesPageSerializer, Industries_metadataSerializer
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.shortcuts import get_object_or_404
 
-
+#views for industriespage
 class IndustriesPageListCreateView(generics.ListCreateAPIView):
     queryset = IndustriesPage.objects.all()
     serializer_class = IndustriesPageSerializer
@@ -22,11 +22,11 @@ class IndustriesPageRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIVi
         pk = self.kwargs.get('pk')
         return get_object_or_404(IndustriesPage, pk=pk)
     
+#views for industries meta
 class IndustriesMetaListView(generics.ListAPIView):
     queryset = MetaTagsIndustries.objects.all()
     serializer_class = Industries_metadataSerializers
     
-
 class IndustriesMetaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MetaTagsIndustries.objects.all()
     serializer_class = Industries_metadataSerializers
@@ -34,6 +34,5 @@ class IndustriesMetaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIVi
     authentication_classes = [JWTAuthentication]
 
     def get_object(self):
-        # Since you want only one Homemeta data record, always retrieve the first one
         industriesmeta, created = MetaTagsIndustries.objects.get_or_create(pk=1)
         return industriesmeta

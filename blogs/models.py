@@ -1,9 +1,10 @@
 from django.db import models
 
+#models for blogpost
 class BlogPost(models.Model):
     header_image = models.ImageField(upload_to='blog_headers/')
     header_title = models.CharField(max_length=255)
-    publish_date = models.DateTimeField(auto_now_add=True)
+    publish_date = models.TextField()
     quotes = models.TextField(blank=True, null=True)
     publish_date = models.DateTimeField()
     description = models.TextField()    

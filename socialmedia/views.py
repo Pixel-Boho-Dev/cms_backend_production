@@ -6,6 +6,7 @@ from .serializers import SocialMediaSerializer,ServiceSerializer,LocationSeriali
 from rest_framework.pagination import PageNumberPagination
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
+#views for socialmedia
 class SocialMediaCreateView(generics.CreateAPIView):
     queryset = SocialMedia.objects.all()
     serializer_class = SocialMediaSerializer
@@ -21,7 +22,6 @@ class SocialMediaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView)
     serializer_class = SocialMediaSerializer
     permission_classes = [permissions.IsAuthenticated]  # Only authenticated users can update and delete
     authentication_classes = [JWTAuthentication]
-
 
 # views for services
 class ServiceCreateView(generics.CreateAPIView):
@@ -39,7 +39,6 @@ class ServiceRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceheaderSerializer
     
-
 # views for locations
 class LocationCreateView(generics.CreateAPIView):
     queryset = Location.objects.all()
@@ -58,7 +57,7 @@ class LocationRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [JWTAuthentication]
 
-#views for ournetwork
+#views for ournetwork title
 class OurNetworkTitleCreateView(generics.CreateAPIView):
     queryset = OurNetworkTitle.objects.all()
     serializer_class = OurNetworkTitleSerializer
@@ -92,11 +91,11 @@ class AchievementRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView)
     serializer_class = AchievementSerializer
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [JWTAuthentication]
-    
+
+#views for acheivement title
 class AchievementSectionListCreate(generics.ListCreateAPIView):
     queryset = AchievementSection.objects.all()
     serializer_class = AchievementSectionSerializer
-
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
@@ -106,7 +105,6 @@ class AchievementSectionListCreate(generics.ListCreateAPIView):
 class AchievementSectionRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = AchievementSection.objects.all()
     serializer_class = AchievementSectionSerializer
-    
     
 # views for highlights
 class HighlightCreateView(generics.CreateAPIView):
@@ -130,6 +128,7 @@ class HighlightRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for highlight title
 class HighlightSectionListCreate(generics.ListCreateAPIView):
     queryset = HighlightsSection.objects.all()
     serializer_class = HighlightsSectionSerializer
@@ -171,8 +170,7 @@ class IndustryUpdateView(generics.UpdateAPIView):
         serializer.save()
         return Response(serializer.data)
 
-
-# views for market news
+# views for market updates
 class MarketCreateView(generics.CreateAPIView):
     queryset = Market.objects.all()
     serializer_class = MarketSerializer
@@ -201,7 +199,6 @@ class MarketTitleCreateView(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [JWTAuthentication]
 
-
 class MarketTitleListView(generics.ListAPIView):
     queryset = MarketTitle.objects.all()
     serializer_class = MarketTitleSerializer
@@ -216,23 +213,6 @@ class MarketTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView)
     serializer_class = MarketTitleSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
-
-# # views for home details
-# class HomeListView(generics.ListAPIView):
-#     queryset = Home.objects.all()
-#     serializer_class = HomeSerializer
-
-# class HomeRetrieveUpdateView(generics.RetrieveUpdateAPIView):
-#     queryset = Home.objects.all()
-#     serializer_class = HomeSerializer
-#     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-#     authentication_classes = [JWTAuthentication]
-
-#     def get_object(self):
-#         # Since you want only one Home record, always retrieve the first one
-#         home, created = Home.objects.get_or_create(pk=1)
-#         return home
 
 # views for home meta tags    
 class HomeMetaListView(generics.ListAPIView):

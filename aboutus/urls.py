@@ -8,9 +8,10 @@ from .views import (AboutPageSectionCreateView,AboutPageSectionRetrieveView, Abo
                     MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy,WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView,
                     WhatWeAreTitleCreateView,WhatWeAreTitleRetrieveUpdateDeleteView,WhatWeAreTitleListView,MilestoneTitleListCreate,MilestoneTitleRetrieveUpdateDestroy)
 
-
 urlpatterns = [
     
+    #urls for header about page sections
+
     path('header/about-page-sections/create/', AboutPageSectionCreateView.as_view(), name='about-page-section-list-create'),
     path('header/about-page-sections/', AboutPageSectionRetrieveView.as_view(), name='about-page-section-retrive'),
     path('about-page-sections/<int:pk>/', AboutPageSectionRetrieveUpdateDestroyView.as_view(), name='about-page-section-retrieve-update-destroy'),
@@ -20,7 +21,7 @@ urlpatterns = [
     path('our-story/create/', OurStoryCreateView.as_view(), name='our-story-create'),#not for end users
     path('our-story/', OurStoryRetrieveUpdateDeleteView.as_view(), name='our-story-update'),
 
-    # urls for milestones
+    # urls for milestones and title
     
     path('milestones/', MilestoneCreateView.as_view(), name='milestone-create'),
     path('milestones/<int:pk>/', MilestoneRetrieveUpdateDeleteView.as_view(), name='milestone-retrieve-update-delete'),
@@ -28,7 +29,7 @@ urlpatterns = [
     path('milestonetitle/', MilestoneTitleListCreate.as_view(), name='milestonetitle-create'),
     path('milestonetitle/<int:pk>/', MilestoneTitleRetrieveUpdateDestroy.as_view(),name='milestonetitle-detail'),
 
-    # urls for our team
+    # urls for our team and title
 
     path('our-team/create/', OurTeamCreateView.as_view(), name='our-team-create'),
     path('our-team/<int:pk>/', OurTeamRetrieveUpdateDeleteView.as_view(), name='our-team-detail'),
@@ -58,12 +59,10 @@ urlpatterns = [
     path('aboutmeta/',AboutMetaRetrieveUpdateDestroyView.as_view(),name='blog_meta_create'),
     path('aboutmetall/',AboutMetaListView.as_view(),name='blogmeta_all'),
 
-    #urls for what we are 
+    #urls for what we are title
     
     path('what-we-are-title/create/', WhatWeAreTitleCreateView.as_view(), name='what-we-are-title-create'),
     path('what-we-are-title/<int:pk>/', WhatWeAreTitleRetrieveUpdateDeleteView.as_view(), name='what-we-are-title-detail'),
     path('what-we-are-title/', WhatWeAreTitleListView.as_view(), name='what-we-are-title-list'),
-
-
-    
+       
 ]

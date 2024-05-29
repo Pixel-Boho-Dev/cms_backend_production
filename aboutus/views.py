@@ -7,7 +7,6 @@ from rest_framework.response import Response
 from .models import OurTeamTitle
 from .serializers import OurTeamTitleSerializer
 
-
 # view for creating about page section.
 class AboutPageSectionCreateView(generics.CreateAPIView):
     queryset = AboutPageSection.objects.all()
@@ -78,7 +77,6 @@ class MilestoneTitleListCreate(generics.ListCreateAPIView):
     queryset = MilestoneTitle.objects.all()
     serializer_class = MilestoneTitleSerializer
 
-
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
@@ -100,7 +98,6 @@ class OurTeamRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = OurTeamSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
     lookup_field = 'pk'  # This tells DRF to use 'pk' as the lookup field.
 
 class OurTeamListView(generics.ListAPIView):
@@ -180,7 +177,6 @@ class CertificationTitleListCreate(generics.ListCreateAPIView):
     queryset = CertificateTitle.objects.all()
     serializer_class = CertificateTitleSerializer
 
-
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
@@ -190,6 +186,7 @@ class CertificationTitleRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIV
     queryset = CertificateTitle.objects.all()
     serializer_class = CertificateTitleSerializer
 
+#views for aboutmeta
 class AboutMetaListView(generics.ListAPIView):
     queryset = MetaTagsAbout.objects.all()
     serializer_class = About_metadataSerializers
@@ -205,6 +202,7 @@ class AboutMetaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
         aboutmeta, created = MetaTagsAbout.objects.get_or_create(pk=1)
         return aboutmeta  
 
+# views for whatweare title
 class WhatWeAreTitleCreateView(generics.CreateAPIView):
     queryset = WhatWeAreTitle.objects.all()
     serializer_class = WhatWeAreTitleSerializer
