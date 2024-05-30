@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import ContactHeader, Section, ContactForm, MetaTagsContacts,FAQ
 
-
 #serializers for contactheader
 class ContactHeaderSerializer(serializers.ModelSerializer):
     class Meta:

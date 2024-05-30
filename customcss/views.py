@@ -251,7 +251,6 @@ class WhatweareCustomListCreateView(generics.ListCreateAPIView):
     serializer_class = WhatweareCustomserializers
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-
     
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
@@ -446,7 +445,6 @@ class HeadermarketupdatescustomRetrieveUpdateDistroyView(generics.RetrieveUpdate
     authentication_classes = [JWTAuthentication]
 
 #views for marketcustom
-
 class MarketCustomListCreateView(generics.ListCreateAPIView):
     queryset = MarketCustom.objects.all()
     serializer_class = MarketCustomSerializer
@@ -500,6 +498,7 @@ class IndustriesBlockCustomRetrieveUpdateDistroyView(generics.RetrieveUpdateDest
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+#views for  get all industriesblocks
 class IndustriesCustomViewSet(APIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
