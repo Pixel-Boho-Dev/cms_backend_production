@@ -48,17 +48,22 @@ class ContactFormListCreateView(generics.ListCreateAPIView):
     serializer_class = ContactFormSerializer
     permission_classes=[IsReadOnlyOrAuthenticated]
     authentication_classes=[JWTAuthentication]
-    def perform_create(self, serializer):
-        # Save the new ContactForm instance
+def perform_create(self, serializer):
+        # Save the new CareerSubmission instance
         instance = serializer.save()
 
         # Send an email to the admin
-        subject = 'New Contact Form Submission'
-        message = f"Name: {instance.name}\nEmail: {instance.email}\nPhone: {instance.phone}\nMessage: {instance.message}\nSubmission Time: {instance.timestamp}"
+        subject = 'contact-form'
+        message = f"Name: {instance.name}\nEmail: {instance.email}\nPhone: {instance.phone}\nMessage: {instance.message}\nResume: {instance.resume}\nSubmission Time: {instance.submitted_at}"
         from_email = settings.EMAIL_HOST_USER
-        recipient_list = ['ajayrenjith03@gmail.com','bibinofficial3@gmail.com']  # Replace with the admin's email address later
-        send_mail(subject, message, from_email, recipient_list)
-
+        recipient_list = ['smpt.office365.com']  # Replace with the admin's email address
+        try:
+            send_mail(subject, message, from_email, recipient_list)
+        except Exception as e:
+            # Handle email sending error
+            print(f"Error sending email: {e}")
+            # You can log the error or handle it in any appropriate way
+        
 class ContactFormRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = ContactForm.objects.all()
     serializer_class = ContactFormSerializer
