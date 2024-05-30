@@ -6,7 +6,7 @@ class BlogPost(models.Model):
     header_title = models.CharField(max_length=255)
     publish_date = models.TextField()
     quotes = models.TextField(blank=True, null=True)
-    publish_date = models.DateTimeField()
+    Highlight =models.TextField()
     description = models.TextField()    
     author = models.CharField(max_length=50,null=True,blank=True)
  # atlernative tags for header_image
@@ -17,15 +17,6 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.header_title
-
-
-# adding highlights for a blog post
-class Highlight(models.Model):
-    blog_post = models.ForeignKey(BlogPost, related_name='highlights', on_delete=models.CASCADE)
-    text = models.TextField()
-
-    def __str__(self):
-        return self.text
     
 # adding meta tags for blog page
 class MetaTagsBlogs(models.Model):
