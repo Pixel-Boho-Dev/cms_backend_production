@@ -87,6 +87,7 @@ class WhatWeAre(models.Model):
     def __str__(self):
         return self.title
     
+#models for whatweare
 class WhatWeAreTitle(models.Model):
     title = models.CharField(max_length=100)
     
@@ -108,7 +109,6 @@ class CertificateTitle(models.Model):
 
     def __str__(self):
         return self.title
-
 
 # Meta tags for about us page.
 class MetaTagsAbout(models.Model):
