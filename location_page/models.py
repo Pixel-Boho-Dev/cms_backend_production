@@ -12,7 +12,6 @@ class Office(models.Model):
     designation = models.CharField(max_length=100)
     country_manager_phone1 = models.CharField(max_length=20)
     country_manager_phone2 = models.CharField(max_length=20, blank=True, null=True)
-    country_manager_email = models.EmailField()
     is_head_office = models.BooleanField(default=False)
     office_url = models.URLField()
     office_description = models.TextField()
