@@ -73,7 +73,7 @@ class OurTeamTitle(models.Model):
     def __str__(self):
         return self.title
 
-# Model for storing mission, vision and purpose
+# Model for mission, vision and purpose
 class WhatWeAre(models.Model):
     icon = models.ImageField(upload_to='whatweare/')
     title = models.CharField(max_length=100)
