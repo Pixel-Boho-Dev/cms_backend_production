@@ -1,5 +1,6 @@
 from django.db import models
 
+#models for industrycards
 class IndustryCard(models.Model):
     title = models.CharField(max_length=100)
     description =models. TextField()
@@ -11,7 +12,8 @@ class IndustryCard(models.Model):
 
     def __str__(self):
         return f"{self.title.title} - {self.subtitle}"
-    
+
+#models for industry title
 class IndustryTitles(models.Model):
     title = models.CharField(max_length=100)
     

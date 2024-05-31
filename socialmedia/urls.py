@@ -34,6 +34,7 @@ urlpatterns = [
     path('achievements/', AchievementListView.as_view(), name='achievement-list'),
     path('achievements/<int:pk>/', AchievementRetrieveUpdateDeleteView.as_view(), name='achievement-retrieve-update-delete'),
 
+#urls for acheievement title
     path('achievementssection/',AchievementSectionListCreate.as_view(),name='achievement-section-create'),
     path('achievementssection/<int:pk>/',AchievementSectionRetrieveUpdateDestroy.as_view(),name='achievement-section-retrieve-update-delete'),
 
@@ -41,7 +42,8 @@ urlpatterns = [
     path('highlights/create/', HighlightCreateView.as_view(), name='highlight-create'),
     path('highlights/', HighlightListView.as_view(), name='highlight-list'),
     path('highlights/<int:pk>/', HighlightRetrieveUpdateDeleteView.as_view(), name='highlight-retrieve-update-delete'),
-    
+
+#urls for highlight title
     path('highlightsSection/', HighlightSectionListCreate.as_view(), name='highlightsection-create'),
     path('highlightsSection/<int:pk>/', HighlightSectionRetrieveUpdateDestroy.as_view(), name='highlightsection-retrieve-update-delete'),
 
@@ -50,12 +52,12 @@ urlpatterns = [
     path('header/industries/', IndustryListView.as_view(), name='industry-list'),
     path('header/industries/<int:pk>/', IndustryUpdateView.as_view(), name='IndustryUpdateView-update'),
 
-# urls for market news and all
+# urls for markets header
     path('header/markets/create/', MarketCreateView.as_view(), name='market-create'),
     path('header/markets/', MarketListView.as_view(), name='market-list'),
     path('header/markets/<int:pk>/', MarketRetrieveUpdateDeleteView.as_view(), name='market-retrieve-update-delete'),
-    
-    
+
+#urls for market title
     path('markets/create/',MarketTitleCreateView.as_view(),name='market-title-create'),
     path('markets/',MarketTitleListView.as_view(),name='market-title-list'),
     path('markets/<int:pk>/',MarketTitleRetrieveUpdateDeleteView.as_view(),name='market-title-retrieve-update-delete'),

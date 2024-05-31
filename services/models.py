@@ -1,6 +1,7 @@
 from django.db import models
 from socialmedia.models import Service
 
+#model for subheading
 class Subheading(models.Model):
     subheading = models.CharField(max_length=200)
     related_service = models.ForeignKey(Service, on_delete=models.CASCADE)    
@@ -8,6 +9,7 @@ class Subheading(models.Model):
     def __str__(self):
         return self.title
 
+#model for subservice
 class SubService(models.Model):
     image = models.ImageField(upload_to='subservice_images/')
     sub_title = models.CharField(max_length=200)
@@ -20,7 +22,8 @@ class SubService(models.Model):
     
     def __str__(self):
         return self.sub_title
-    
+
+#model for servicemeta
 class MetaTagsservices(models.Model):
     charset = models.CharField(max_length=150,null=True,blank=True)
     viewport = models.CharField(max_length=150,null=True,blank=True)
@@ -49,6 +52,7 @@ class MetaTagsservices(models.Model):
     def __str__(self):
         return self.title
 
+#model for specialized service
 class SpecializedService(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
@@ -61,7 +65,8 @@ class SpecializedService(models.Model):
 
     def __str__(self):
         return self.title
-    
+
+#model for specialized subservice
 class SpecializedSubService(models.Model):
     description = models.CharField(max_length=200)
     title = models.CharField(max_length=200,null=True,blank=True)

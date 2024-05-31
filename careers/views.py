@@ -7,15 +7,15 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .serializers import CareerSubmissionSerializer ,Careers_metadataSerializers
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.response import Response
 
-
+#views for careers
 class CareerPageRetrieveUpdateView(generics.RetrieveUpdateAPIView):
     queryset = CareerPage.objects.all()
     serializer_class = CareerPageSerializer
     def get_object(self):
         # Return the single CareerPage instance
         return CareerPage.objects.first()
-
 
 class IsReadOnlyOrAuthenticated(permissions.BasePermission):
     """
@@ -29,7 +29,7 @@ class IsReadOnlyOrAuthenticated(permissions.BasePermission):
             return request.user and request.user.is_authenticated
         return True  # Allow all other methods (e.g., POST) for creating careers forms
     
-
+#views of careers submission
 class CareerSubmissionListCreateView(generics.ListCreateAPIView):
     queryset = CareerSubmission.objects.all().order_by('-submitted_at')
     serializer_class = CareerSubmissionSerializer
@@ -44,9 +44,20 @@ class CareerSubmissionListCreateView(generics.ListCreateAPIView):
         subject = 'New career page Submission'
         message = f"Name: {instance.name}\nEmail: {instance.email}\nPhone: {instance.phone}\nMessage: {instance.message}\nResume: {instance.resume}\nSubmission Time: {instance.submitted_at}"
         from_email = settings.EMAIL_HOST_USER
-        recipient_list = ['smtptest@pixelboho.com']  # Replace with the admin's email address
-        send_mail(subject, message, from_email, recipient_list)
+        recipient_list = ['smtp.office365.com']  # Replace with the admin's email address
+        try:
+            send_mail(subject, message, from_email, recipient_list)
+        except Exception as e:
+            # Handle email sending error
+            print(f"Error sending email: {e}")
+            # You can log the error or handle it in any appropriate way)
 
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.serializer_class(queryset, many=True)
+        return Response(serializer.data)
+
+#views of careers meta
 class CareersMetaListView(generics.ListAPIView):
     queryset = MetaTagscareers.objects.all()
     serializer_class = Careers_metadataSerializers

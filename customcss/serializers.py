@@ -62,57 +62,57 @@ class AboutPageSectionCustomSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 #serializers for ourstorysection
-class ourstoryCustomSerializer(serializers.ModelSerializer):
+class OurstoryCustomSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ourstoryCustom
+        model = OurnetworkCustom
         fields = "__all__"
 
 #serializers for milestone
-class milestoneCustomserializers(serializers.ModelSerializer):
+class MilestoneCustomserializers(serializers.ModelSerializer):
     class Meta:
-        model = milestoneCustom
+        model = MilestoneCustom
         fields = "__all__"
 
 #serializers for ourteam
-class ourteamCustomserializers(serializers.ModelSerializer):
+class OurteamCustomserializers(serializers.ModelSerializer):
     class Meta:
-        model = ourteamCustom
+        model = OurteamCustom
         fields = "__all__"
 
 #serializers for whatweare
-class whatweareCustomserializers(serializers.ModelSerializer):
+class WhatweareCustomserializers(serializers.ModelSerializer):
     class Meta:
-        model = whatweareCustom
+        model = WhatweareCustom
         fields = "__all__"
 
 #serializers for certification
-class certificationCustomserializers(serializers.ModelSerializer):
+class CertificationCustomserializers(serializers.ModelSerializer):
     class Meta:
-        model = certificationCustom
+        model = CertificationCustom
         fields = "__all__"
 
 #serializers for contactform
-class contactformCustomserializers(serializers.ModelSerializer):
+class ContactformCustomserializers(serializers.ModelSerializer):
     class Meta:
-        model = contactformCustom
+        model = ContactformCustom
         fields = "__all__"
 
 #serializers for footer
-class footerCustomserializers(serializers.ModelSerializer):
+class FooterCustomserializers(serializers.ModelSerializer):
     class Meta:
-        model = footerCustom
+        model = FooterCustom
         fields = "__all__"
 
 #serializers for headerournetwork
-class headerournetworkCustomserializers(serializers.ModelSerializer):
+class HeaderournetworkCustomserializers(serializers.ModelSerializer):
     class Meta:
-        model = headerournetworkCustom
+        model = HeaderournetworkCustom
         fields = "__all__"
 
 #serializers for ournetworkdescription       
-class ournetworkdescriptionCustomSerializers(serializers.ModelSerializer):
+class OurnetworkdescriptionCustomSerializers(serializers.ModelSerializer):
     class Meta:
-        model = ournetworkdescriptionCustom
+        model = OurnetworkdescriptionCustom
         fields = "__all__"
 
 #serializer of service
@@ -120,36 +120,35 @@ class ServiceCustomSerializer(serializers.ModelSerializer):
     class Meta:
         model = ServiceCustom
         fields = "__all__"
-
         
 #serializers for ournetworklocation       
-class ournetworklocationCustomSerializers(serializers.ModelSerializer):
+class OurnetworklocationCustomSerializers(serializers.ModelSerializer):
     class Meta:
-        model = ournetworklocationCustom
+        model = OurnetworklocationCustom
         fields = "__all__"
 
 #serializers for ournetworkoffices     
-class ournetworkofficesCustomSerializers(serializers.ModelSerializer):
+class OurnetworkofficesCustomSerializers(serializers.ModelSerializer):
     class Meta:
-        model = ournetworkofficesCustom
+        model = OurnetworkofficesCustom
         fields = "__all__"
         
 #serializers for careerspage      
-class careerspageCustomSerializers(serializers.ModelSerializer):
+class CareerspageCustomSerializers(serializers.ModelSerializer):
     class Meta:
-        model = careerspageCustom
+        model = CareerspageCustom
         fields = "__all__"
 
 #serializers for headermarketupdates      
-class headermarketupdatescustomserializers(serializers.ModelSerializer):
+class Headermarketupdatescustomserializers(serializers.ModelSerializer):
     class Meta:
-        model = headermarketupdatescustom
+        model = Headermarketupdatescustom
         fields = "__all__"
 
 #serializers for marketscustom   
-class marketscustomserializers(serializers.ModelSerializer):
+class MarketCustomSerializer(serializers.ModelSerializer):
     class Meta:
-        model = marketcustom
+        model = MarketCustom
         fields = "__all__"
 
 #serializers for industriesblock 
