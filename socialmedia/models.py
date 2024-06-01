@@ -68,8 +68,7 @@ class Achievement(models.Model):
     
 #models for acheievement title
 class AchievementSection(models.Model):
-    title = models.CharField(max_length=100)
-
+    title = models.TextField()
     def __str__(self):
         return self.title
 
