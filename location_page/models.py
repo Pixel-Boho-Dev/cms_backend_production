@@ -1,5 +1,7 @@
 from django.db import models
 from socialmedia.models import Location
+from django.core.validators import RegexValidator
+
 
 # Model for office
 class Office(models.Model): 
@@ -10,14 +12,21 @@ class Office(models.Model):
     email = models.EmailField()
     country_manager_name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
-    country_manager_phone1 = models.CharField(max_length=20)
-    country_manager_phone2 = models.CharField(max_length=20, blank=True, null=True)
+   # Updated phone number validation to allow leading +, spaces, and hyphens
+    phone_regex = RegexValidator(
+        regex=r'^\+?[1-9]\d{1,14}(?:[-\s]?\d{1,13})*$',
+        message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed, spaces and hyphens are allowed."
+    )
+    country_manager_phone1 = models.CharField(validators=[phone_regex], max_length=20)
+    country_manager_phone2 = models.CharField(validators=[phone_regex], max_length=20, blank=True, null=True)
+
     is_head_office = models.BooleanField(default=False)
     office_url = models.URLField()
     office_description = models.TextField()
 
     def __str__(self):
         return f"Office at {self.location.place_name}"
+
 
 #models for location_page
 class Location_page(models.Model):
