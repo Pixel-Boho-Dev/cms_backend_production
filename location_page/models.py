@@ -2,19 +2,16 @@ from django.db import models
 from socialmedia.models import Location
 
 # Model for office
-class Office(models.Model):
+class Office(models.Model): 
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     place_name = models.CharField(max_length=100)
     office_address = models.CharField(max_length=100)
-    phone_number1 = models.CharField(max_length=20)
-    phone_number2 = models.CharField(max_length=20, blank=True, null=True)
     fax = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField()
     country_manager_name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
     country_manager_phone1 = models.CharField(max_length=20)
     country_manager_phone2 = models.CharField(max_length=20, blank=True, null=True)
-    country_manager_email = models.EmailField()
     is_head_office = models.BooleanField(default=False)
     office_url = models.URLField()
     office_description = models.TextField()

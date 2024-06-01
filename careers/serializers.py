@@ -19,7 +19,7 @@ class CareerSubmissionSerializer(serializers.ModelSerializer):
         representation['submitted_at'] = instance.submitted_at.strftime('%Y-%m-%d %H:%M')
         return representation
 
- #serializers for careermeta   
+#serializers for careermeta   
 class Careers_metadataSerializers(serializers.ModelSerializer):
     class Meta:
         model   =   MetaTagscareers
