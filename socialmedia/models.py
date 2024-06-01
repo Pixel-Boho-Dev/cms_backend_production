@@ -37,8 +37,6 @@ class Location(models.Model):
     place_name = models.CharField(max_length=100)
     short_name = models.CharField(max_length=100)
     address = models.CharField(max_length=500)
-    phone_number1 = models.CharField(max_length=20)
-    phone_number2 = models.CharField(max_length=20, blank=True, null=True) # Optional field
     location_url = models.URLField() 
    #  description = models.TextField()
     is_active = models.BooleanField(default=True)
