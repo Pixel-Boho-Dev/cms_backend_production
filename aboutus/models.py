@@ -45,8 +45,8 @@ class Milestone(models.Model):
     
 #model for milestonetitle
 class MilestoneTitle(models.Model):
-    title = models.CharField(max_length=200)
-    sub_title = models.CharField(max_length=200)
+    title = models.TextField()
+    sub_title = models.TextField()
 
     def __str__(self):
         return self.title
