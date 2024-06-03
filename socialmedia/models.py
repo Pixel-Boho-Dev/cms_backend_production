@@ -108,7 +108,7 @@ class Market(models.Model):
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
     market_title = models.CharField(max_length=100)
-    market_description = models.TextField()
+    # market_description = models.TextField()
 
     def __str__(self):
         return self.market_title
