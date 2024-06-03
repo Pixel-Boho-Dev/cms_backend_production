@@ -53,13 +53,12 @@ class OurNetworkTitle(models.Model):
 # model for achievements
 class Achievement(models.Model):
     achievements_icon = models.ImageField(upload_to='achievements_icons/')
+    achievements_subtitle = models.TextField()
  # atlernative content for image
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
-    achievements_subtitle = models.CharField(max_length=100)
-
 
     def __str__(self):
         return self.achievements_subtitle
