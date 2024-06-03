@@ -3,8 +3,6 @@ from .models import Office,Location,Location_page,MetaTagsLocation
 
 #serializers for office
 class OfficeSerializer(serializers.ModelSerializer):
-    phone_numbers = serializers.SerializerMethodField()
-
     class Meta:
         model = Office
         fields = ['id', 'location', 'place_name', 'office_address', 'fax', 'email', 
