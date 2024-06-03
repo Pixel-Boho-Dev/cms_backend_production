@@ -1,15 +1,36 @@
 # Create your models here.
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.db.models.signals import pre_save
+from django.utils.text import slugify
+
 
 # Model for about page header sections
 class AboutPageSection(models.Model):
-    title = models.CharField(max_length=255,null=True, blank=True)
-    sub_title = models.CharField(max_length=200,null=True,blank=True)
-    bg_image = models.ImageField(upload_to='about_page_images/',blank=True,null=True)
+    title = models.CharField(max_length=255, null=True, blank=True)
+    sub_title = models.CharField(max_length=200, null=True, blank=True)
+    bg_image = models.ImageField(upload_to='about_page_images/', blank=True, null=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        # Generate slug if it's not provided or if it's duplicate
+        if not self.slug or AboutPageSection.objects.filter(slug=self.slug).exists():
+            self.slug = self._generate_unique_slug()
+        super().save(*args, **kwargs)
+
+    def _generate_unique_slug(self):
+        # Generate slug from title and append unique identifier if necessary
+        base_slug = slugify(self.title)
+        slug = base_slug
+        counter = 1
+        while AboutPageSection.objects.filter(slug=slug).exists():
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+        return slug
 
     def __str__(self):
         return self.title
+
 
 # model for OurStory
 class OurStory(models.Model):
