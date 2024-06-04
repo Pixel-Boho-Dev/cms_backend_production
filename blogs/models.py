@@ -7,7 +7,7 @@ class BlogPost(models.Model):
     publish_date = models.TextField()
     quotes = models.TextField(blank=True, null=True)
     Highlight =models.TextField()
-    description = models.TextField()    
+    description = models.TextField(null=True, blank=True)    
     author = models.CharField(max_length=50,null=True,blank=True)
  # atlernative tags for header_image
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)

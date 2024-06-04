@@ -3,36 +3,36 @@ from django.db import models
 from django.core.validators import MinValueValidator
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
+from urllib.parse import urlparse
+import re
 
-
-# Model for about page header sections
 class AboutPageSection(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     sub_title = models.CharField(max_length=200, null=True, blank=True)
     bg_image = models.ImageField(upload_to='about_page_images/', blank=True, null=True)
-    slug = models.SlugField(unique=True, blank=True, null=True)
+    slug = models.CharField(max_length=200, unique=True, blank=True, null=True)
 
     def save(self, *args, **kwargs):
-        # Generate slug if it's not provided or if it's duplicate
-        if not self.slug or AboutPageSection.objects.filter(slug=self.slug).exists():
+        if not self.slug or AboutPageSection.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
             self.slug = self._generate_unique_slug()
         super().save(*args, **kwargs)
 
     def _generate_unique_slug(self):
-        # Generate slug from title and append unique identifier if necessary
-        base_slug = slugify(self.title)
+        base_slug = slugify(self.title) if self.title else "about-page-section"
         slug = base_slug
         counter = 1
-        while AboutPageSection.objects.filter(slug=slug).exists():
+        while AboutPageSection.objects.filter(slug=slug).exclude(pk=self.pk).exists():
             slug = f"{base_slug}-{counter}"
             counter += 1
         return slug
 
     def __str__(self):
-        return self.title
+        return self.title 
+
+    def get_absolute_url(self):
+        return f"/about/{self.slug}/"
 
 
-# model for OurStory
 class OurStory(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -66,8 +66,8 @@ class Milestone(models.Model):
     
 #model for milestonetitle
 class MilestoneTitle(models.Model):
-    title = models.CharField(max_length=200)
-    sub_title = models.CharField(max_length=200)
+    title = models.TextField()
+    sub_title = models.TextField()
 
     def __str__(self):
         return self.title
@@ -94,7 +94,7 @@ class OurTeamTitle(models.Model):
     def __str__(self):
         return self.title
 
-# Model for storing mission, vision and purpose
+# Model for mission, vision and purpose
 class WhatWeAre(models.Model):
     icon = models.ImageField(upload_to='whatweare/')
     title = models.CharField(max_length=100)

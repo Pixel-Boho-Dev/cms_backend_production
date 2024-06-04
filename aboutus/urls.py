@@ -25,6 +25,8 @@ urlpatterns = [
     
     path('milestones/', MilestoneCreateView.as_view(), name='milestone-create'),
     path('milestones/<int:pk>/', MilestoneRetrieveUpdateDeleteView.as_view(), name='milestone-retrieve-update-delete'),
+    
+    #urls for milestone title
 
     path('milestonetitle/', MilestoneTitleListCreate.as_view(), name='milestonetitle-create'),
     path('milestonetitle/<int:pk>/', MilestoneTitleRetrieveUpdateDestroy.as_view(),name='milestonetitle-detail'),
@@ -34,6 +36,8 @@ urlpatterns = [
     path('our-team/create/', OurTeamCreateView.as_view(), name='our-team-create'),
     path('our-team/<int:pk>/', OurTeamRetrieveUpdateDeleteView.as_view(), name='our-team-detail'),
     path('our-team/', OurTeamListView.as_view(), name='our-team-list'),
+    
+    #urls for our-team title
 
     path('our-team-title/create/', OurTeamTitleCreateView.as_view(), name='our-team-title-create'),
     path('our-team-title/<int:pk>/', OurTeamTitleRetrieveUpdateDeleteView.as_view(), name='our-team-title-detail'),
@@ -50,6 +54,8 @@ urlpatterns = [
     path('certification/create/', CertificationCreateView.as_view(), name='certificate-create'),
     path('certification/<int:pk>/', CertificationRetrieveUpdateDeleteView.as_view(), name='certificate-detail'),
     path('certification/', CertificationListView.as_view(), name='certificate-list'),
+    
+    #urls for certification title
 
     path('certificationtitle/',CertificationTitleListCreate.as_view(),name='certificate-section-create'),
     path('certificationtitle/<int:pk>/',CertificationTitleRetrieveUpdateDestroy.as_view(),name='certificate-section-retrieve-update-delete'),

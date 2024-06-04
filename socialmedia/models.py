@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.text import slugify
+from django.db import models
 
 #model for socialmedia
 class SocialMedia(models.Model):
@@ -26,6 +28,27 @@ class Service(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
+    slug = models.CharField(max_length=500, unique=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug or Service.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+            self.slug = self._generate_unique_slug()
+        super().save(*args, **kwargs)
+
+    def _generate_unique_slug(self):
+        base_slug = slugify(self.title) if self.title else "service"
+        slug = base_slug
+        counter = 1
+        while Service.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+        return slug
+
+    def __str__(self):
+        return self.title 
+
+    def get_absolute_url(self):
+        return f"/service/{self.slug}/"
 
     def __str__(self):
         return self.title
@@ -37,8 +60,6 @@ class Location(models.Model):
     place_name = models.CharField(max_length=100)
     short_name = models.CharField(max_length=100)
     address = models.CharField(max_length=500)
-    phone_number1 = models.CharField(max_length=20)
-    phone_number2 = models.CharField(max_length=20, blank=True, null=True) # Optional field
     location_url = models.URLField() 
    #  description = models.TextField()
     is_active = models.BooleanField(default=True)
@@ -55,13 +76,12 @@ class OurNetworkTitle(models.Model):
 # model for achievements
 class Achievement(models.Model):
     achievements_icon = models.ImageField(upload_to='achievements_icons/')
+    achievements_subtitle = models.TextField()
  # atlernative content for image
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
-    achievements_subtitle = models.CharField(max_length=100)
-
 
     def __str__(self):
         return self.achievements_subtitle
@@ -111,10 +131,27 @@ class Market(models.Model):
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
     market_title = models.CharField(max_length=100)
-    market_description = models.TextField()
+    slug = models.CharField(max_length=500, unique=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug or Market.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+            self.slug = self._generate_unique_slug()
+        super().save(*args, **kwargs)
+
+    def _generate_unique_slug(self):
+        base_slug = slugify(self.market_title) if self.market_title else "market"
+        slug = base_slug
+        counter = 1
+        while Market.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+        return slug
 
     def __str__(self):
-        return self.market_title
+        return self.market_title 
+
+    def get_absolute_url(self):
+        return f"/market/{self.slug}/"
 
 #models for market title
 class MarketTitle(models.Model):
