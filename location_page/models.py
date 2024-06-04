@@ -15,8 +15,8 @@ class Office(models.Model):
         regex=r'^\+?[1-9]\d{1,14}(?:[-\s]?\d{1,13})*$',
         message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed, spaces and hyphens are allowed."
     )
-    country_manager_phone1 = models.CharField(validators=[phone_regex], max_length=20)
-    country_manager_phone2 = models.CharField(validators=[phone_regex], max_length=20, blank=True, null=True)
+    country_manager_phone1 = models.CharField(validators=[phone_regex], max_length=50)
+    country_manager_phone2 = models.CharField(validators=[phone_regex], max_length=50, blank=True, null=True)
     is_head_office = models.BooleanField(default=False)
     office_url = models.URLField()
     office_description = models.TextField()
