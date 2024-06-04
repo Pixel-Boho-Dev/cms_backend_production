@@ -28,7 +28,7 @@ class Service(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
-    slug = models.CharField(max_length=500, unique=True, blank=True, null=True)
+    slug = models.CharField(max_length=300, unique=True, blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug or Service.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
