@@ -2,9 +2,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.db.models.signals import pre_save
-from django.db import models
 from django.utils.text import slugify
-from django.db import models
 from urllib.parse import urlparse
 import re
 
