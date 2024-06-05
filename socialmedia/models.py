@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.text import slugify
-from django.db import models
 
 #model for socialmedia
 class SocialMedia(models.Model):
@@ -123,7 +122,7 @@ class Industry(models.Model):
         super().save(*args, **kwargs)
 
     def _generate_unique_slug(self):
-        base_slug = slugify(self.industry_title ) if self.industry_title  else "contact header"
+        base_slug = slugify(self.industry_title ) if self.industry_title  else "industry header"
         slug = base_slug
         counter = 1
         while Industry.objects.filter(slug=slug).exclude(pk=self.pk).exists():
