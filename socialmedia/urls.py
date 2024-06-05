@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (HomeMetaRetrieveUpdateDeleteView, SocialMediaCreateView, SocialMediaRetrieveUpdateDeleteView,ServiceCreateView, ServiceListView, 
                     ServiceRetrieveUpdateDeleteView,LocationCreateView,LocationListView,LocationRetrieveUpdateDeleteView,
                     AchievementCreateView, AchievementListView, AchievementRetrieveUpdateDeleteView,HighlightCreateView, 
-                    HighlightListView, HighlightRetrieveUpdateDeleteView,IndustryCreateView, IndustryListView, IndustryUpdateView,
+                    HighlightListView, HighlightRetrieveUpdateDeleteView,IndustryCreateView, IndustryListView, IndustrytRetrieveUpdateDeleteView,
                     MarketCreateView, MarketListView, MarketRetrieveUpdateDeleteView,HomeMetaListView,AchievementSectionListCreate,AchievementSectionRetrieveUpdateDestroy,
                     HighlightSectionListCreate,HighlightSectionRetrieveUpdateDestroy,MarketTitleCreateView,MarketTitleListView,MarketTitleRetrieveUpdateDeleteView,OurNetworkTitleCreateView,OurNetworkTitleListView,OurNetworkTitleRetrieveUpdateDeleteView
 
@@ -50,7 +50,7 @@ urlpatterns = [
 # Urls for industries
     path('header/industries/create/', IndustryCreateView.as_view(), name='industry-create'),
     path('header/industries/', IndustryListView.as_view(), name='industry-list'),
-    path('header/industries/<int:pk>/', IndustryUpdateView.as_view(), name='IndustryUpdateView-update'),
+    path('header/industries/<int:pk>/', IndustrytRetrieveUpdateDeleteView.as_view(), name='IndustrytRetrieveUpdateDeleteView-update'),
 
 # urls for markets header
     path('header/markets/create/', MarketCreateView.as_view(), name='market-create'),
