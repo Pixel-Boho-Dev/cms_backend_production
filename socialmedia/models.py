@@ -50,9 +50,6 @@ class Service(models.Model):
     def get_absolute_url(self):
         return f"/service/{self.slug}/"
 
-    def __str__(self):
-        return self.title
-
 # model for locations
 class Location(models.Model):
     
@@ -122,7 +119,7 @@ class Industry(models.Model):
         return self.industry_title
 
 
-# models for Market News
+# models for Market header
 class Market(models.Model):
     market_image = models.ImageField(upload_to='market_images/')
  # atlernative content forimage -->krishna
@@ -160,21 +157,6 @@ class MarketTitle(models.Model):
     def __str__(self):
         return self.title
 
-# # models for Home titles and descriptions
-# class Home(models.Model):
-#     service_main_title = models.CharField(max_length=100)
-#     service_main_description = models.TextField()
-#     features_main_title = models.CharField(max_length=100)
-#     features_main_description = models.TextField()
-#     highlights_main_title = models.CharField(max_length=100)
-#     highlights_main_description = models.TextField()
-#     industries_main_title = models.CharField(max_length=100)
-#     industries_main_description = models.TextField()
-#     markets_main_title = models.CharField(max_length=100)
-#     markets_main_description = models.TextField()
-
-#     def __str__(self):
-#         return "Home Data"
 
 # Meta tags for homepage
 class MetaTagsHome(models.Model):
