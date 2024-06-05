@@ -16,7 +16,7 @@ urlpatterns = [
 
     path('header/locationpage/create/',Location_pageCreateView.as_view(),name='locationpage-create'),
     path('header/locationpage/', Location_pageRetrieveView.as_view(), name='location-list'),
-    path('header/locationpage/<int:pk>',Location_pageRetrieveUpdateDestroyView.as_view(),name='location_get_update_delete'),
+    path('header/locationpage/<int:pk>/',Location_pageRetrieveUpdateDestroyView.as_view(),name='location_get_update_delete'),
     
     #urls for location meta
     

@@ -6,6 +6,7 @@ from django.utils.text import slugify
 from urllib.parse import urlparse
 import re
 
+#models for about us page
 class AboutPageSection(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     sub_title = models.CharField(max_length=200, null=True, blank=True)
@@ -32,7 +33,7 @@ class AboutPageSection(models.Model):
     def get_absolute_url(self):
         return f"/about/{self.slug}/"
 
-
+#models for ourstory 
 class OurStory(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()

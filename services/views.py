@@ -76,6 +76,8 @@ class SubheadingCreateView(generics.CreateAPIView):
 class SubheadingListView(generics.ListAPIView):
     queryset = Subheading.objects.all()
     serializer_class = subheadingSerializers
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
     def get(self, request):
         industries = Subheading.objects.all()
@@ -85,6 +87,8 @@ class SubheadingListView(generics.ListAPIView):
 class SubheadingRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Subheading.objects.all()
     serializer_class = subheadingSerializers
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
 #views for subservice
 class SubServiceViewSet(viewsets.ModelViewSet):

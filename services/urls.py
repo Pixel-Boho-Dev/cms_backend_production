@@ -18,9 +18,9 @@ urlpatterns = [
     path('subheading/<int:pk>/',SubheadingRetrieveUpdateDestroy.as_view(),name = 'subheading-retrieve-update-delete'),
 
     # meta tags for service page
-    path('servicmeta/',ServiceMetaCreateView.as_view(),name='location_meta_data'),
-    path('servicmeta/get/',ServicesMetaListView.as_view(),name='location_meta_data'),
-    path('servicmeta/<int:pk>/',ServicesMetaRetrieveUpdateDestroyView.as_view(),name='location_meta_data'),
+    path('servicemeta/',ServiceMetaCreateView.as_view(),name='location_meta_data'),
+    path('servicemeta/get/',ServicesMetaListView.as_view(),name='location_meta_data'),
+    path('servicemeta/<int:pk>/',ServicesMetaRetrieveUpdateDestroyView.as_view(),name='location_meta_data'),
     
     #urls for specialized service
     path('specialized-service/',SpecializedServiceListCreate.as_view(),name = 'specialized-service-list-create'),

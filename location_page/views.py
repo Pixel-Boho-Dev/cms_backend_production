@@ -14,6 +14,10 @@ class OfficeListCreateView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
+    def create(self, request, *args, **kwargs):
+        print(request.data)  # Debugging line to print incoming data
+        return super().create(request, *args, **kwargs)
+
 class OfficeRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Office.objects.all().order_by('-id')
     serializer_class = OfficeSerializer
