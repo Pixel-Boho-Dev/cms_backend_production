@@ -10,6 +10,6 @@ urlpatterns = [
     
     #urls for keydiffrentiates title
     
-    path('key-diffrentiatesSection/', key_diffrentiatesSectionListCreate.as_view(), name='key_diffrentiatesSection-list-create'),
-    path('key-diffrentiatesSection/<int:pk>/', key_diffrentiatesSectionRetrieveUpdateDestroy.as_view(), name='key_diffrentiatesSection-detail'),
+    path('key-diffrentiatestitle/', key_diffrentiatesSectionListCreate.as_view(), name='key_diffrentiatestitle-list-create'),
+    path('key-diffrentiatestitle/<int:pk>/', key_diffrentiatesSectionRetrieveUpdateDestroy.as_view(), name='key_diffrentiatestitle-detail'),
 ]
