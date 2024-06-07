@@ -101,7 +101,7 @@ class OurTeamRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk'  # This tells DRF to use 'pk' as the lookup field.
 
 class OurTeamListView(generics.ListAPIView):
-    queryset = OurTeam.objects.all().order_by('-id')
+    queryset = OurTeam.objects.all().order_by('id')
     serializer_class = OurTeamSerializer
 
     def list(self, request, *args, **kwargs):
@@ -142,7 +142,7 @@ class WhatWeAreRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk'  # This tells DRF to use 'pk' as the lookup field.
 
 class WhatWeAreListView(generics.ListAPIView):
-    queryset = WhatWeAre.objects.all().order_by('-id')
+    queryset = WhatWeAre.objects.all().order_by('id')
     serializer_class = WhatWeAreSerializer
 
     def list(self, request, *args, **kwargs):
@@ -165,7 +165,7 @@ class CertificationRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIVie
     lookup_field = 'pk'
 
 class CertificationListView(generics.ListAPIView):
-    queryset = Certifications.objects.all().order_by('-id')
+    queryset = Certifications.objects.all().order_by('id')
     serializer_class = CertificationSerializer
 
     def list(self, request, *args, **kwargs):
@@ -217,7 +217,7 @@ class WhatWeAreTitleRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIVi
     lookup_field = 'pk'
 
 class WhatWeAreTitleListView(generics.ListAPIView):
-    queryset = WhatWeAreTitle.objects.all().order_by('-id')
+    queryset = WhatWeAreTitle.objects.all().order_by('id')
     serializer_class = WhatWeAreTitleSerializer
 
     def list(self, request, *args, **kwargs):

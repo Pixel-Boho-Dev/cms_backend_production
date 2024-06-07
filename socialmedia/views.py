@@ -78,7 +78,7 @@ class AchievementCreateView(generics.CreateAPIView):
     authentication_classes = [JWTAuthentication]
 
 class AchievementListView(generics.ListAPIView):
-    queryset = Achievement.objects.all().order_by('-id')
+    queryset = Achievement.objects.all().order_by('id')
     serializer_class = AchievementSerializer
     
     def list(self, request, *args, **kwargs):
