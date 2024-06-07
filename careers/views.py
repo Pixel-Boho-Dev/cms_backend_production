@@ -31,7 +31,7 @@ class IsReadOnlyOrAuthenticated(permissions.BasePermission):
     
 #views of careers submission
 class CareerSubmissionListCreateView(generics.ListCreateAPIView):
-    queryset = CareerSubmission.objects.all().order_by('-submitted_at')
+    queryset = CareerSubmission.objects.all().order_by('submitted_at')
     serializer_class = CareerSubmissionSerializer
     permission_classes = [IsReadOnlyOrAuthenticated]
     authentication_classes = [JWTAuthentication]

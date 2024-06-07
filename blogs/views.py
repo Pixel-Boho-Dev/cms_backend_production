@@ -6,7 +6,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 #views for blogpost
 class BlogPostViewSet(viewsets.ModelViewSet):
-    queryset = BlogPost.objects.all().order_by('-id')
+    queryset = BlogPost.objects.all().order_by('id')
     serializer_class = BlogPostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
