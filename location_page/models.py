@@ -1,6 +1,8 @@
 from django.db import models
 from socialmedia.models import Location
 from django.core.validators import RegexValidator
+from django.utils.text import slugify
+
 
 #models for office
 class Office(models.Model): 
@@ -35,9 +37,27 @@ class Location_page(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
+    slug = models.CharField(max_length=200, unique=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug or Location_page.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+            self.slug = self._generate_unique_slug()
+        super().save(*args, **kwargs)
+
+    def _generate_unique_slug(self):
+        base_slug = slugify(self.location_title) if self.location_title else "location-page"
+        slug = base_slug
+        counter = 1
+        while Location_page.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+        return slug
 
     def __str__(self):
         return self.location_title
+
+    def get_absolute_url(self):
+        return f"/location/{self.slug}/"
 
 
 # model for Location page meta data

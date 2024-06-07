@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.text import slugify
+
 
 #models for blogpost
 class BlogPost(models.Model):
@@ -14,9 +16,27 @@ class BlogPost(models.Model):
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
     alt_img_Caption = models.TextField(max_length=300, null=True, blank=True)
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
+    slug = models.CharField(max_length=200, unique=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug or BlogPost.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+            self.slug = self._generate_unique_slug()
+        super().save(*args, **kwargs)
+
+    def _generate_unique_slug(self):
+        base_slug = slugify(self.header_title) if self.header_title else "blogpost-section"
+        slug = base_slug
+        counter = 1
+        while BlogPost.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+        return slug
 
     def __str__(self):
-        return self.header_title
+        return self.header_title 
+
+    def get_absolute_url(self):
+        return f"/blogpost/{self.slug}/"
     
 # adding meta tags for blog page
 class MetaTagsBlogs(models.Model):
