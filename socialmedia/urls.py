@@ -44,8 +44,8 @@ urlpatterns = [
     path('highlights/<int:pk>/', HighlightRetrieveUpdateDeleteView.as_view(), name='highlight-retrieve-update-delete'),
 
 #urls for highlight title
-    path('highlightsSection/', HighlightSectionListCreate.as_view(), name='highlightsection-create'),
-    path('highlightsSection/<int:pk>/', HighlightSectionRetrieveUpdateDestroy.as_view(), name='highlightsection-retrieve-update-delete'),
+    path('highlightstitle/', HighlightSectionListCreate.as_view(), name='highlighttitle-create'),
+    path('highlightstitle/<int:pk>/', HighlightSectionRetrieveUpdateDestroy.as_view(), name='highlighttitle-retrieve-update-delete'),
 
 # Urls for industries
     path('header/industries/create/', IndustryCreateView.as_view(), name='industry-create'),
