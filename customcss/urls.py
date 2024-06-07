@@ -127,8 +127,8 @@ urlpatterns = [
 
     #urls for marketcustom
 
-    path('blogpost/custom-css/',MarketCustomListCreateView.as_view(),name="blogpost-list-create"),
-    path('blogpost/custom-css/<int:pk>/',MarketUpdatesCustomRetrieveUpdateDistroyView.as_view(),name="blogpost-retrieve-update-distroy"),
+    path('markets/custom-css/',MarketCustomListCreateView.as_view(),name="markets-list-create"),
+    path('markets/custom-css/<int:pk>/',MarketUpdatesCustomRetrieveUpdateDistroyView.as_view(),name="market-retrieve-update-distroy"),
 
     #urls for industries page
 
