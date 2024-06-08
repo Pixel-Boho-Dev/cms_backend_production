@@ -6,7 +6,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 #views for blogpost
 class BlogPostViewSet(viewsets.ModelViewSet):
-    queryset = BlogPost.objects.all().order_by('-id')
+    queryset = BlogPost.objects.all().order_by('id')
     serializer_class = BlogPostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
@@ -32,7 +32,3 @@ class BlogMetaRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-    def get_object(self):
-        # Since we want only one Homemeta data record, always retrieve the first one
-        homemeta, created = MetaTagsBlogs.objects.get_or_create(blog_post_id=1)
-        return homemeta

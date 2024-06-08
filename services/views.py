@@ -92,7 +92,7 @@ class SubheadingRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
 
 #views for subservice
 class SubServiceViewSet(viewsets.ModelViewSet):
-    queryset = SubService.objects.all().order_by('-id')  # Order by '-id'
+    queryset = SubService.objects.all().order_by('id')  # Order by '-id'
     serializer_class = SubServiceSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
@@ -109,7 +109,7 @@ class ServicesMetaListView(generics.ListAPIView):
     serializer_class = Service_metadataSerializers
 
 class ServicesMetaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = MetaTagsservices.objects.all().order_by('-id') 
+    queryset = MetaTagsservices.objects.all().order_by('id') 
     serializer_class = Service_metadataSerializers
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]

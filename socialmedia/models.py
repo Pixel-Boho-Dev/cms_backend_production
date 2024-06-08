@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.text import slugify
-from django.db import models
 
 #model for socialmedia
 class SocialMedia(models.Model):
@@ -115,10 +114,28 @@ class Industry(models.Model):
     alt_img_description = models.TextField(max_length=300, null=True, blank=True)
     industry_title = models.CharField(max_length=100)
     industry_description = models.TextField()
+    slug = models.CharField(max_length=300, unique=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug or Industry.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+            self.slug = self._generate_unique_slug()
+        super().save(*args, **kwargs)
+
+    def _generate_unique_slug(self):
+        base_slug = slugify(self.industry_title ) if self.industry_title  else "industry header"
+        slug = base_slug
+        counter = 1
+        while Industry.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+        return slug
+
     def __str__(self):
-        return self.industry_title
+        return self.industry_title 
 
-
+    def get_absolute_url(self):
+        return f"/about/{self.slug}/"
+    
 # models for Market header
 class Market(models.Model):
     market_image = models.ImageField(upload_to='market_images/')

@@ -9,7 +9,7 @@ from rest_framework import permissions
 
 #views for office
 class OfficeListCreateView(generics.ListCreateAPIView):
-    queryset = Office.objects.all().order_by('-id')
+    queryset = Office.objects.all().order_by('id')
     serializer_class = OfficeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
@@ -19,7 +19,7 @@ class OfficeListCreateView(generics.ListCreateAPIView):
         return super().create(request, *args, **kwargs)
 
 class OfficeRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Office.objects.all().order_by('-id')
+    queryset = Office.objects.all().order_by('id')
     serializer_class = OfficeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
@@ -33,7 +33,7 @@ class OfficeListByLocationView(generics.ListAPIView):
 
 #views for location_page
 class Location_pageCreateView(generics.CreateAPIView):
-    queryset = Location_page.objects.all().order_by('-id')
+    queryset = Location_page.objects.all().order_by('id')
     serializer_class = Location_pageSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
@@ -50,7 +50,7 @@ class Location_pageRetrieveView(APIView):
         return Response(serializer.data)
     
 class Location_pageRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Location_page.objects.all().order_by('-id')
+    queryset = Location_page.objects.all().order_by('id')
     serializer_class = Location_pageSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
@@ -70,11 +70,11 @@ class Location_pageRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIVi
 
 #views for location pagemeta
 class LocationMetaListView(generics.ListAPIView):
-    queryset = MetaTagsLocation.objects.all().order_by('-id')
+    queryset = MetaTagsLocation.objects.all().order_by('id')
     serializer_class = Location_metadataSerializers
 
 class LocationMetaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = MetaTagsLocation.objects.all().order_by('-id')
+    queryset = MetaTagsLocation.objects.all().order_by('id')
     serializer_class = Location_metadataSerializers
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
