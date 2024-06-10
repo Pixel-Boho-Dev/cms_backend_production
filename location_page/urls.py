@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import (OfficeListCreateView, OfficeRetrieveUpdateDestroyView,
+from .views import (OfficeCreateView, OfficeRetrieveUpdateDestroyView,OfficeListView,
                     OfficeListByLocationView,Location_pageCreateView,
                     Location_pageRetrieveUpdateDestroyView,LocationMetaListView,LocationMetaRetrieveUpdateDestroyView,Location_pageRetrieveView)
 
@@ -7,7 +7,8 @@ urlpatterns = [
 
     #urls for office
 
-    path('offices/', OfficeListCreateView.as_view(), name='office-list-create'),
+    path('offices/', OfficeCreateView.as_view(), name='office-list-create'),
+    path('offices/get/',OfficeListView.as_view(),name='office-list-get'),
     path('offices/<int:pk>/', OfficeRetrieveUpdateDestroyView.as_view(), name='office-retrieve-update-destroy'),
 
     path('offices/by-location/<int:location_id>/', OfficeListByLocationView.as_view(), name='office-list-by-location'),
