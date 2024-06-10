@@ -10,20 +10,16 @@ from rest_framework.pagination import PageNumberPagination
 
 
 #views for office
-class OfficeCreateView(generics.CreateAPIView):
+class OfficeListCreateView(generics.ListCreateAPIView):
     queryset = Office.objects.all().order_by('id')
     serializer_class = OfficeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
+    pagination_class = None  
 
     def create(self, request, *args, **kwargs):
         print(request.data)  # Debugging line to print incoming data
-        return super().create(request, *args, **kwargs)
-
-class OfficeListView(generics.ListAPIView):
-    queryset = Office.objects.all()
-    serializer_class = OfficeSerializer
-    pagination_class = None  
+        return super().create(request, *args, **kwargs) 
 
 class OfficeRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Office.objects.all().order_by('id')
