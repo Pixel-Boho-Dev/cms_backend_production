@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
 
-
 #models for blogpost
 class BlogPost(models.Model):
     header_image = models.ImageField(upload_to='blog_headers/')
