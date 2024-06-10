@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
 
-
 #models for careerpage
 class CareerPage(models.Model):
     title = models.CharField(max_length=100)
@@ -29,7 +28,6 @@ class CareerPage(models.Model):
     def get_absolute_url(self):
         return f"/career/{self.slug}/"
 
-    
 #models for careersubmission    
 class CareerSubmission(models.Model):
     name = models.CharField(max_length=100)
