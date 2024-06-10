@@ -6,9 +6,11 @@ from .models import Office, Location_page, MetaTagsLocation
 from .serializers import OfficeSerializer, Location_pageSerializer, Location_metadataSerializers
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import permissions
+from rest_framework.pagination import PageNumberPagination
+
 
 #views for office
-class OfficeListCreateView(generics.ListCreateAPIView):
+class OfficeCreateView(generics.CreateAPIView):
     queryset = Office.objects.all().order_by('id')
     serializer_class = OfficeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -17,6 +19,11 @@ class OfficeListCreateView(generics.ListCreateAPIView):
     def create(self, request, *args, **kwargs):
         print(request.data)  # Debugging line to print incoming data
         return super().create(request, *args, **kwargs)
+
+class OfficeListView(generics.ListAPIView):
+    queryset = Office.objects.all()
+    serializer_class = OfficeSerializer
+    pagination_class = None  
 
 class OfficeRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Office.objects.all().order_by('id')
