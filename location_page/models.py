@@ -85,6 +85,5 @@ class MetaTagsLocation(models.Model):
     twitter_image = models.ImageField(upload_to='meta_tags_location/', null=True, blank=True)
     twitter_image_alt = models.CharField(max_length=150,null=True,blank=True)
 
-
     def __str__(self):
         return self.title
