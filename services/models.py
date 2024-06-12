@@ -56,8 +56,8 @@ class MetaTagsservices(models.Model):
 
 #model for specialized service
 class SpecializedService(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
+    title = models.TextField()
+    description = models.TextField()
     image = models.ImageField(upload_to='specializedservice_images/')
     alt_img_text = models.TextField(max_length=300, null=True,blank=True)
     alt_img_title = models.TextField(max_length=300, null=True,blank=True)
