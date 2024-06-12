@@ -19,51 +19,37 @@ from rest_framework import permissions
 class ServiceViewSet(viewsets.ModelViewSet):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
+    lookup_field = 'slug'
 
-    @action(detail=True, methods=['GET'])
-    def subservices(self, request, pk=None):
-        # Retrieve the Service object
-        service = self.get_object()
-
-        # Retrieve the Subheadings related to the Service
+    @action(detail=True, methods=['get'])
+    def subservices(self, request, slug=None):
+        service = get_object_or_404(Service, slug=slug)
         subheadings = Subheading.objects.filter(related_service=service)
-
-        # Serialize the Service
-        service_data = ServiceSerializer(service).data
-
-        # Serialize the Subheadings and their associated SubServices
         subheadings_data = []
+        
         for subheading in subheadings:
             subservices = SubService.objects.filter(related_heading=subheading)
             subservice_data = SubServiceSerializer(subservices, many=True).data
-            subheading_data = {
+            subheadings_data.append({
                 'id': subheading.id,
                 'subheading': subheading.subheading,
                 'subservices': subservice_data
-            }
-            subheadings_data.append(subheading_data)
+            })
 
-        # Construct the response data
-        response_data = {
-            'service': service_data,
+        return Response({
+            'service': ServiceSerializer(service).data,
             'subheadings': subheadings_data
-        }
+        })
 
-        # Return the response
-        return Response(response_data)
-    
-    @action(detail=True, methods=['DELETE'])
-    def delete_subservices(self, request, pk=None):
-        service = self.get_object()
+    @action(detail=True, methods=['delete'])
+    def delete_subservices(self, request, slug=None):
+        service = get_object_or_404(Service, slug=slug)
         subheadings = Subheading.objects.filter(related_service=service)
-        
+
         for subheading in subheadings:
             SubService.objects.filter(related_heading=subheading).delete()
         subheadings.delete()
-
-         # Delete the service itself
         service.delete()
-
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 #views for subheading
@@ -79,11 +65,6 @@ class SubheadingListView(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
 
-    def get(self, request):
-        industries = Subheading.objects.all()
-        serializer = subheadingSerializers(industries, many=True)
-        return Response(serializer.data)
-    
 class SubheadingRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Subheading.objects.all()
     serializer_class = subheadingSerializers
@@ -91,8 +72,20 @@ class SubheadingRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes = [JWTAuthentication]
 
 #views for subservice
-class SubServiceViewSet(viewsets.ModelViewSet):
-    queryset = SubService.objects.all().order_by('id')  # Order by '-id'
+class SubServiceCreateView(generics.CreateAPIView):
+    queryset = SubService.objects.all()
+    serializer_class = SubServiceSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+class SubserviceListView(generics.ListAPIView):
+    queryset = SubService.objects.all()
+    serializer_class = SubServiceSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
+
+class SubserviceRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SubService.objects.all()
     serializer_class = SubServiceSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
@@ -150,3 +143,11 @@ class SpecializedSubServiceListCreate(generics.ListCreateAPIView):
 class SpecializedSubServiceRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = SpecializedSubService.objects.all()
     serializer_class = SpecializedSubServiceSerializer
+
+    def get_object(self):
+        queryset = self.get_queryset()
+        slug = self.kwargs.get("slug")
+        print(f"Looking for slug: {slug}")
+        obj = generics.get_object_or_404(queryset, slug=slug)
+        self.check_object_permissions(self.request, obj)
+        return obj

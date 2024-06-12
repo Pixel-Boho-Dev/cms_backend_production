@@ -8,7 +8,6 @@ class BlogPost(models.Model):
     publish_date = models.TextField()
     quotes = models.TextField(blank=True, null=True)
     Highlight =models.TextField()
-    description = models.TextField(null=True, blank=True)    
     author = models.CharField(max_length=50,null=True,blank=True)
  # atlernative tags for header_image
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
@@ -24,6 +23,8 @@ class BlogPost(models.Model):
 
     def _generate_unique_slug(self):
         base_slug = slugify(self.header_title) if self.header_title else "blogpost-section"
+        # Trim the slug to a maximum of 50 characters and ensure it does not cut off mid-word
+        base_slug = self._trim_slug(base_slug, max_length=30)
         slug = base_slug
         counter = 1
         while BlogPost.objects.filter(slug=slug).exclude(pk=self.pk).exists():
@@ -31,11 +32,23 @@ class BlogPost(models.Model):
             counter += 1
         return slug
 
+    def _trim_slug(self, slug, max_length):
+        if len(slug) <= max_length:
+            return slug
+        truncated_slug = slug[:max_length]
+        # Ensure we don't cut off a word
+        if truncated_slug[-1] != '-' and slug[max_length] != '-':
+            last_hyphen = truncated_slug.rfind('-')
+            if last_hyphen != -1:
+                truncated_slug = truncated_slug[:last_hyphen]
+        return truncated_slug.rstrip(':')
+
     def __str__(self):
         return self.header_title 
 
     def get_absolute_url(self):
         return f"/blogpost/{self.slug}/"
+
     
 # adding meta tags for blog page
 class MetaTagsBlogs(models.Model):
