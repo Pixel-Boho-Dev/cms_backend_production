@@ -1,16 +1,16 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
-
-from .views import ServiceViewSet,SubServiceViewSet,ServicesMetaListView,ServiceMetaCreateView,ServicesMetaRetrieveUpdateDestroyView,SubheadingCreateView,SubheadingListView,SubheadingRetrieveUpdateDestroy,SpecializedServiceListCreate,SpecializedServiceRetrieveUpdateDestroy,SpecializedSubServiceListCreate,SpecializedSubServiceRetrieveUpdateDestroy
+from .views import ServiceViewSet,SubServiceCreateView,SubserviceListView,SubserviceRetrieveUpdateDestroy,ServicesMetaListView,ServiceMetaCreateView,ServicesMetaRetrieveUpdateDestroyView,SubheadingCreateView,SubheadingListView,SubheadingRetrieveUpdateDestroy,SpecializedServiceListCreate,SpecializedServiceRetrieveUpdateDestroy,SpecializedSubServiceListCreate,SpecializedSubServiceRetrieveUpdateDestroy
 
 urlpatterns = [
 
     #url for full content of service
-    path('services/<int:pk>/subservices/', ServiceViewSet.as_view({'get': 'subservices', 'delete': 'delete_subservices'}), name='service-subservices'),
+    path('services/<slug:slug>/subservices/', ServiceViewSet.as_view({'get': 'subservices', 'delete': 'delete_subservices'}), name='service-subservices'),
     
     #urls for subservices
-    path('subservices/', SubServiceViewSet.as_view({'get': 'list', 'post': 'create'}), name='subservice-list-create'),
-    path('subservices/<int:pk>/', SubServiceViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='subservice-retrieve-update-delete'),
+    path('subservices/', SubServiceCreateView.as_view(), name='subservice-create'),
+    path('subservices/get/', SubserviceListView.as_view(), name='subservice-all'),
+    path('subservices/<int:pk>/', SubserviceRetrieveUpdateDestroy.as_view(), name='subservice-retrieve-update-delete'),
     
     #urls for subheading
     path('subheading/',SubheadingCreateView.as_view(),name = 'subheading-list-create'),
@@ -27,7 +27,6 @@ urlpatterns = [
     path('specialized-service/<int:pk>/',SpecializedServiceRetrieveUpdateDestroy.as_view(),name = 'specialized-service-retrieve-update-delete'),
 
     #urls for specialized subservice
-    path('specialized-subservice/',SpecializedSubServiceListCreate.as_view(),name = 'specialized-subservice-list-create'),
-    path('specialized-subservice/<int:pk>/',SpecializedSubServiceRetrieveUpdateDestroy.as_view(),name = 'specialized-subservice-retrieve-update-delete'),
-
+    path('specialized-subservice/', SpecializedSubServiceListCreate.as_view(), name='specialized-subservice-list-create'),
+    path('specialized-subservice/<slug:slug>/', SpecializedSubServiceRetrieveUpdateDestroy.as_view(), name='specialized-subservice-detail'),
 ]
