@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import MetaTagsservices,Subheading,SpecializedService,SpecializedSubService
+from .models import MetaTagsservices,Subheading,SpecializedService,SpecializedSubService,Categories
 
 #serializer for servicemeta
 class Service_metadataSerializers(serializers.ModelSerializer):
@@ -23,4 +23,10 @@ class SpecializedServiceSerializer(serializers.ModelSerializer):
 class SpecializedSubServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = SpecializedSubService
+        fields = '__all__'
+
+#serializers for categories
+class CategoriesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Categories
         fields = '__all__'
