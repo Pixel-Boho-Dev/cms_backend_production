@@ -18,7 +18,7 @@ class SubServiceSerializer(serializers.ModelSerializer):
 # serializer for services
 class ServiceSerializer(serializers.ModelSerializer):
     subheadings = subheadingSerializers(many=True,read_only=True)
-    subservices = SubServiceSerializer(many=True, read_only=True)  # Nested representation
+    subservices = SubServiceSerializer(many=True, read_only=True)   
     class Meta:
         model = Service
         fields = '__all__'
