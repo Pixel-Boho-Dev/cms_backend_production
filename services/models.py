@@ -102,28 +102,4 @@ class SpecializedSubService(models.Model):
     def __str__(self):
         return self.header_title
 
-#models for categories
-class Categories(models.Model):
-    title = models.TextField()
-    image = models.ImageField(upload_to='categories_images/')
-    slug = models.CharField(max_length=200, unique=True, blank=True, null=True)
 
-    def save(self, *args, **kwargs):
-        if not self.slug or Categories.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
-            self.slug = self._generate_unique_slug()
-        super().save(*args, **kwargs)
-
-    def _generate_unique_slug(self):
-        base_slug = slugify(self.title.split(':')[0]) if self.title else "categories"
-        slug = base_slug
-        counter = 1
-        while Categories.objects.filter(slug=slug).exclude(pk=self.pk).exists():
-            slug = f"{base_slug}-{counter}"
-            counter += 1
-        return slug
-
-    def get_absolute_url(self):
-        return f"/categories/{self.slug}/"
-
-    def __str__(self):
-        return self.title

@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
-from .views import ServiceViewSet,SubServiceCreateView,SubserviceListView,SubserviceRetrieveUpdateDestroy,ServicesMetaListView,ServiceMetaCreateView,ServicesMetaRetrieveUpdateDestroyView,SubheadingCreateView,SubheadingListView,SubheadingRetrieveUpdateDestroy,SpecializedServiceListCreate,SpecializedServiceRetrieveUpdateDestroy,SpecializedSubServiceListCreate,SpecializedSubServiceRetrieveUpdateDestroy,CategoriesListCreate,CategoriesRetrieveUpdateDestroy
+from .views import ServiceViewSet,SubServiceCreateView,SubserviceListView,SubserviceRetrieveUpdateDestroy,ServicesMetaListView,ServiceMetaCreateView,ServicesMetaRetrieveUpdateDestroyView,SubheadingCreateView,SubheadingListView,SubheadingRetrieveUpdateDestroy,SpecializedServiceListCreate,SpecializedServiceRetrieveUpdateDestroy,SpecializedSubServiceListCreate,SpecializedSubServiceRetrieveUpdateDestroy
 
 urlpatterns = [
 
@@ -30,7 +30,5 @@ urlpatterns = [
     path('specialized-subservice/', SpecializedSubServiceListCreate.as_view(), name='specialized-subservice-list-create'),
     path('specialized-subservice/<slug:slug>/', SpecializedSubServiceRetrieveUpdateDestroy.as_view(), name='specialized-subservice-detail'),
 
-    #urls for category
-    path('service/categories/',CategoriesListCreate.as_view(),name= 'categories-list-create'),
-    path('service/categories/<int:pk>/',CategoriesRetrieveUpdateDestroy.as_view(),name= 'categories-retrieve-update-destroy'),
+
 ]
