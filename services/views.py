@@ -151,3 +151,4 @@ class SpecializedSubServiceRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyA
         obj = generics.get_object_or_404(queryset, slug=slug)
         self.check_object_permissions(self.request, obj)
         return obj
+

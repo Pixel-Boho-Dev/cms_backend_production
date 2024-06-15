@@ -29,4 +29,6 @@ urlpatterns = [
     #urls for specialized subservice
     path('specialized-subservice/', SpecializedSubServiceListCreate.as_view(), name='specialized-subservice-list-create'),
     path('specialized-subservice/<slug:slug>/', SpecializedSubServiceRetrieveUpdateDestroy.as_view(), name='specialized-subservice-detail'),
+
+
 ]
