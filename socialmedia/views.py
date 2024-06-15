@@ -38,6 +38,14 @@ class ServiceListView(generics.ListAPIView):
 class ServiceRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceheaderSerializer
+
+    def get_object(self):
+        queryset = self.get_queryset()
+        slug = self.kwargs.get("slug")
+        print(f"Looking for slug: {slug}")
+        obj = generics.get_object_or_404(queryset, slug=slug)
+        self.check_object_permissions(self.request, obj)
+        return obj
     
 # views for locations
 class LocationCreateView(generics.CreateAPIView):

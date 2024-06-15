@@ -4,8 +4,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from socialmedia.models import Service
 from socialmedia.serializers import SubServiceSerializer,ServiceheadingSubServiceSerializer
-from .models import SubService,MetaTagsservices,Subheading,SpecializedService,SpecializedSubService,Categories
-from .serializers import Service_metadataSerializers, subheadingSerializers,SpecializedServiceSerializer,SpecializedSubServiceSerializer,CategoriesSerializer
+from .models import SubService,MetaTagsservices,Subheading,SpecializedService,SpecializedSubService
+from .serializers import Service_metadataSerializers, subheadingSerializers,SpecializedServiceSerializer,SpecializedSubServiceSerializer
 from socialmedia.serializers import ServiceSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -152,16 +152,3 @@ class SpecializedSubServiceRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyA
         self.check_object_permissions(self.request, obj)
         return obj
 
-#views for categories
-class CategoriesListCreate(generics.ListCreateAPIView):
-    queryset = Categories.objects.all()
-    serializer_class = CategoriesSerializer
-
-    def list(self, request, *args, **kwargs):
-        queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
-
-class CategoriesRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Categories.objects.all()
-    serializer_class = CategoriesSerializer
