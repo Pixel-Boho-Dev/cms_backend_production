@@ -174,6 +174,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 DEBUG = "false"
 STATIC_URL = '/static/'
+MEDIA_URL = '/cms_backend/'
+
 
 
 
