@@ -88,6 +88,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'contacts.middleware.NormalizeImagePathMiddleware',  
     'service_card.middleware.NormalizeImagePathMiddleware',   
+    'socialmedia.middleware.NormalizeImagePathMiddleware',   
+    'aboutus.middleware.NormalizeImagePathMiddleware',
 ]
 
 CORS_ALLOWED_ORIGINS = [
