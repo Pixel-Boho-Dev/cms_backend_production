@@ -27,8 +27,8 @@ urlpatterns = [
     path('specialized-service/<int:pk>/',SpecializedServiceRetrieveUpdateDestroy.as_view(),name = 'specialized-service-retrieve-update-delete'),
 
     #urls for specialized subservice
-    path('specialized-subservice/', SpecializedSubServiceListCreate.as_view(), name='specialized-subservice-list-create'),
-    path('specialized-subservice/<slug:slug>/', SpecializedSubServiceRetrieveUpdateDestroy.as_view(), name='specialized-subservice-detail'),
+    path('header/specialized-subservice/', SpecializedSubServiceListCreate.as_view(), name='specialized-subservice-list-create'),
+    path('header/specialized-subservice/<int:pk>/', SpecializedSubServiceRetrieveUpdateDestroy.as_view(), name='specialized-subservice-detail'),
 
 
 ]
