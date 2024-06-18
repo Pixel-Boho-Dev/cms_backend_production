@@ -3,7 +3,7 @@ from django.db import models
 #models for industriespage
 class IndustriesPage(models.Model):
     title = models.CharField(max_length=100)
-    subtitle = models.CharField(max_length=300)
+    subtitle = models.CharField(max_length=300, null=True, blank=True)
     description = models.TextField()
     image = models.ImageField(upload_to='industries_page-images/')
 # atlernative content for image 
