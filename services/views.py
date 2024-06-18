@@ -143,12 +143,8 @@ class SpecializedSubServiceListCreate(generics.ListCreateAPIView):
 class SpecializedSubServiceRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = SpecializedSubService.objects.all()
     serializer_class = SpecializedSubServiceSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [JWTAuthentication]
 
-    def get_object(self):
-        queryset = self.get_queryset()
-        slug = self.kwargs.get("slug")
-        print(f"Looking for slug: {slug}")
-        obj = generics.get_object_or_404(queryset, slug=slug)
-        self.check_object_permissions(self.request, obj)
-        return obj
 
+    
