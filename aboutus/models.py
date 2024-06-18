@@ -75,7 +75,7 @@ class MilestoneTitle(models.Model):
 
 # model for storing ourTeam
 class OurTeam(models.Model):
-    profile_pic = models.ImageField(upload_to='our_team/',)
+    profile_pic = models.ImageField(upload_to='our_team/',null=True, blank=True)
     title_name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
     order_by = models.IntegerField(validators=[MinValueValidator(0)], unique=True)
