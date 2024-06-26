@@ -29,7 +29,6 @@ AUTH_USER_MODEL = 'auth.User'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default-secret-key')
-DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = ['*']
 
 
@@ -174,7 +173,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-DEBUG = "false"
+DEBUG = False
 STATIC_URL = '/static/'
 MEDIA_URL = '/cms_backend/'
 
