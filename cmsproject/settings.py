@@ -124,7 +124,7 @@ DATABASES = {
         'NAME': 'cmsbackend' ,
         'USER' : 'alsidb' ,
         'PASSWORD' : 'ZZua6TWOnvs0Hxt3vhmZ' ,
-        'HOST' : '127.0.0.1' ,
+        'HOST' : '62.72.29.156' ,
         'PORT' : '3306' ,
     }
 }
