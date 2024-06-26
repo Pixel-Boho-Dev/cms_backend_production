@@ -121,10 +121,10 @@ WSGI_APPLICATION = 'cmsproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cms_backend' ,
-        'USER' : 'root' ,
-        'PASSWORD' : '' ,
-        'HOST' : 'localhost' ,
+        'NAME': 'cmsbackend' ,
+        'USER' : 'alsidb' ,
+        'PASSWORD' : 'ZZua6TWOnvs0Hxt3vhmZ' ,
+        'HOST' : '127.0.0.1' ,
         'PORT' : '3306' ,
     }
 }
