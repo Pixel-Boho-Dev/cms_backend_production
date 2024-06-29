@@ -58,9 +58,7 @@ class OurstoryTitle(models.Model):
 class Milestone(models.Model):
     year = models.PositiveIntegerField()
     title = models.CharField(max_length=255)
-    achievement1 = models.TextField(null=True, blank=True)
-    achievement2 = models.TextField(null=True, blank=True)
-    achievement3 = models.TextField(null=True, blank=True)
+    achievements= models.TextField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.year} - {self.title}"
