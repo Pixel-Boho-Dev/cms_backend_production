@@ -8,8 +8,7 @@ class OfficeSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'location', 'place_name', 'office_address', 'fax', 'email',
             'country_manager_name', 'designation', 'country_manager_phone1',
-            'country_manager_phone2', 'is_head_office', 'office_url',
-            'office_description'
+            'country_manager_phone2', 'is_head_office', 'office_url'
         ]
 
 #serializers for location_page
