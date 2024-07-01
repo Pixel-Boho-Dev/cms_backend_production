@@ -18,16 +18,8 @@ class OfficeListCreateView(generics.ListCreateAPIView):
     pagination_class = None  
 
     def create(self, request, *args, **kwargs):
-        print(request.data)  # Debugging line to print incoming data
-        
-        fax = request.data.get('fax', None)
-        if fax in [None, '']:
-            request.data['fax'] = None
-        
+        print(request.data)  # Debugging line to print incoming data        
         return super().create(request, *args, **kwargs) 
-
-
-
 class OfficeRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Office.objects.all().order_by('id')
     serializer_class = OfficeSerializer
