@@ -7,8 +7,8 @@ from django.utils.text import slugify
 #models for office
 class Office(models.Model): 
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    place_name = models.CharField(max_length=100)
-    office_address = models.CharField(max_length=100)
+    place_name = models.TextField()
+    office_address = models.TextField()
     fax = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField()
     country_manager_name = models.CharField(max_length=100)
@@ -21,7 +21,6 @@ class Office(models.Model):
     country_manager_phone2 = models.CharField(validators=[phone_regex], max_length=50, blank=True, null=True)
     is_head_office = models.BooleanField(default=False)
     office_url = models.URLField()
-    office_description = models.TextField()
 
     def __str__(self):
         return f"Office at {self.location.place_name}"
