@@ -19,7 +19,14 @@ class OfficeListCreateView(generics.ListCreateAPIView):
 
     def create(self, request, *args, **kwargs):
         print(request.data)  # Debugging line to print incoming data
+        
+        fax = request.data.get('fax', None)
+        if fax in [None, '']:
+            request.data['fax'] = None
+        
         return super().create(request, *args, **kwargs) 
+
+
 
 class OfficeRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Office.objects.all().order_by('id')

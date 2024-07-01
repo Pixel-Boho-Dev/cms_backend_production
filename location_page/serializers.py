@@ -10,6 +10,8 @@ class OfficeSerializer(serializers.ModelSerializer):
             'country_manager_name', 'designation', 'country_manager_phone1',
             'country_manager_phone2', 'is_head_office', 'office_url'
         ]
+        fax = serializers.CharField(allow_blank=True, required=False)
+
 
 #serializers for location_page
 class Location_pageSerializer(serializers.ModelSerializer):
