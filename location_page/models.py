@@ -9,7 +9,7 @@ class Office(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     place_name = models.TextField()
     office_address = models.TextField()
-    fax = models.CharField(max_length=30, blank=True, null=True)  # Changed null=False to null=True
+    fax = models.CharField(max_length=20, default="") # Changed null=False to null=True
     email = models.EmailField()
     country_manager_name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
