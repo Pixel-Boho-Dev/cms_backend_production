@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.core.validators import MinValueValidator
 
 #model for socialmedia
 class SocialMedia(models.Model):
@@ -74,6 +75,8 @@ class OurNetworkTitle(models.Model):
 class Achievement(models.Model):
     achievements_icon = models.ImageField(upload_to='achievements_icons/')
     achievements_subtitle = models.TextField()
+    order_by = models.IntegerField(validators=[MinValueValidator(0)], unique=True)
+
  # atlernative content for image
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)
