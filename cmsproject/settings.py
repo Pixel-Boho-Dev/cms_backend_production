@@ -188,13 +188,9 @@ MEDIA_URL = '/cms_backend/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': None,
-    'PAGE_SIZE': None,
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),# Adjust this value to set the number of items per page
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 50,  # Default page size for pagination
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
