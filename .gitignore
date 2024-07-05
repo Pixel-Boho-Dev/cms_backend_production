@@ -162,3 +162,5 @@ cython_debug/
 #.idea/
 cms_backend_production.zip
 service_card/service_card.zip
+blogs/blogs.zip
+key/key.zip
