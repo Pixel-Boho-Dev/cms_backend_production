@@ -4,24 +4,25 @@ from rest_framework.pagination import PageNumberPagination  # Import PageNumberP
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from .models import BlogPost, MetaTagsBlogs
 from .serializers import BlogPostSerializer, Blogs_metadataSerializers
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.response import Response
 
-logger = logging.getLogger(__name__)
 
-class InlineBlogPostPagination(PageNumberPagination):
-    page_size = 12  # Number of blog posts per page
+#views for blogposts
+class NoPagination(PageNumberPagination):
+    page_size = None
 
 class BlogPostViewSet(viewsets.ModelViewSet):
     queryset = BlogPost.objects.all().order_by('id')
     serializer_class = BlogPostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     authentication_classes = [JWTAuthentication]
-    pagination_class = InlineBlogPostPagination  # Use the inline pagination class
+    pagination_class = NoPagination
 
     def list(self, request, *args, **kwargs):
-        logger.debug(f"Pagination class: {self.pagination_class}")
-        response = super().list(request, *args, **kwargs)
-        logger.debug(f"Response data: {response.data}")
-        return response
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
     def get_object(self):
         queryset = self.get_queryset()
