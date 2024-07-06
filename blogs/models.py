@@ -5,7 +5,7 @@ from django.utils.text import slugify
 class BlogPost(models.Model):
     header_image = models.ImageField(upload_to='blog_headers/')
     header_title = models.CharField(max_length=255)
-    publish_date = models.TextField()
+    publish_date = models.TextField(null=True, blank=True)
     quotes = models.TextField(blank=True, null=True)
     Highlight =models.TextField()
     author = models.CharField(max_length=50,null=True,blank=True)
