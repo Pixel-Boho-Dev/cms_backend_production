@@ -6,7 +6,7 @@ from django.utils.text import slugify
 class ContactHeader(models.Model):
     header_image = models.ImageField(upload_to='contact_header_images/')
     header_title = models.CharField(max_length=100)
-    header_description = models.TextField(null=True,blank=True)#can be null because there can or cannot be a header description
+    # header_description = models.TextField(null=True,blank=True)#can be null because there can or cannot be a header description
 # atlernative content for header_image 
     alt_img_text = models.TextField(max_length=300, null=True, blank=True)
     alt_img_title = models.TextField(max_length=300, null=True, blank=True)

@@ -5,7 +5,6 @@ from django.utils.text import slugify
 class CareerPage(models.Model):
     title = models.CharField(max_length=100)
     header_image = models.ImageField(upload_to='career_page')
-    description = models.TextField()
     slug = models.CharField(max_length=200, unique=True, blank=True, null=True)
 
     def save(self, *args, **kwargs):
