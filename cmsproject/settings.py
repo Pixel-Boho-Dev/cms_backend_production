@@ -190,7 +190,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': None,  # Disable global pagination if you only want it for BlogPostViewSet
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 12  # Default page size
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
