@@ -91,8 +91,14 @@ MIDDLEWARE = [
     'aboutus.middleware.NormalizeImagePathMiddleware',
 ]
 
+CORS_ALLOW_ALL_ORIGINS = False
+
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173", "http://localhost:3000", "http://localhost:5174", "https://cms.alsi-group.com", "https://app.alsi-group.com", # Example for a React development server
+    "http://localhost:5174",
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://app.alsi-group.com",
+    "https://cms.alsi-group.com",
 ]
 
 ROOT_URLCONF = 'cmsproject.urls'
